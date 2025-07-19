@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Mont';
+    src: url('./src/assets/fonts/Mont-Extrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('./src/assets/fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    animation: gradient 10s ease infinite;
+  }
