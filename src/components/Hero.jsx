@@ -4,10 +4,9 @@ const Hero = ({ id }) => {
       id={id}
       className="relative flex flex-col items-center gap-3 justify-center min-h-screen text-center pt-16"
     >
-      {" "}
       <div className="relative inset-0 -z-10"></div>
-      <h2 className="text-5xl mb-2">Hello, my name is</h2>
-      <h1 className="font-mont text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:150%_150%] animate-gradient">
+      <h2 className="text-5xl max-md:text-3xl mb-2">Hello, my name is</h2>
+      <h1 className="font-mont text-9xl max-md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:150%_150%] animate-gradient">
         Zayn
       </h1>
       <div className="mt-6 flex gap-4">
