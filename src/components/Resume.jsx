@@ -10,27 +10,25 @@ const Resume = ({ id }) => {
 
   const frameworks = [
     "ReactJS",
-    "Redux",
-    "Zustand",
+    "Redux Toolkit",
     "NextJS",
     "NodeJS",
     "ExpressJS",
     "TailwindCSS",
-    "Material UI",
+    "Framer Motion",
   ];
 
   const databases = ["MongoDB", "MySQL", "Firebase"];
 
   const tools = [
+    "Linux",
     "VSCode",
     "WebStorm",
+    "Warp",
     "Git",
-    "GitHub",
     "Figma",
     "Vite",
-    "ESLint",
-    "Prettier",
-    "MS Office",
+    "ESLint & Prettier",
   ];
 
   const others = [
@@ -44,10 +42,10 @@ const Resume = ({ id }) => {
   const coursework = [
     "Web Engineering",
     "Data Structures and Algorithms",
-    "Software Engineering",
     "Object Oriented Programming",
-    "Artificial Intelligence",
     "Database Management Systems",
+    "Software Engineering",
+    "Artificial Intelligence",
   ];
 
   return (
