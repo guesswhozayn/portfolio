@@ -156,8 +156,8 @@ const Resume = ({ id }) => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
             <div>
-              <h3 className="text-xl font-semibold mb-1 text-black">
-                The University of Chakwal
+              <h3 className="text-xl font-semibold mb-1 text-black hover:text-blue-600">
+                <a href="https://uoc.edu.pk/">The University of Chakwal</a>
               </h3>
               <p className="text-sm">2022 - Present</p>
             </div>
