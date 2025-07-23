@@ -58,7 +58,9 @@ const Resume = ({ id }) => {
           <h1 className="text-5xl md:text-7xl font-extrabold mb-2">
             Zain Ul Abidin
           </h1>
-          <p className="text-blue-400 text-lg mb-4">github.com/ltlehro</p>
+          <p className="text-blue-400 text-lg mb-4">
+            <a href="https://github.com/ltlehro">github.com/ltlehro</a>
+          </p>
           <p className="text-black- text-lg leading-relaxed">
             A creative web developer with a passion for design, animation,
             interaction, problem-solving, and for mastering the latest front-end
