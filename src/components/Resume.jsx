@@ -10,8 +10,7 @@ const Resume = ({ id }) => {
 
   const frameworks = [
     "ReactJS",
-    "Redux Toolkit",
-    "NextJS",
+    "Redux",
     "NodeJS",
     "ExpressJS",
     "TailwindCSS",
