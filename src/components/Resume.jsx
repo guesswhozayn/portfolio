@@ -2,47 +2,54 @@ const Resume = ({ id }) => {
   const languages = [
     "HTML5",
     "CSS3",
-    "JavaScript",
-    "Typescript",
+    "JavaScript(ES6+)",
+    "TypeScript",
     "Python",
     "C++",
   ];
 
   const frameworks = [
     "ReactJS",
-    "Redux",
-    "NodeJS",
-    "ExpressJS",
     "TailwindCSS",
     "Framer Motion",
+    "Redux Toolkit",
+    "NodeJS",
+    "ExpressJS",
+    "Rest APIs",
   ];
 
-  const databases = ["MongoDB", "MySQL", "Firebase"];
+  const databases = ["MongoDB", "MySQL", "PostgreSQL", "Firebase"];
 
   const tools = [
     "Linux",
-    "VSCode",
+    "Visual Studio Code",
     "WebStorm",
-    "Warp",
+    "Postman",
+    "WARP",
     "Git",
+    "Github",
     "Figma",
+    "NPM",
     "Vite",
+    "Webpack",
+    "Babel",
     "ESLint & Prettier",
   ];
 
   const others = [
-    "Responsive Design",
+    "UI/UX Design Principles",
+    "Responsive Web Design",
     "Cross-Browser Compatibility",
     "Authentication and Authorization",
     "State Management",
-    "Command Line Interface",
+    "Command Line Interface (CLI)",
   ];
 
   const coursework = [
-    "Web Engineering",
     "Data Structures and Algorithms",
     "Object Oriented Programming",
     "Database Management Systems",
+    "Web Engineering",
     "Software Engineering",
     "Artificial Intelligence",
   ];
