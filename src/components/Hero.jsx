@@ -11,7 +11,7 @@ const Hero = ({ id }) => {
       </h1>
       <div className="mt-6 flex gap-4">
         <a
-          href="/zayn_resume.pdf"
+          href="../zayn_resume.pdf"
           download="zayn_resume.pdf"
           className="px-4 py-2 border border-white hover:bg-white hover:text-black cursor-pointer transition-colors duration-300 rounded-full"
         >
