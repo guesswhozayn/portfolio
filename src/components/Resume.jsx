@@ -113,10 +113,10 @@ const Resume = ({ id }) => {
 
             <div>
               <h3 className="text-xl font-semibold mb-3 text-black">
-                Tools & Platforms
+                Databases
               </h3>
-              <ul className="list-disc list-inside space-y-1">
-                {tools.map((tag, index) => (
+              <ul className="list-disc list-inside space-y-2">
+                {databases.map((tag, index) => (
                   <li
                     className="hover:text-blue-400 cursor-pointer"
                     key={index}
@@ -129,10 +129,10 @@ const Resume = ({ id }) => {
 
             <div>
               <h3 className="text-xl font-semibold mb-3 text-black">
-                Databases
+                Tools & Platforms
               </h3>
-              <ul className="list-disc list-inside space-y-2">
-                {databases.map((tag, index) => (
+              <ul className="list-disc list-inside space-y-1">
+                {tools.map((tag, index) => (
                   <li
                     className="hover:text-blue-400 cursor-pointer"
                     key={index}
