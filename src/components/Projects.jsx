@@ -1,6 +1,6 @@
 const Projects = ({ id }) => {
   return (
-    <div id={id} className="p-16">
+    <div id={id} className="p-10">
       <section className="py-10 flex flex-col flex-wrap items-center justify-center ">
         <h2 className="text-5xl text-center pb-20 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:200%_200%] animate-gradient">
           Recent work and experiments
