@@ -13,6 +13,7 @@ const Resume = ({ id }) => {
     "TailwindCSS",
     "Framer Motion",
     "Redux Toolkit",
+    "Zustand",
     "NodeJS",
     "ExpressJS",
     "Rest APIs",
