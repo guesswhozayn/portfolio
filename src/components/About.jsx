@@ -4,7 +4,7 @@ const About = ({ id }) => {
   return (
     <div
       id={id}
-      className="min-h-screen bg-black text-white p-18 flex flex-col items-center justify-center font-sans relative"
+      className="min-h-screen bg-black text-white p-10 flex flex-col items-center justify-center font-sans relative"
     >
       <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-20 items-center lg:items-center justify-between mt-16">
         <div>
@@ -35,7 +35,9 @@ const About = ({ id }) => {
               "HTML5",
               "CSS3",
               "JavaScript",
+              "TypeScript",
               "ReactJS",
+              "NodeJS",
               "ExpressJS",
               "MongoDB",
             ].map((tag) => (
