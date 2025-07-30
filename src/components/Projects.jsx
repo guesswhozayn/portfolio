@@ -29,14 +29,6 @@ const Projects = ({ id }) => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-4">
-              <button className="px-4 py-2 border border-black text-black rounded-full text-sm hover:bg-white hover:text-black transition-colors">
-                Live Preview
-              </button>
-              <button className="px-4 py-2 border border-black text-black rounded-full text-sm hover:bg-white hover:text-black transition-colors">
-                View on Github
-              </button>
-            </div>
           </div>
 
           <div className="bg-[#A1EEBD] hover:bg-[#CDFADB] p-10 rounded-3xl group transition duration-300 cursor-pointer">
@@ -61,9 +53,6 @@ const Projects = ({ id }) => {
                 </span>
               ))}
             </div>
-            <button className="px-4 py-2 border border-black text-black rounded-full text-sm hover:bg-white hover:text-black transition-colors">
-              Live Preview
-            </button>
           </div>
 
           <div className="bg-[#D0BFFF] hover:bg-[#DFCCFB] p-10 rounded-3xl group transition duration-300 cursor-pointer">
@@ -86,14 +75,6 @@ const Projects = ({ id }) => {
                   {tag}
                 </span>
               ))}
-            </div>
-            <div className="flex gap-4">
-              <button className="px-4 py-2 border border-black text-black rounded-full text-sm hover:bg-white hover:text-black transition-colors">
-                Live Preview
-              </button>
-              <button className="px-4 py-2 border border-black text-black rounded-full text-sm hover:bg-white hover:text-black transition-colors">
-                View on Github
-              </button>
             </div>
           </div>
         </div>
