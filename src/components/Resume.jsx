@@ -1,47 +1,40 @@
+import { motion } from "framer-motion";
+
 const Resume = ({ id }) => {
-  const languages = [
+  const programming = ["C++", "Python", "JavaScript (ES6+)", "TypeScript"];
+
+  const web = [
     "HTML5",
     "CSS3",
-    "JavaScript(ES6+)",
-    "TypeScript",
-    "Python",
-    "C++",
-  ];
-
-  const frameworks = [
     "ReactJS",
     "TailwindCSS",
     "Framer Motion",
-    "Redux Toolkit",
+    "Redux",
     "Zustand",
     "NodeJS",
     "ExpressJS",
     "Rest APIs",
+    "GraphQL",
   ];
 
-  const databases = ["MongoDB", "MySQL", "PostgreSQL", "Firebase"];
+  const databases = ["MongoDB", "Mongoose", "MySQL", "Firebase"];
 
   const tools = [
     "Linux",
     "Visual Studio Code",
-    "WebStorm",
     "Postman",
-    "WARP",
     "Git",
     "Github",
+    "DataGrip",
     "Figma",
     "NPM",
-    "Vite",
     "Webpack",
-    "Babel",
-    "ESLint & Prettier",
   ];
 
   const others = [
-    "UI/UX Design Principles",
+    "Ui/Ux Design Principles",
     "Responsive Web Design",
-    "Cross-Browser Compatibility",
-    "Authentication and Authorization",
+    "Authentication and Authorization (JWT)",
     "State Management",
     "Command Line Interface (CLI)",
   ];
@@ -55,141 +48,193 @@ const Resume = ({ id }) => {
     "Artificial Intelligence",
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const tagVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const lineVariants = {
+    hidden: { scaleX: 0 },
+    show: {
+      scaleX: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const AnimatedLine = () => (
+    <motion.div
+      className="ml-6 flex-grow h-px bg-gray-700"
+      variants={lineVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    ></motion.div>
+  );
+
+  const SectionTitle = ({ children }) => (
+    <motion.h2
+      className="text-3xl md:text-4xl font-bold mb-6 flex items-center"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      {children}
+    </motion.h2>
+  );
+
+  const Tag = ({ children }) => (
+    <motion.span
+      className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 m-1 rounded-full hover:bg-blue-500 hover:text-white cursor-pointer transition-colors duration-200 shadow-sm"
+      variants={tagVariants}
+      whileHover={{
+        scale: 1.1,
+        boxShadow:
+          "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        transition: { type: "spring", stiffness: 400, damping: 10 },
+      }}
+    >
+      {children}
+    </motion.span>
+  );
+
+  const SkillSection = ({ title, tags }) => (
+    <motion.div variants={sectionVariants}>
+      <h3 className="text-xl font-semibold mb-3 text-black">{title}</h3>
+      <motion.div
+        className="flex flex-wrap gap-2"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </motion.div>
+    </motion.div>
+  );
+
   return (
     <div
       id={id}
       className="min-h-screen bg-white text-black flex flex-col items-center justify-start py-40 px-12 lg:px-16 font-sans"
     >
       <div className="w-full flex flex-col gap-16 max-w-6xl mt-20">
-        <div className="mb-12">
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-5xl md:text-7xl font-extrabold mb-2">
             Zain Ul Abidin
           </h1>
           <p className="text-blue-400 text-lg mb-4">
-            <a href="https://github.com/ltlehro">github.com/ltlehro</a>
+            <a href="https://github.com/ltlehro" className="hover:underline">
+              github.com/ltlehro
+            </a>
           </p>
-          <p className="text-black- text-lg leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             A creative web developer with a passion for design, animation,
             interaction, problem-solving, and for mastering the latest front-end
             & back-end technologies.
           </p>
-        </div>
+        </motion.div>
+
+        {/* Technical Skills Section */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+          <SectionTitle>
             Technical Skills
-            <div className="ml-6 flex-grow border-t border-gray-700"></div>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black-300">
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-black">
-                Languages
-              </h3>
-              <ul className="list-disc list-inside space-y-1">
-                {languages.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-black">
-                Frameworks & Libraries
-              </h3>
-              <ul className="list-disc list-inside space-y-1">
-                {frameworks.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-black">
-                Databases
-              </h3>
-              <ul className="list-disc list-inside space-y-2">
-                {databases.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-black">
-                Tools & Platforms
-              </h3>
-              <ul className="list-disc list-inside space-y-1">
-                {tools.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-black">Others</h3>
-              <ul className="list-disc list-inside space-y-2">
-                {others.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <AnimatedLine />
+          </SectionTitle>
+          <div className="flex flex-col mt-12 space-y-12 text-black-300">
+            <SkillSection title="Programming" tags={programming} />
+            <SkillSection title="Web and Frameworks" tags={web} />
+            <SkillSection title="Databases" tags={databases} />
+            <SkillSection title="Tools & Platforms" tags={tools} />
+            <SkillSection title="Others" tags={others} />
           </div>
         </div>
+
+        {/* Education Section */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+          <SectionTitle>
             Education
-            <div className="ml-6 flex-grow border-t border-gray-700"></div>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
-            <div>
-              <h3 className="text-xl font-semibold mb-1 text-black hover:text-blue-600">
-                <a href="https://uoc.edu.pk/">The University of Chakwal</a>
+            <AnimatedLine />
+          </SectionTitle>
+          <div className="flex flex-col space-y-8 text-black">
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold mb-3 text-black">
+                <a
+                  href="https://uoc.edu.pk/"
+                  className="hover:text-blue-600 transition-colors duration-200"
+                >
+                  The University of Chakwal
+                </a>
               </h3>
               <p className="text-sm">2022 - Present</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-1 text-black">
+            </motion.div>
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold mb-3 text-black">
                 B.Sc in Computer Science
               </h3>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-6 text-black">
+            </motion.div>
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold mb-3 text-black">
                 Relevant Coursework
               </h3>
-              <ul className="list-disc list-inside text-md space-y-2">
+              <motion.div
+                className="flex flex-wrap gap-2"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+              >
                 {coursework.map((tag, index) => (
-                  <li
-                    className="hover:text-blue-400 cursor-pointer"
-                    key={index}
-                  >
-                    {tag}
-                  </li>
+                  <Tag key={index}>{tag}</Tag>
                 ))}
-              </ul>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>
