@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const Resume = ({ id }) => {
-  const programming = ["C++", "Python", "JavaScript (ES6+)", "TypeScript"];
+  const programming = ["JavaScript (ES6+)", "TypeScript", "Python", "C++"];
 
-  const web = [
+  const frontend = [
     "HTML5",
     "CSS3",
     "ReactJS",
@@ -11,32 +11,46 @@ const Resume = ({ id }) => {
     "Framer Motion",
     "Redux",
     "Zustand",
+    "Responsive Design",
+  ];
+
+  const backend = [
     "NodeJS",
     "ExpressJS",
-    "Rest APIs",
+    "Axios",
+    "RESTful APIs",
     "GraphQL",
+    "OAuth",
+    "JWT Web Tokens",
   ];
 
   const databases = ["MongoDB", "Mongoose", "MySQL", "Firebase"];
 
-  const tools = [
-    "Linux",
-    "Visual Studio Code",
+  const devops = ["Docker", "Vercel", "Netlify", "Github Pages"];
+
+  const testing = [
+    "Jest",
+    "React Testing Library",
     "Postman",
-    "Git",
-    "Github",
-    "DataGrip",
-    "Figma",
-    "NPM",
-    "Webpack",
+    "Chrome DevTools",
+    "Debugging",
+    "Performance Optimization",
   ];
 
-  const others = [
-    "Ui/Ux Design Principles",
-    "Responsive Web Design",
-    "Authentication and Authorization (JWT)",
-    "State Management",
-    "Command Line Interface (CLI)",
+  const tools = [
+    "Git & Github",
+    "Linux",
+    "CLI",
+    "Visual Studio Code",
+    "WebStorm",
+    "DataGrip",
+    "MongoDB Compass",
+    "NPM",
+    "Webpack",
+    "Vite",
+    "Babel",
+    "ESLint & Prettier",
+    "Agile Methodologies",
   ];
 
   const coursework = [
@@ -174,10 +188,12 @@ const Resume = ({ id }) => {
           </SectionTitle>
           <div className="flex flex-col mt-12 space-y-12 text-black-300">
             <SkillSection title="Programming" tags={programming} />
-            <SkillSection title="Web and Frameworks" tags={web} />
+            <SkillSection title="Frontend Development" tags={frontend} />
+            <SkillSection title="Backend Development" tags={backend} />
             <SkillSection title="Databases" tags={databases} />
-            <SkillSection title="Tools & Platforms" tags={tools} />
-            <SkillSection title="Others" tags={others} />
+            <SkillSection title="DevOps & Deployment" tags={devops} />
+            <SkillSection title="Testing and Debugging" tags={testing} />
+            <SkillSection title="Tools & Workflow" tags={tools} />
           </div>
         </div>
 
