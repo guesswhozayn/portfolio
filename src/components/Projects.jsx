@@ -36,7 +36,10 @@ const Projects = ({ id }) => {
   };
 
   return (
-    <div id={id} className="bg-black text-gray-200 p-10">
+    <div
+      id={id}
+      className="flex justify-center items-center min-h-screen bg-black text-gray-200 p-10"
+    >
       <section className="py-10 flex flex-col flex-wrap items-center justify-center ">
         <motion.h2
           className="text-5xl text-center pb-20 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:200%_200%] animate-gradient"
