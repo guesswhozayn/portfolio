@@ -6,34 +6,33 @@ const Resume = ({ id }) => {
   const frontend = [
     "HTML5",
     "CSS3",
-    "ReactJS",
+    "React",
+    "Next.js",
+    "Zustand",
+    "TanStack Query",
     "TailwindCSS",
     "Framer Motion",
-    "Redux",
-    "Zustand",
     "Responsive Design",
   ];
 
   const backend = [
     "NodeJS",
     "ExpressJS",
-    "Axios",
     "RESTful APIs",
     "GraphQL",
     "OAuth",
     "JWT Web Tokens",
   ];
 
-  const databases = ["MongoDB", "Mongoose", "MySQL", "Firebase"];
+  const databases = ["MongoDB", "Mongoose", "MySQL", "PostgreSQL"];
 
-  const devops = ["Docker", "Vercel", "Netlify", "Github Pages"];
+  const devops = ["Vercel", "Netlify", "Docekr", "Github Actions"];
 
   const testing = [
     "Jest",
     "React Testing Library",
     "Postman",
     "Chrome DevTools",
-    "Debugging",
     "Performance Optimization",
   ];
 
@@ -45,6 +44,7 @@ const Resume = ({ id }) => {
     "WebStorm",
     "DataGrip",
     "MongoDB Compass",
+    "MySQL Workbench",
     "NPM",
     "Webpack",
     "Vite",
