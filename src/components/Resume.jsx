@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const Resume = ({ id }) => {
-  const programming = ["JavaScript (ES6+)", "TypeScript", "Python", "C++"];
+  const programming = ["JavaScript", "TypeScript", "Python", "C++"];
 
   const frontend = [
     "HTML5",
