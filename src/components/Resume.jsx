@@ -11,8 +11,8 @@ const Resume = ({ id }) => {
     "Zustand",
     "TanStack Query",
     "TailwindCSS",
+    "GSAP",
     "Framer Motion",
-    "Responsive Design",
   ];
 
   const backend = [
@@ -20,13 +20,20 @@ const Resume = ({ id }) => {
     "ExpressJS",
     "RESTful APIs",
     "GraphQL",
+    "Socket.io",
     "OAuth",
     "JWT Web Tokens",
   ];
 
   const databases = ["MongoDB", "Mongoose", "MySQL", "PostgreSQL"];
 
-  const devops = ["Vercel", "Netlify", "Docekr", "Github Actions"];
+  const devops = [
+    "Git & Github",
+    "Vercel",
+    "Netlify",
+    "Docker",
+    "Github Actions",
+  ];
 
   const testing = [
     "Jest",
@@ -37,18 +44,12 @@ const Resume = ({ id }) => {
   ];
 
   const tools = [
-    "Git & Github",
     "Linux",
     "CLI",
     "Visual Studio Code",
     "WebStorm",
-    "DataGrip",
-    "MongoDB Compass",
-    "MySQL Workbench",
     "NPM",
-    "Webpack",
     "Vite",
-    "Babel",
     "ESLint & Prettier",
     "Agile Methodologies",
   ];
