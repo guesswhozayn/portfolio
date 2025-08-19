@@ -59,10 +59,10 @@ const Projects = ({ id }) => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <ProjectCard
-            title="Fit Track"
+            title="Homivio"
             year="2025"
-            description="A fitness tracking web app with MERN stack at its core. Offers workout logging, progress analytics, and social sharing. Integrates with wearable devices for real-time health data syncing and personalized recommendations."
-            tags={["ReactJS", "NodeJS", "ExpressJS", "MongoDB"]}
+            description="A fast, modern e-commerce store built with Next.js and powered by Stripe for secure, seamless payments. Optimized for speed, mobile-friendly, and designed to give customers a smooth shopping experience."
+            tags={["NextJS", "NodeJS", "Stripe"]}
             variants={cardVariants}
             colorClass="bg-[#181920] hover:bg-[#332940]"
             tagColor="bg-sky-300"
@@ -146,6 +146,14 @@ const ProjectCard = ({
           </span>
         ))}
       </div>
+      <a
+        href="https://homivio-ecom.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white border-white border-1 font-semibold p-2 mt-4 rounded-3xl shadow-md hover:bg-white hover:text-gray-600 transition"
+      >
+        Live Demo
+      </a>
     </motion.div>
   );
 };
