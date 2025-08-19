@@ -92,25 +92,18 @@ const About = ({ id }) => {
             className="grid grid-cols-1 sm:grid-cols-2 mt-10 gap-x-8 gap-y-2 text-gray-300"
             variants={containerVariants}
           >
-            {[
-              "HTML5",
-              "CSS3",
-              "JavaScript",
-              "TypeScript",
-              "ReactJS",
-              "NodeJS",
-              "ExpressJS",
-              "MongoDB",
-            ].map((tag) => (
-              <motion.p
-                key={tag}
-                className="flex items-center"
-                variants={textVariants}
-              >
-                <span className="text-green-400 mr-2">&rsaquo;</span>
-                {tag}
-              </motion.p>
-            ))}
+            {["React", "Next.js", "Node.js", "Express.js", "Solidity"].map(
+              (tag) => (
+                <motion.p
+                  key={tag}
+                  className="flex items-center"
+                  variants={textVariants}
+                >
+                  <span className="text-green-400 mr-2">&rsaquo;</span>
+                  {tag}
+                </motion.p>
+              ),
+            )}
           </motion.div>
         </motion.div>
 
