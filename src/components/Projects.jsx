@@ -67,24 +67,6 @@ const Projects = ({ id }) => {
             colorClass="bg-[#181920] hover:bg-[#332940]"
             tagColor="bg-sky-300"
           />
-          <ProjectCard
-            title="Eco Cart"
-            year="2024"
-            description="An eco-friendly e-commerce platform developed using the MERN stack, focusing on sustainable products. Includes features like carbon footprint calculators for orders, reusable packaging options, and vendor sustainability ratings."
-            tags={["ReactJS", "NodeJS", "ExpressJS", "MongoDB"]}
-            variants={cardVariants}
-            colorClass="bg-[#181920] hover:bg-[#332940]"
-            tagColor="bg-emerald-300"
-          />
-          <ProjectCard
-            title="Task Master"
-            year="2023"
-            description="A web app built with the MERN stack, featuring real-time updates, user authentication, and drag-and-drop functionality. Designed to boost productivity with customizable workflows and team collaboration tools."
-            tags={["ReactJS", "NodeJS", "ExpressJS", "MongoDB"]}
-            variants={cardVariants}
-            colorClass="bg-[#181920] hover:bg-[#332940]"
-            tagColor="bg-fuchsia-300"
-          />
         </motion.div>
       </section>
     </div>
