@@ -21,11 +21,17 @@ const Resume = ({ id }) => {
     "RESTful APIs",
     "GraphQL",
     "Socket.io",
-    "OAuth",
-    "JWT Web Tokens",
+    "Authentication (OAuth, JWT, Bcrypt)",
   ];
 
-  const databases = ["MongoDB", "Mongoose", "MySQL", "PostgreSQL"];
+  const databases = ["MongoDB", "MySQL", "PostgreSQL"];
+
+  const blockchain = [
+    "Smart Contracts (Solidity)",
+    "Web3.js",
+    "Ethers.js",
+    "Ethereum & Testnets",
+  ];
 
   const devops = [
     "Git & Github",
@@ -192,6 +198,7 @@ const Resume = ({ id }) => {
             <SkillSection title="Frontend Development" tags={frontend} />
             <SkillSection title="Backend Development" tags={backend} />
             <SkillSection title="Databases" tags={databases} />
+            <SkillSection title="Blockchain" tags={blockchain} />
             <SkillSection title="DevOps & Deployment" tags={devops} />
             <SkillSection title="Testing and Debugging" tags={testing} />
             <SkillSection title="Tools & Workflow" tags={tools} />
