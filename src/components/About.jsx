@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import myImage from "../assets/img/img.PNG";
+import myImage from "../assets/img/img.jpg";
 
 const About = ({ id }) => {
   const containerVariants = {
