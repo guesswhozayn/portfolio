@@ -3,28 +3,11 @@ import { motion } from "framer-motion";
 const Resume = ({ id }) => {
   const programming = ["JavaScript", "TypeScript", "Python", "C++"];
 
-  const frontend = [
-    "HTML5",
-    "CSS3",
-    "React",
-    "Next.js",
-    "Zustand",
-    "TanStack Query",
-    "TailwindCSS",
-    "GSAP",
-    "Framer Motion",
-  ];
+  const frontend = ["React", "Next.js", "TailwindCSS"];
 
-  const backend = [
-    "NodeJS",
-    "ExpressJS",
-    "RESTful APIs",
-    "GraphQL",
-    "Socket.io",
-    "Authentication (OAuth, JWT, Bcrypt)",
-  ];
+  const backend = ["NodeJS", "ExpressJS", "RESTful APIs", "GraphQL"];
 
-  const databases = ["MongoDB", "MySQL", "PostgreSQL"];
+  const databases = ["MongoDB", "PostgreSQL"];
 
   const blockchain = [
     "Smart Contracts (Solidity)",
@@ -41,24 +24,7 @@ const Resume = ({ id }) => {
     "Github Actions",
   ];
 
-  const testing = [
-    "Jest",
-    "React Testing Library",
-    "Postman",
-    "Chrome DevTools",
-    "Performance Optimization",
-  ];
-
-  const tools = [
-    "Linux",
-    "CLI",
-    "Visual Studio Code",
-    "WebStorm",
-    "NPM",
-    "Vite",
-    "ESLint & Prettier",
-    "Agile Methodologies",
-  ];
+  const tools = ["Linux", "Visual Studio Code", "WebStorm", "NPM", "CLI"];
 
   const coursework = [
     "Data Structures and Algorithms",
@@ -200,7 +166,6 @@ const Resume = ({ id }) => {
             <SkillSection title="Databases" tags={databases} />
             <SkillSection title="Blockchain" tags={blockchain} />
             <SkillSection title="DevOps & Deployment" tags={devops} />
-            <SkillSection title="Testing and Debugging" tags={testing} />
             <SkillSection title="Tools & Workflow" tags={tools} />
           </div>
         </div>
