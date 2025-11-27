@@ -56,7 +56,7 @@ const Socials = () => {
         </motion.a>
 
         <motion.a
-          href="https://linkedin.com/in/zainulabidin74"
+          href="https://linkedin.com/in/z4yn"
           target="_blank"
           rel="noopener noreferrer"
           variants={itemVariants}
