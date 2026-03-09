@@ -1,66 +1,35 @@
-import { motion } from "framer-motion";
+import Section from "./ui/Section";
+import { FiMail, FiArrowUpRight } from "react-icons/fi";
 
-const Contact = ({ id }) => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        delay: 0.5,
-      },
-    },
-  };
-
+export default function Contact() {
   return (
-    <div
-      id={id}
-      className="min-h-screen bg-black text-white flex flex-col items-center justify-center font-inter relative overflow-hidden"
-    >
-      <div className="text-center p-4">
-        <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 text-transparent bg-clip-text animate-gradient bg-[length:150%_150%]">
-            and I'd love to <br /> work with you
-          </span>
-        </motion.h1>
-        <motion.button
-          className="cursor-pointer px-8 py-3 border border-white rounded-full text-lg transition-colors duration-300"
-          variants={buttonVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          whileHover={{
-            backgroundColor: "#fff",
-            color: "#000",
-            scale: 1.05,
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a href="mailto:zainulabidin74@outlook.com">Contact Me</a>
-        </motion.button>
-      </div>
-    </div>
-  );
-};
+    <Section title="Let's Connect">
+      <div className="group relative p-6 sm:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 overflow-hidden text-center flex flex-col items-center gap-6">
+        {/* Subtle Background Accent */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        
+        <div className="relative p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-white">
+          <FiMail size={32} />
+        </div>
 
-export default Contact;
+        <div className="flex flex-col gap-2 relative z-10">
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
+            Have a project in mind?
+          </h3>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">
+            I'm currently available for freelance work and full-time opportunities. 
+            Let's build something extraordinary together.
+          </p>
+        </div>
+
+        <a
+          href="mailto:ltlehro@gmail.com"
+          className="relative z-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold hover:scale-105 transition-transform shadow-lg shadow-zinc-200 dark:shadow-none"
+        >
+          Say Hello
+          <FiArrowUpRight size={18} />
+        </a>
+      </div>
+    </Section>
+  );
+}
