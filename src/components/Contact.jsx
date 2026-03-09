@@ -17,8 +17,8 @@ export default function Contact() {
             Have a project in mind?
           </h3>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">
-            I'm currently available for freelance work and full-time opportunities. 
-            Let's build something extraordinary together.
+            I&apos;m currently available for freelance work and full-time opportunities. 
+            Let&apos;s build something extraordinary together.
           </p>
         </div>
 

@@ -38,7 +38,7 @@ export default function ResumePage() {
             <div className="flex flex-col gap-6">
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
-                  Zayn Ul Abidin
+                  Zain Ul Abidin
                 </h1>
                 <p className="text-base sm:text-lg font-medium text-zinc-500 mb-3">
                   Software Engineer
