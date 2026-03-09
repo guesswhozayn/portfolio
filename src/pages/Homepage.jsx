@@ -1,25 +1,36 @@
+import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import About from "../components/About";
 import Projects from "../components/Projects";
+import Skills from "../components/Skills";
+import Experience from "../components/Experience";
 import Contact from "../components/Contact";
-import Socials from "../components/Socials";
-import Email from "../components/Email";
-import Footer from "../components/Footer";
 
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <div className="bg-black text-white min-h-screen font-inter">
-      <main>
-        <Hero id="home" />
-        <About id="about" />
-        <Projects id="projects" />
-        <Contact id="contact" />
-      </main>
-      <Socials />
-      <Email />
-      <Footer />
+    <div className="min-h-screen bg-zinc-50 dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-300 relative">
+      {/* Subtle top gradient */}
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.08),transparent)]" />
+
+      <Navbar />
+
+      <div className="mx-auto max-w-screen-xl px-8 sm:px-10 lg:px-20">
+        <div className="flex flex-col lg:flex-row lg:gap-20">
+
+          {/* === LEFT: Sticky Sidebar === */}
+          <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-5/12 flex flex-col justify-center pt-48 pb-16 lg:py-28">
+            <Hero />
+          </aside>
+
+          {/* === RIGHT: Scrolling Content === */}
+          <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
+            <Projects />
+            <Experience />
+            <Skills />
+            <Contact />
+          </main>
+
+        </div>
+      </div>
     </div>
   );
-};
-
-export default HomePage;
+}

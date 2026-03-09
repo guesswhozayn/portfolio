@@ -1,83 +1,83 @@
-import { motion } from "framer-motion";
+import profilePic from "../assets/img/img.jpg";
+import { FiGithub, FiLinkedin, FiMail, FiInstagram } from "react-icons/fi";
 
-const Hero = ({ id }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
-  const lineVariants = {
-    hidden: { scaleX: 0 },
-    show: {
-      scaleX: 1,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
-  };
-
+export default function Hero() {
   return (
-    <section
-      id={id}
-      className="relative flex flex-col items-center gap-3 justify-center min-h-screen text-center pt-16"
-    >
-      <div className="relative inset-0 -z-10"></div>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        className="flex flex-col items-center"
-      >
-        <motion.h2
-          className="text-5xl max-md:text-3xl mb-2"
-          variants={itemVariants}
+    <section className="flex flex-col gap-8">
+      {/* Avatar + Name */}
+      <div className="flex items-center gap-5">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 bg-zinc-200 ring-2 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
+          <img
+            src={profilePic}
+            alt="Zain Ul Abidin"
+            className="w-full h-full object-cover transition-all duration-500"
+          />
+        </div>
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-1">
+            Zain Ul Abidin
+          </h1>
+          <p className="text-base sm:text-lg font-medium text-zinc-500 mb-2">Software Engineer</p>
+          
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Available for Opportunities
+          </div>
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div className="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+        <p>
+          Hello! I&apos;m Zayn, a creative web developer with a passion for design, animation,
+          and problem-solving. I enjoy building things that live on the Internet.
+        </p>
+        <p>
+          My focus is on building extensible, maintainable software with clean architecture.
+        </p>
+      </div>
+
+      {/* Social Links */}
+      <div className="flex items-center gap-4">
+        <a
+          href="https://github.com/ltlehro"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
         >
-          Hello, my name is
-        </motion.h2>
-        <motion.h1
-          className="text-9xl max-md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:150%_150%] animate-gradient"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          <FiGithub size={20} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/z4yn"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
         >
-          Zayn
-        </motion.h1>
-      </motion.div>
-      <motion.div
-        className="mt-6 flex gap-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.a
-          href="../zayn_resume.pdf"
-          download="zayn_resume.pdf"
-          className="px-4 py-2 border border-white hover:bg-white hover:text-black cursor-pointer transition-colors duration-300 rounded-full"
-          variants={itemVariants}
+          <FiLinkedin size={20} />
+        </a>
+        <a
+          href="https://www.instagram.com/zaynndev"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
         >
-          Download Resume
-        </motion.a>
-        <motion.a
-          href="#contact"
-          className="px-4 py-2 border border-white hover:bg-white hover:text-black cursor-pointer transition-colors duration-300 rounded-full"
-          variants={itemVariants}
+          <FiInstagram size={20} />
+        </a>
+        <a
+          href="mailto:ltlehro@gmail.com"
+          aria-label="Email"
+          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
         >
-          Get in touch
-        </motion.a>
-      </motion.div>
+          <FiMail size={20} />
+        </a>
+      </div>
     </section>
   );
-};
-
-export default Hero;
+}

@@ -1,143 +1,67 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
+import Section from "./ui/Section";
 
-const Projects = ({ id }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+export default function Projects() {
+  const projects = [
+    {
+      name: "Attestify",
+      description:
+        "A decentralized app (DApp) utilizing Ethereum Soulbound Tokens (SBTs) and IPFS to issue permanently verified, unforgeable academic credentials with zero-cost instant QR authentication.",
+      url: "https://attestify-alpha.vercel.app",
+      tags: ["Solidity", "IPFS", "React", "Web3"],
     },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+    {
+      name: "Homivio",
+      description:
+        "A high-performance e-commerce storefront built with Next.js and Stripe, delivering seamless shopping and secure checkout.",
+      url: "https://homivio-ecom.vercel.app",
+      tags: ["Next.js", "Stripe", "TailwindCSS"],
     },
-  };
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
+  ];
 
   return (
-    <div
-      id={id}
-      className="flex justify-center items-center min-h-screen bg-black text-gray-200 p-10"
-    >
-      <section className="py-10 flex flex-col flex-wrap items-center justify-center ">
-        <motion.h2
-          className="text-5xl text-center pb-20 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-blue-400 to-green-400 bg-[length:200%_200%] animate-gradient"
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          Recent work and experiments
-        </motion.h2>
-
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto perspective-1000"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <ProjectCard
-            title="Homivio"
-            year="2025"
-            description="A fast, modern e-commerce store built with Next.js and powered by Stripe for secure, seamless payments. Optimized for speed, mobile-friendly, and designed to give customers a smooth shopping experience."
-            tags={["NextJS", "NodeJS", "Stripe"]}
-            variants={cardVariants}
-            colorClass="bg-[#181920] hover:bg-[#332940]"
-            tagColor="bg-sky-300"
-          />
-        </motion.div>
-      </section>
-    </div>
-  );
-};
-
-const ProjectCard = ({
-  title,
-  year,
-  description,
-  tags,
-  variants,
-  colorClass,
-  tagColor,
-}) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
-
-  const handlePointerMove = (event) => {
-    const card = event.currentTarget;
-    const rect = card.getBoundingClientRect();
-    x.set(event.clientX - rect.left - rect.width / 2);
-    y.set(event.clientY - rect.top - rect.height / 2);
-  };
-
-  const handlePointerLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      className={`${colorClass} p-10 rounded-3xl group transition duration-300 cursor-pointer shadow-xl [transform-style:preserve-3d]`}
-      variants={variants}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      style={{ rotateX, rotateY }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      <div className="flex justify-between items-start mb-2 [transform:translateZ(20px)]">
-        <h3 className="text-gray-100 text-2xl font-bold">{title}</h3>
-        <span className="text-gray-300">{year}</span>
-      </div>
-      <p className="text-gray-300 mb-4 leading-relaxed [transform:translateZ(20px)]">
-        {description}
-      </p>
-      <div className="flex flex-wrap gap-2 mb-6 [transform:translateZ(20px)]">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className={`text-xs ${tagColor} text-gray-800 px-3 py-1 rounded-full`}
+    <Section title="Projects">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.map((project, idx) => (
+          <a
+            key={idx}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative flex flex-col gap-3 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 ${
+              idx === 0 ? "md:col-span-2 md:p-10" : ""
+            }`}
           >
-            {tag}
-          </span>
+            {/* External link icon */}
+            <FiExternalLink
+              size={idx === 0 ? 20 : 16}
+              className="absolute top-5 right-5 text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-700 dark:group-hover:text-white transition-colors duration-200"
+            />
+
+            {/* Title */}
+            <h3 className={`${idx === 0 ? "text-2xl" : "text-lg"} font-semibold text-zinc-900 dark:text-white pr-6`}>
+              {project.name}
+            </h3>
+
+            {/* Description */}
+            <p className={`${idx === 0 ? "text-base sm:text-lg" : "text-sm sm:text-base"} text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium`}>
+              {project.description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
         ))}
       </div>
-      <a
-        href="https://homivio-ecom.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white border-white border-1 font-semibold p-2 mt-4 rounded-3xl shadow-md hover:bg-white hover:text-gray-600 transition"
-      >
-        Live Demo
-      </a>
-    </motion.div>
+    </Section>
   );
-};
-
-export default Projects;
+}
