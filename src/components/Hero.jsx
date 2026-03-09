@@ -9,13 +9,13 @@ export default function Hero() {
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 bg-zinc-200 ring-2 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
           <img
             src={profilePic}
-            alt="Zain Ul Abidin"
+            alt="Zayn Ul Abidin"
             className="w-full h-full object-cover transition-all duration-500"
           />
         </div>
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-1">
-            Zain Ul Abidin
+            Zayn Ul Abidin
           </h1>
           <p className="text-base sm:text-lg font-medium text-zinc-500 mb-2">Software Engineer</p>
           
