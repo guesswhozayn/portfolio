@@ -1,5 +1,27 @@
 import profilePic from "../assets/img/img.jpg";
 import { FiGithub, FiLinkedin, FiMail, FiInstagram } from "react-icons/fi";
+import { useMagnetic } from "../hooks/useMagnetic";
+import { motion } from "framer-motion";
+
+function MagneticSocialLink({ href, children, label }) {
+  const { ref, x, y, setIsHovered } = useMagnetic();
+
+  return (
+    <motion.a
+      ref={ref}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ x, y }}
+      className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
+    >
+      {children}
+    </motion.a>
+  );
+}
 
 export default function Hero() {
   return (
@@ -15,12 +37,12 @@ export default function Hero() {
         </div>
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-1">
-            Zain Ul Abidin
+            Zayn Ul Abidin
           </h1>
           <p className="text-base sm:text-lg font-medium text-zinc-500 mb-2">Software Engineer</p>
           
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold border border-emerald-500/20 mb-4 font-space uppercase tracking-wider">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -42,41 +64,19 @@ export default function Hero() {
       </div>
 
       {/* Social Links */}
-      <div className="flex items-center gap-4">
-        <a
-          href="https://github.com/ltlehro"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="GitHub"
-          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-        >
+      <div className="flex items-center gap-2 -ml-2">
+        <MagneticSocialLink href="https://github.com/ltlehro" label="GitHub">
           <FiGithub size={20} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/z4yn"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="LinkedIn"
-          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-        >
+        </MagneticSocialLink>
+        <MagneticSocialLink href="https://www.linkedin.com/in/z4yn" label="LinkedIn">
           <FiLinkedin size={20} />
-        </a>
-        <a
-          href="https://www.instagram.com/zaynndev"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Instagram"
-          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-        >
+        </MagneticSocialLink>
+        <MagneticSocialLink href="https://www.instagram.com/zaynndev" label="Instagram">
           <FiInstagram size={20} />
-        </a>
-        <a
-          href="mailto:ltlehro@gmail.com"
-          aria-label="Email"
-          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-        >
+        </MagneticSocialLink>
+        <MagneticSocialLink href="mailto:ltlehro@gmail.com" label="Email">
           <FiMail size={20} />
-        </a>
+        </MagneticSocialLink>
       </div>
     </section>
   );

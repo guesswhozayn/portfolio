@@ -29,7 +29,7 @@ export default function Experience() {
           <div key={idx} className="flex flex-col sm:flex-row gap-4 sm:gap-10">
             {/* Timeline Column */}
             <div className="sm:w-32 shrink-0">
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-space">
                 {exp.period}
               </span>
             </div>
@@ -37,7 +37,18 @@ export default function Experience() {
             {/* Content Column */}
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white leading-tight">
-                {exp.role} <span className="text-zinc-400 dark:text-zinc-600">@</span> {exp.company}
+                {exp.role} <span className="text-zinc-400 dark:text-zinc-600">@</span>{" "}
+                {exp.company === "Attestify" ? (
+                  <span className="font-sans font-black tracking-[-0.05em] lowercase">
+                    attestify<span className="text-indigo-500">.</span>
+                  </span>
+                ) : exp.company === "Homivio" ? (
+                  <span className="font-sans font-black tracking-[-0.05em] uppercase">
+                    homivio
+                  </span>
+                ) : (
+                  exp.company
+                )}
               </h3>
               <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-lg">
                 {exp.description}
