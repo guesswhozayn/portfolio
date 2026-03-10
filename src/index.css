@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-space: "Space Mono", monospace;
+}
+
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -8,6 +13,19 @@
     -moz-osx-font-smoothing: grayscale;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     @apply bg-zinc-50 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 transition-colors duration-300;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Technical Grid Background */
+  body::after {
+    content: "";
+    @apply pointer-events-none fixed inset-0 z-0 opacity-[0.03] dark:opacity-[0.05];
+    background-image: 
+      linear-gradient(to right, #888 1px, transparent 1px),
+      linear-gradient(to bottom, #888 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 80%);
   }
 
   /* Noise Texture Overlay */
