@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import Experience from "../components/Experience";
 import Contact from "../components/Contact";
 
 export default function HomePage() {
@@ -24,7 +23,6 @@ export default function HomePage() {
           {/* === RIGHT: Scrolling Content === */}
           <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
             <Projects />
-            <Experience />
             <Skills />
             <Contact />
           </main>

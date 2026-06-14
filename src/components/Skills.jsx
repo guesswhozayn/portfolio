@@ -3,12 +3,13 @@ import InteractiveCard from "./ui/InteractiveCard";
 
 export default function Skills() {
   const categories = [
-    { name: "Programming", skills: ["JavaScript", "TypeScript", "Python", "C++"] },
-    { name: "Frontend",    skills: ["React", "Next.js", "TailwindCSS"] },
-    { name: "Backend",     skills: ["NodeJS", "ExpressJS", "RESTful APIs", "GraphQL"] },
-    { name: "Database",    skills: ["MongoDB", "PostgreSQL"] },
-    { name: "Blockchain",  skills: ["Solidity", "Web3.js", "Ethers.js"] },
-    { name: "DevOps",      skills: ["Git", "Vercel", "Docker", "GitHub Actions"] },
+    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "C++"] },
+    { name: "Frontend",    skills: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Framer Motion"] },
+    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io", "BullMQ", "JWT"] },
+    { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
+    { name: "Blockchain",  skills: ["Smart Contracts", "Hardhat", "Ethers.js", "OpenZeppelin Contracts", "Ethereum & Testnets"] },
+    { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Netlify", "Docker", "GitHub Actions"] },
+    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "NPM", "CLI"] },
   ];
 
   return (

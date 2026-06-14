@@ -1,26 +1,29 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Section from "../components/ui/Section";
 import ListItem from "../components/ui/ListItem";
-import Experience from "../components/Experience";
 import Contact from "../components/Contact";
-import { FiDownload, FiLinkedin, FiInstagram, FiGithub, FiMail } from "react-icons/fi";
+import { FiDownload, FiLinkedin, FiInstagram, FiGithub, FiMail, FiPhone, FiGlobe, FiX } from "react-icons/fi";
 
 export default function ResumePage() {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const education = [
     {
       institution: "The University of Chakwal",
       degree: "B.Sc in Computer Science",
-      duration: "2022 – Present",
+      duration: "2022 – 2026",
     },
   ];
 
   const categories = [
-    { name: "Programming", skills: ["JavaScript", "TypeScript", "Python", "C++"] },
-    { name: "Frontend",    skills: ["React", "Next.js", "TailwindCSS"] },
-    { name: "Backend",     skills: ["NodeJS", "ExpressJS", "RESTful APIs", "GraphQL"] },
-    { name: "Database",    skills: ["MongoDB", "PostgreSQL"] },
-    { name: "Blockchain",  skills: ["Solidity", "Web3.js", "Ethers.js"] },
-    { name: "DevOps",      skills: ["Git", "Vercel", "Docker", "GitHub Actions"] },
+    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "C++"] },
+    { name: "Frontend",    skills: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Framer Motion"] },
+    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io", "BullMQ", "JWT"] },
+    { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
+    { name: "Blockchain",  skills: ["Smart Contracts", "Hardhat", "Ethers.js", "OpenZeppelin Contracts", "Ethereum & Testnets"] },
+    { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Netlify", "Docker", "GitHub Actions"] },
+    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "NPM", "CLI"] },
   ];
 
   return (
@@ -52,60 +55,63 @@ export default function ResumePage() {
                   </span>
                   Available for Opportunities
                 </div>
-
-                <div className="flex items-center gap-4">
-                  <a
-                    href="https://github.com/ltlehro"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub"
-                    className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >
-                    <FiGithub size={20} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/z4yn"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                    className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >
-                    <FiLinkedin size={20} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/zaynndev"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >
-                    <FiInstagram size={20} />
-                  </a>
-                  <a
-                    href="mailto:ltlehro@gmail.com"
-                    aria-label="Email"
-                    className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >
-                    <FiMail size={20} />
-                  </a>
+                {/* Contact details */}
+                <div className="flex flex-col gap-3 mb-6 text-sm font-medium text-zinc-600 dark:text-zinc-400 font-space">
+                  <div className="flex items-center gap-2.5">
+                    <FiPhone className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
+                    <a href="tel:+923335771397" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+                      +92 333 5771397
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <FiMail className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
+                    <a href="mailto:guesswhozayn@gmail.com" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+                      guesswhozayn@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <FiLinkedin className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
+                    <a href="https://linkedin.com/in/z4yn" target="_blank" rel="noreferrer" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+                      linkedin.com/in/z4yn
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <FiGithub className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
+                    <a href="https://github.com/guesswhozayn" target="_blank" rel="noreferrer" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+                      github.com/guesswhozayn
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <FiGlobe className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
+                    <a href="https://z4yn.vercel.app" target="_blank" rel="noreferrer" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+                      z4yn.vercel.app
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <a
-                href="/zayn_resume.pdf"
-                download
-                className="self-start inline-flex items-center gap-2 text-base font-medium px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-zinc-400"
-              >
-                <FiDownload size={17} />
-                Download Resume
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/zayn_resume.pdf"
+                  download
+                  className="inline-flex items-center gap-2 text-base font-medium px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-zinc-400"
+                >
+                  <FiDownload size={17} />
+                  Download
+                </a>
+                <button
+                  onClick={() => setIsPreviewOpen(true)}
+                  className="inline-flex items-center gap-2 text-base font-medium px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-zinc-400 cursor-pointer"
+                >
+                  <FiGlobe size={17} />
+                  Preview
+                </button>
+              </div>
             </div>
           </aside>
 
           {/* === RIGHT: Scrolling Content === */}
           <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
-            <Experience />
-            
             <Section title="Education">
               <div className="flex flex-col gap-6">
                 {education.map((edu, idx) => (
@@ -138,6 +144,44 @@ export default function ResumePage() {
 
         </div>
       </div>
+
+      {/* PDF Inline Preview Modal */}
+      <AnimatePresence>
+        {isPreviewOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsPreviewOpen(false)}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] cursor-pointer"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="fixed inset-x-4 top-10 bottom-10 md:inset-10 lg:inset-20 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-2xl z-[101] flex flex-col overflow-hidden"
+            >
+              <div className="p-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between shrink-0">
+                <span className="text-sm font-semibold text-zinc-900 dark:text-white font-mono">
+                  zayn_resume.pdf
+                </span>
+                <button
+                  onClick={() => setIsPreviewOpen(false)}
+                  className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  <FiX size={18} />
+                </button>
+              </div>
+              <iframe
+                src="/zayn_resume.pdf#toolbar=0"
+                className="w-full h-full border-0 bg-zinc-100 dark:bg-zinc-950"
+                title="Resume PDF Preview"
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
