@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import CommandPalette from "./components/ui/CommandPalette";
 import ScrollToTop from "./components/ui/ScrollToTop";
-import HomePage from "./pages/HomePage";
-import ResumePage from "./pages/ResumePage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ResumePage = lazy(() => import("./pages/ResumePage"));
 
 function App() {
   return (
@@ -12,10 +14,14 @@ function App() {
       <div className="relative min-h-screen">
         <Navbar />
         <CommandPalette />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/resume" element={<ResumePage />} />
-        </Routes>
+        <Suspense fallback={
+          <div className="min-h-screen bg-zinc-50 dark:bg-[#0a0a0a] transition-colors duration-300" />
+        }>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/resume" element={<ResumePage />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
   );
