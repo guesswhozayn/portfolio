@@ -55,26 +55,25 @@ export default function Hero() {
       {/* Bio */}
       <div className="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
         <p>
-          Hello! I&apos;m Zayn, a creative web developer with a passion for design, animation,
-          and problem-solving. I enjoy building things that live on the Internet.
+          I&apos;m Zayn, a software engineer passionate about crafting high-quality, scalable web applications.
         </p>
         <p>
-          My focus is on building extensible, maintainable software with clean architecture.
+          My work combines clean code with modern design principles to deliver seamless user experiences.
         </p>
       </div>
 
       {/* Social Links */}
       <div className="flex items-center gap-2 -ml-2">
-        <MagneticSocialLink href="https://github.com/ltlehro" label="GitHub">
+        <MagneticSocialLink href="https://github.com/guesswhozayn" label="GitHub">
           <FiGithub size={20} />
         </MagneticSocialLink>
-        <MagneticSocialLink href="https://www.linkedin.com/in/z4yn" label="LinkedIn">
+        <MagneticSocialLink href="https://linkedin.com/in/z4yn" label="LinkedIn">
           <FiLinkedin size={20} />
         </MagneticSocialLink>
         <MagneticSocialLink href="https://www.instagram.com/zaynndev" label="Instagram">
           <FiInstagram size={20} />
         </MagneticSocialLink>
-        <MagneticSocialLink href="mailto:ltlehro@gmail.com" label="Email">
+        <MagneticSocialLink href="mailto:guesswhozayn@gmail.com" label="Email">
           <FiMail size={20} />
         </MagneticSocialLink>
       </div>

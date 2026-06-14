@@ -30,16 +30,24 @@ export default function CommandPalette() {
       if (e.key === "Escape") setIsOpen(false);
     };
 
+    const handleCustomOpen = () => {
+      setIsOpen(true);
+    };
+
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("open-command-palette", handleCustomOpen);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("open-command-palette", handleCustomOpen);
+    };
   }, [togglePalette]);
 
   const actions = [
     { id: "home", label: "Go to Home", icon: <Home className="w-4 h-4" />, action: () => navigate("/") },
     { id: "resume", label: "View Resume", icon: <FileText className="w-4 h-4" />, action: () => navigate("/resume") },
     { id: "theme", label: `Switch to ${isDarkMode ? 'Light' : 'Dark'} Mode`, icon: isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />, action: toggleDarkMode },
-    { id: "github", label: "Github Profile", icon: <Github className="w-4 h-4" />, action: () => window.open("https://github.com/ltlehro", "_blank") },
-    { id: "contact", label: "Email Me", icon: <Mail className="w-4 h-4" />, action: () => window.location.href = "mailto:ltlehro@gmail.com" },
+    { id: "github", label: "Github Profile", icon: <Github className="w-4 h-4" />, action: () => window.open("https://github.com/guesswhozayn", "_blank") },
+    { id: "contact", label: "Email Me", icon: <Mail className="w-4 h-4" />, action: () => window.location.href = "mailto:guesswhozayn@gmail.com" },
   ];
 
   const filteredActions = actions.filter(action => 

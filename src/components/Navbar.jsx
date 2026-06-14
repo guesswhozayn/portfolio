@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiHome, FiFileText, FiMoon, FiSun } from "react-icons/fi";
+import { FiHome, FiFileText, FiMoon, FiSun, FiSearch } from "react-icons/fi";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { useState, useEffect } from "react";
 import { useMagnetic } from "../hooks/useMagnetic";
@@ -69,6 +69,16 @@ export default function Navbar() {
           })}
 
           <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-800 mx-2" />
+
+          <motion.button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative p-2 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
+            title="Open Search (⌘K)"
+          >
+            <FiSearch size={16} />
+          </motion.button>
 
           <motion.button 
             ref={toggleRef}
