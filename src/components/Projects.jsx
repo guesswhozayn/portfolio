@@ -19,11 +19,11 @@ function ProjectArchitecture({ projectName }) {
               2. BullMQ & Redis
             </div>
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓ (Dispatches background job)</div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
           <div className="p-3 rounded-xl border border-cyan-500/20 dark:border-cyan-500/30 bg-cyan-500/5 font-bold text-cyan-600 dark:text-cyan-400 text-center">
             3. Multi-Agent Audit (Gemini, Llama 3.3, Tavily OSINT Search)
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓ (Streams Progress)</div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
           <div className="flex items-center gap-3">
             <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               4. Socket.io Broker
@@ -52,11 +52,11 @@ function ProjectArchitecture({ projectName }) {
               2. IPFS Storage
             </div>
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓ (Pin Transcript Metadata)</div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
           <div className="p-3 rounded-xl border border-indigo-500/20 dark:border-indigo-500/30 bg-indigo-500/5 font-bold text-indigo-600 dark:text-indigo-400 text-center">
             3. Solidity SBT Minting (Ethereum Smart Contract validation)
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓ (Creates Soulbound Token Ledger)</div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
           <div className="flex items-center gap-3">
             <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               4. QR Signature Code
@@ -143,12 +143,10 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
               className="group/card relative flex flex-col gap-3 p-6 md:p-10 h-full cursor-pointer focus:outline-none"
             >
-              {/* Architecture Info Button */}
               <span className="absolute top-5 right-5 text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono">
                 View Architecture
               </span>
 
-              {/* Title */}
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white pr-28 flex items-center gap-2.5">
                 {project.name === "Attestify" ? (
                   <span className="font-sans font-black tracking-[-0.05em] lowercase">
@@ -203,17 +201,15 @@ export default function Projects() {
                 )}
               </h3>
 
-              {/* Description */}
               <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
                 {project.description}
               </p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 pt-1">
                 {project.tags.map((tag) => (
                   <span
-                     key={tag}
-                     className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
+                    key={tag}
+                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
                   >
                     {tag}
                   </span>
@@ -224,11 +220,9 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Slide-Over Drawer */}
       <AnimatePresence>
         {selectedProject && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -237,15 +231,13 @@ export default function Projects() {
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] cursor-pointer"
             />
 
-            {/* Slide-over panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
               className="fixed right-0 top-0 bottom-0 w-full max-w-lg md:max-w-xl bg-white dark:bg-zinc-950 border-l border-zinc-200 dark:border-zinc-800 shadow-2xl z-[101] flex flex-col h-full"
             >
-              {/* Header */}
               <div className="p-6 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
                   <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
@@ -273,9 +265,7 @@ export default function Projects() {
                 </button>
               </div>
 
-              {/* Scrolling Content */}
               <div className="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col gap-6">
-                {/* Description */}
                 <div className="flex flex-col gap-2">
                   <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Overview</h4>
                   <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
@@ -283,7 +273,6 @@ export default function Projects() {
                   </p>
                 </div>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
                     <span
@@ -295,10 +284,8 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* System Architecture Diagram */}
                 <ProjectArchitecture projectName={selectedProject.name} />
 
-                {/* Key Accomplishments */}
                 <div className="flex flex-col gap-3">
                   <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Technical Highlights & Metrics</h4>
                   <ul className="flex flex-col gap-3">
@@ -312,7 +299,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Drawer Footer / CTAs */}
               <div className="p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 flex gap-3 shrink-0">
                 <a
                   href={selectedProject.url}

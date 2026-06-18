@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Section from "../components/ui/Section";
 import ListItem from "../components/ui/ListItem";
 import Education from "../components/Education";
-import { FiDownload, FiLinkedin, FiInstagram, FiGithub, FiMail, FiPhone, FiGlobe, FiX } from "react-icons/fi";
+import { FiDownload, FiLinkedin, FiGithub, FiMail, FiPhone, FiGlobe, FiX } from "react-icons/fi";
+import StatusBadge from "../components/ui/StatusBadge";
 
 export default function ResumePage() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -32,15 +33,12 @@ export default function ResumePage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="min-h-screen bg-zinc-50 dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-300 relative"
     >
-      {/* Subtle top gradient */}
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.08),transparent)]" />
 
       <div className="mx-auto max-w-screen-xl px-8 sm:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row lg:gap-20">
 
-          {/* === LEFT: Sticky Sidebar Column === */}
           <div className="w-full lg:w-5/12 pt-48 pb-16 lg:pt-48 lg:pb-32 relative">
-            {/* Background ambient glow ball */}
             <div className="absolute -left-20 top-1/4 w-48 h-48 rounded-full bg-indigo-500/10 dark:bg-indigo-500/5 blur-3xl pointer-events-none" />
 
             <aside className="lg:sticky lg:top-28">
@@ -53,15 +51,8 @@ export default function ResumePage() {
                     Software Engineer
                   </p>
                   
-                  {/* Status Badge */}
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold border border-emerald-500/20 mb-4 font-space uppercase tracking-wider">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    Available for Opportunities
-                  </div>
-                  {/* Contact details */}
+                  <StatusBadge className="mb-4" />
+                  
                   <div className="flex flex-col gap-3 mb-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 font-space">
                     <div className="flex items-center gap-2.5">
                       <FiPhone className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
@@ -129,7 +120,6 @@ export default function ResumePage() {
             </aside>
           </div>
 
-          {/* === RIGHT: Scrolling Content === */}
           <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
             <Education />
 
@@ -141,7 +131,6 @@ export default function ResumePage() {
               </div>
             </Section>
 
-            {/* Back to Interactive Showcase CTA */}
             <div className="flex flex-col items-center text-center p-8 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 rounded-2xl gap-4">
               <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
                 Looking for interactive project showcases, code highlight walk-throughs, and system design flows?
@@ -158,7 +147,6 @@ export default function ResumePage() {
         </div>
       </div>
 
-      {/* PDF Inline Preview Modal */}
       <AnimatePresence>
         {isPreviewOpen && (
           <>
@@ -198,4 +186,3 @@ export default function ResumePage() {
     </motion.div>
   );
 }
-

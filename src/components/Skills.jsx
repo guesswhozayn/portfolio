@@ -59,7 +59,6 @@ export default function Skills() {
   return (
     <Section title="Skills">
       <div className="flex flex-col gap-8 w-full overflow-hidden">
-        {/* Legend */}
         <div className="flex flex-wrap gap-x-4 gap-y-2 select-none justify-start text-[10px] uppercase font-bold tracking-widest text-zinc-400 dark:text-zinc-500 font-mono">
           {legends.map((leg) => (
             <div key={leg.name} className="flex items-center gap-1.5">
@@ -69,9 +68,7 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Marquee tracks container */}
         <div className="relative flex flex-col gap-4 w-full [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)] select-none pointer-events-auto">
-          {/* Row 1: Left scrolling */}
           <div className="flex w-max gap-3 animate-marquee hover:[animation-play-state:paused]">
             {repeatedRow1.map((skill, idx) => (
               <div
@@ -84,7 +81,6 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Row 2: Right scrolling */}
           <div className="flex w-max gap-3 animate-marquee-reverse hover:[animation-play-state:paused]">
             {repeatedRow2.map((skill, idx) => (
               <div
@@ -97,7 +93,6 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Row 3: Left scrolling */}
           <div className="flex w-max gap-3 animate-marquee hover:[animation-play-state:paused]">
             {repeatedRow3.map((skill, idx) => (
               <div
