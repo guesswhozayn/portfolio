@@ -18,12 +18,11 @@ export default function ResumePage() {
 
   const categories = [
     { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "C++"] },
-    { name: "Frontend",    skills: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Framer Motion"] },
-    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io", "BullMQ", "JWT"] },
+    { name: "Frontend",    skills: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS"] },
+    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io"] },
     { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
-    { name: "Blockchain",  skills: ["Smart Contracts", "Hardhat", "Ethers.js", "OpenZeppelin Contracts", "Ethereum & Testnets"] },
-    { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Netlify", "Docker", "GitHub Actions"] },
-    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "NPM", "CLI"] },
+    { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Render", "Docker"] },
+    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "CLI"] },
   ];
 
   return (
@@ -79,10 +78,10 @@ export default function ResumePage() {
                     <div className="flex items-center gap-2.5">
                       <FiMail className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
                       <button
-                        onClick={() => handleCopy("guesswhozayn@gmail.com", "email")}
+                        onClick={() => handleCopy("zeeulabidin@gmail.com", "email")}
                         className="hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer text-left focus:outline-none"
                       >
-                        guesswhozayn@gmail.com
+                        zeeulabidin@gmail.com
                       </button>
                       {copiedText === "email" && (
                         <span className="text-[10px] text-emerald-500 font-mono">Copied!</span>
@@ -111,7 +110,7 @@ export default function ResumePage() {
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="/zayn_resume.pdf"
+                    href="/zain_resume.pdf"
                     download
                     className="inline-flex items-center gap-2 text-base font-medium px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-zinc-400"
                   >
@@ -178,7 +177,7 @@ export default function ResumePage() {
             >
               <div className="p-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between shrink-0">
                 <span className="text-sm font-semibold text-zinc-900 dark:text-white font-mono">
-                  zayn_resume.pdf
+                  zain_resume.pdf
                 </span>
                 <button
                   onClick={() => setIsPreviewOpen(false)}
