@@ -3,17 +3,10 @@ import { motion } from "framer-motion";
 import { FiHome, FiFileText, FiMoon, FiSun, FiSearch } from "react-icons/fi";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { useState, useEffect } from "react";
-import { useMagnetic } from "../hooks/useMagnetic";
 
-function MagneticNavItem({ children, isActive }) {
-  const { ref, x, y, setIsHovered } = useMagnetic();
-
+function NavItem({ children, isActive }) {
   return (
-    <motion.div
-      ref={ref}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ x, y }}
+    <div
       className={`px-4 py-2 rounded-full flex items-center justify-center transition-colors text-[14px] font-medium ${
         isActive 
           ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white" 
@@ -21,7 +14,7 @@ function MagneticNavItem({ children, isActive }) {
       }`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -29,7 +22,6 @@ export default function Navbar() {
   const location = useLocation();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [scrolled, setScrolled] = useState(false);
-  const { ref: toggleRef, x: toggleX, y: toggleY, setIsHovered: setToggleHovered } = useMagnetic();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,40 +53,29 @@ export default function Navbar() {
             const isActive = location.pathname === item.path;
             return (
               <Link key={item.path} to={item.path} className="relative group">
-                <MagneticNavItem isActive={isActive}>
+                <NavItem isActive={isActive}>
                   {item.name}
-                </MagneticNavItem>
+                </NavItem>
               </Link>
             );
           })}
 
           <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-800 mx-2" />
 
-          <motion.button
+          <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
             className="relative p-2 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
             title="Open Search (⌘K)"
           >
             <FiSearch size={16} />
-          </motion.button>
+          </button>
 
-          <motion.button 
-            ref={toggleRef}
+          <button 
             onClick={toggleDarkMode}
-            onMouseEnter={() => setToggleHovered(true)}
-            onMouseLeave={() => setToggleHovered(false)}
-            style={{ x: toggleX, y: toggleY }}
-            className="relative group p-2 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            className="relative p-2 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
           >
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isDarkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
-            </motion.div>
-          </motion.button>
+            {isDarkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
+          </button>
         </div>
       </nav>
     </motion.div>

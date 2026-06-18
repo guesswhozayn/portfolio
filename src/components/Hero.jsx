@@ -1,26 +1,19 @@
 import { useState } from "react";
 import profilePic from "../assets/img/img.jpg";
 import { FiGithub, FiLinkedin, FiMail, FiInstagram } from "react-icons/fi";
-import { useMagnetic } from "../hooks/useMagnetic";
-import { motion } from "framer-motion";
+import StatusBadge from "./ui/StatusBadge";
 
-function MagneticSocialLink({ href, children, label }) {
-  const { ref, x, y, setIsHovered } = useMagnetic();
-
+function SocialLink({ href, children, label }) {
   return (
-    <motion.a
-      ref={ref}
+    <a
       href={href}
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ x, y }}
-      className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors p-2 cursor-pointer"
+      className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white p-2 cursor-pointer hover:scale-105 active:scale-95 transition-transform"
     >
       {children}
-    </motion.a>
+    </a>
   );
 }
 
@@ -29,7 +22,6 @@ function HeroTerminal() {
 
   return (
     <div className="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/40 overflow-hidden font-mono text-xs shadow-inner">
-      {/* Header bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/80 dark:bg-zinc-900/80 select-none">
         <div className="flex gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-red-400 dark:bg-red-500/60" />
@@ -39,7 +31,6 @@ function HeroTerminal() {
         <span className="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">zayn-shell</span>
       </div>
 
-      {/* Terminal tabs */}
       <div className="flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/30 dark:bg-zinc-900/20 select-none">
         {["profile", "contact"].map((tab) => (
           <button
@@ -56,7 +47,6 @@ function HeroTerminal() {
         ))}
       </div>
 
-      {/* Terminal Content */}
       <div className="p-4 bg-white/70 dark:bg-zinc-900/40 leading-relaxed text-[11px] min-h-[145px] flex flex-col gap-2 font-mono">
         <div className="flex items-center gap-2 select-none border-b border-zinc-100 dark:border-zinc-800/40 pb-1.5 mb-1">
           <span className="text-emerald-500 font-bold">~</span>
@@ -115,10 +105,8 @@ function HeroTerminal() {
 export default function Hero() {
   return (
     <div className="relative w-full p-6 sm:p-8 rounded-3xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-xl shadow-lg flex flex-col gap-6 overflow-hidden">
-      {/* Background ambient glow ball */}
       <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-indigo-500/10 dark:bg-indigo-500/5 blur-3xl pointer-events-none" />
 
-      {/* Avatar + Name */}
       <div className="flex items-center gap-5">
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 bg-zinc-200 ring-2 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
           <img
@@ -128,23 +116,14 @@ export default function Hero() {
           />
         </div>
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-1">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
             Zain Ul Abidin
           </h1>
-          <p className="text-base sm:text-lg font-medium text-zinc-500 mb-2">Software Engineer</p>
-          
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold border border-emerald-500/20 mb-1 font-space uppercase tracking-wider">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Available for Opportunities
-          </div>
+          <p className="text-base sm:text-lg font-medium text-zinc-500 mb-3">Software Engineer</p>
+          <StatusBadge className="mb-4" />
         </div>
       </div>
 
-      {/* Bio */}
       <div className="flex flex-col gap-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">
         <p>
           I&apos;m Zayn, a software engineer passionate about crafting high-quality, scalable web applications.
@@ -154,23 +133,21 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Live Shell Terminal Widget */}
       <HeroTerminal />
 
-      {/* Social Links */}
       <div className="flex items-center gap-2 -ml-2">
-        <MagneticSocialLink href="https://github.com/guesswhozayn" label="GitHub">
+        <SocialLink href="https://github.com/guesswhozayn" label="GitHub">
           <FiGithub size={20} />
-        </MagneticSocialLink>
-        <MagneticSocialLink href="https://linkedin.com/in/z4yn" label="LinkedIn">
+        </SocialLink>
+        <SocialLink href="https://linkedin.com/in/z4yn" label="LinkedIn">
           <FiLinkedin size={20} />
-        </MagneticSocialLink>
-        <MagneticSocialLink href="https://www.instagram.com/zaynndev" label="Instagram">
+        </SocialLink>
+        <SocialLink href="https://www.instagram.com/zaynndev" label="Instagram">
           <FiInstagram size={20} />
-        </MagneticSocialLink>
-        <MagneticSocialLink href="mailto:guesswhozayn@gmail.com" label="Email">
+        </SocialLink>
+        <SocialLink href="mailto:guesswhozayn@gmail.com" label="Email">
           <FiMail size={20} />
-        </MagneticSocialLink>
+        </SocialLink>
       </div>
     </div>
   );
