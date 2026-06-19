@@ -19,7 +19,6 @@
     overflow-x: hidden;
   }
 
-  /* Technical Grid Background */
   body::after {
     content: "";
     @apply pointer-events-none fixed inset-0 z-0 opacity-[0.03] dark:opacity-[0.05];
@@ -30,7 +29,6 @@
     mask-image: radial-gradient(ellipse at center, black, transparent 80%);
   }
 
-  /* Noise Texture Overlay */
   body::before {
     content: "";
     @apply pointer-events-none fixed inset-0 z-50 opacity-[0.03] dark:opacity-[0.05];
