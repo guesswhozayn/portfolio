@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiHome, FiFileText, FiMoon, FiSun, FiSearch } from "react-icons/fi";
+import { FiMoon, FiSun, FiSearch } from "react-icons/fi";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { useState, useEffect } from "react";
 
@@ -32,8 +32,8 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/", icon: <FiHome size={18} /> },
-    { name: "Resume", path: "/resume", icon: <FiFileText size={18} /> },
+    { name: "Home", path: "/" },
+    { name: "Resume", path: "/resume" },
   ];
 
   return (
