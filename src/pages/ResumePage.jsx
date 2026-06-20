@@ -19,7 +19,7 @@ export default function ResumePage() {
 
   const categories = [
     { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "C++"] },
-    { name: "Frontend",    skills: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS"] },
+    { name: "Frontend",    skills: ["HTML5/CSS3", "React", "Next.js", "Tailwind CSS"] },
     { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io"] },
     { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
     { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Render", "Docker"] },
@@ -69,10 +69,10 @@ export default function ResumePage() {
                     <div className="flex items-center gap-2.5">
                       <FiMail className="text-zinc-400 dark:text-zinc-500 shrink-0" size={16} />
                       <button
-                        onClick={() => handleCopy("zeeulabidin@gmail.com", "email")}
+                        onClick={() => handleCopy("hizainulabidin@gmail.com", "email")}
                         className="hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer text-left focus:outline-none"
                       >
-                        zeeulabidin@gmail.com
+                        hizainulabidin@gmail.com
                       </button>
                       {copiedText === "email" && (
                         <span className="text-[10px] text-emerald-500 font-mono">Copied!</span>
