@@ -82,7 +82,7 @@ export default function CommandPalette() {
                   onChange={(e) => setQuery(e.target.value)}
                 />
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  <span className="text-[10px] font-bold text-zinc-500">ESC</span>
+                  <span className="text-xs font-bold text-zinc-500">ESC</span>
                 </div>
               </div>
 
@@ -114,15 +114,15 @@ export default function CommandPalette() {
               <div className="px-4 py-3 bg-zinc-50 dark:bg-zinc-900/50 border-top border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-[10px] font-bold text-zinc-500 shadow-sm">⌘</kbd>
-                    <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-[10px] font-bold text-zinc-500 shadow-sm">K</kbd>
-                    <span className="text-[10px] text-zinc-400 ml-1">to open palette</span>
+                    <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-xs font-bold text-zinc-500 shadow-sm">⌘</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-xs font-bold text-zinc-500 shadow-sm">K</kbd>
+                    <span className="text-xs text-zinc-400 ml-1">to open palette</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                   <span className="text-[10px] text-zinc-400">Navigate:</span>
-                   <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-[10px] font-bold text-zinc-500 shadow-sm">↑</kbd>
-                   <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-[10px] font-bold text-zinc-500 shadow-sm">↓</kbd>
+                   <span className="text-xs text-zinc-400">Navigate:</span>
+                   <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-xs font-bold text-zinc-500 shadow-sm">↑</kbd>
+                   <kbd className="px-1.5 py-0.5 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-xs font-bold text-zinc-500 shadow-sm">↓</kbd>
                 </div>
               </div>
             </motion.div>

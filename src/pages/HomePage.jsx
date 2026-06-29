@@ -17,13 +17,13 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-screen-xl px-8 sm:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row lg:gap-20">
-          <div className="w-full lg:w-5/12 pt-48 pb-16 lg:pt-48 lg:pb-32">
+          <div className="w-full lg:w-5/12 pt-28 pb-10 lg:pt-48 lg:pb-32">
             <aside className="lg:sticky lg:top-28">
               <Hero />
             </aside>
           </div>
 
-          <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
+          <main className="lg:w-7/12 flex flex-col gap-16 lg:gap-24 pt-8 pb-24 lg:pt-48 lg:pb-32">
             <Projects />
             <Skills />
             <Education />

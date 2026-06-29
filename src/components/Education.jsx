@@ -21,7 +21,7 @@ export default function Education() {
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white">{edu.institution}</h3>
               <p className="text-base text-zinc-600 dark:text-zinc-400 mt-1">{edu.degree}</p>
             </div>
-            <span className="text-sm font-medium text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-3 py-1 rounded-lg whitespace-nowrap">
+            <span className="text-sm font-medium text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-3 py-1 rounded-lg whitespace-nowrap self-start sm:self-auto">
               {edu.duration}
             </span>
           </div>

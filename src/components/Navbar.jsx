@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 function NavItem({ children, isActive }) {
   return (
     <div
-      className={`px-4 py-2 rounded-full flex items-center justify-center transition-colors text-[14px] font-medium ${
+      className={`px-4 py-2 rounded-full flex items-center justify-center transition-colors text-sm font-medium ${
         isActive 
           ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white" 
           : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
@@ -43,10 +43,10 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
       className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
     >
-      <nav className={`flex items-center space-x-1 px-4 py-2 backdrop-blur-md border shadow-sm transition-all duration-300 ${
+      <nav className={`flex items-center space-x-1 px-4 py-2 backdrop-blur-md border rounded-full shadow-sm transition-all duration-300 ${
         scrolled
-          ? "rounded-2xl bg-white/90 dark:bg-zinc-950/90 border-zinc-200 dark:border-zinc-800"
-          : "rounded-full bg-white/80 dark:bg-zinc-900/80 border-zinc-200 dark:border-zinc-800"
+          ? "bg-white/95 dark:bg-zinc-950/95 border-zinc-200 dark:border-zinc-800/80 shadow-md"
+          : "bg-white/70 dark:bg-zinc-900/40 border-zinc-200/50 dark:border-zinc-800/40"
       }`}>
         <div className="flex items-center space-x-1">
           {navItems.map((item) => {
