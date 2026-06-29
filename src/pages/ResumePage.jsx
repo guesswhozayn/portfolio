@@ -18,12 +18,12 @@ export default function ResumePage() {
   };
 
   const categories = [
-    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "C++"] },
-    { name: "Frontend",    skills: ["HTML5/CSS3", "React", "Next.js", "Tailwind CSS"] },
-    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Socket.io"] },
+    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python"] },
+    { name: "Frontend",    skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Framer Motion"] },
+    { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"] },
     { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
     { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Render", "Docker"] },
-    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "CLI"] },
+    { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "CLI"] }
   ];
 
   return (

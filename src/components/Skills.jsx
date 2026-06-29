@@ -11,7 +11,8 @@ export default function Skills() {
     { name: "Next.js", cat: "Frontend", color: "bg-emerald-500" },
     { name: "Tailwind CSS", cat: "Frontend", color: "bg-emerald-500" },
     { name: "Framer Motion", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "HTML5/CSS3", cat: "Frontend", color: "bg-emerald-500" },
+    { name: "HTML5", cat: "Frontend", color: "bg-emerald-500" },
+    { name: "CSS3", cat: "Frontend", color: "bg-emerald-500" }
   ];
 
   const row2 = [
@@ -19,16 +20,12 @@ export default function Skills() {
     { name: "Express.js", cat: "Backend", color: "bg-blue-500" },
     { name: "RESTful APIs", cat: "Backend", color: "bg-blue-500" },
     { name: "GraphQL", cat: "Backend", color: "bg-blue-500" },
-    { name: "Socket.io", cat: "Backend", color: "bg-blue-500" },
     { name: "MongoDB", cat: "Databases", color: "bg-rose-500" },
     { name: "PostgreSQL", cat: "Databases", color: "bg-rose-500" },
     { name: "Redis", cat: "Databases", color: "bg-rose-500" },
   ];
 
   const row3 = [
-    { name: "Smart Contracts", cat: "Blockchain", color: "bg-amber-500" },
-    { name: "Hardhat", cat: "Blockchain", color: "bg-amber-500" },
-    { name: "Ethers.js", cat: "Blockchain", color: "bg-amber-500" },
     { name: "Git", cat: "DevOps & Deployment", color: "bg-purple-500" },
     { name: "GitHub", cat: "DevOps & Deployment", color: "bg-purple-500" },
     { name: "Vercel", cat: "DevOps & Deployment", color: "bg-purple-500" },
@@ -43,7 +40,6 @@ export default function Skills() {
     { name: "Frontend", color: "bg-emerald-500" },
     { name: "Backend", color: "bg-blue-500" },
     { name: "Databases", color: "bg-rose-500" },
-    { name: "Blockchain", color: "bg-amber-500" },
     { name: "DevOps", color: "bg-purple-500" },
     { name: "Tools", color: "bg-zinc-400" },
   ];
