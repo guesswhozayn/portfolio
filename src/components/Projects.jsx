@@ -147,7 +147,7 @@ export default function Projects() {
         "A configurable Next.js e-commerce storefront with Stripe Elements checkout, a global React Context cart engine with local persistence, and an inventory management admin dashboard.",
       longDescription:
         "Homivio is a modern e-commerce storefront engineered with Next.js App Router and React 19. It incorporates Stripe Elements for secure end-to-end payment processing, backed by a serverless AWS Lambda handler. State persistence for the cart is managed via a synchronized React Context & LocalStorage pipeline, and the application includes a dedicated administrative panel for local inventory control and mock user authentication.",
-      url: "https://homivio.vercel.app",
+      url: "https://homivio-ecom.vercel.app",
       github: "https://github.com/guesswhozayn/homivio",
       tags: ["Next.js", "React 19", "Stripe", "Context API", "Serverless"],
       keyAchievements: [
@@ -279,7 +279,7 @@ export default function Projects() {
                         transform="rotate(-6 27.5 22)"
                       />
                     </svg>
-                    <span className="font-sans font-black tracking-[-0.05em] lowercase">
+                    <span className="font-sans font-bold tracking-tight lowercase" style={{ letterSpacing: "-0.04em" }}>
                       picket<span className="text-cyan-500">.</span>
                     </span>
                   </>
@@ -315,7 +315,7 @@ export default function Projects() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="font-sans font-black tracking-[-0.05em] lowercase">
+                    <span className="font-eina-semibold tracking-tight lowercase">
                       homivio<span className="text-rose-500">.</span>
                     </span>
                   </>
@@ -365,7 +365,7 @@ export default function Projects() {
                 <div className="flex items-center gap-2">
                   <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
                     {selectedProject.name === "Picket" ? (
-                      <span className="font-sans font-black tracking-[-0.05em] lowercase text-lg">
+                      <span className="font-sans font-bold tracking-tight lowercase text-lg" style={{ letterSpacing: "-0.04em" }}>
                         picket<span className="text-cyan-500">.</span>
                       </span>
                     ) : selectedProject.name === "Attestify" ? (
@@ -373,7 +373,7 @@ export default function Projects() {
                         attestify<span className="text-indigo-500">.</span>
                       </span>
                     ) : selectedProject.name === "Homivio" ? (
-                      <span className="font-sans font-black tracking-[-0.05em] lowercase text-lg">
+                      <span className="font-eina-semibold tracking-tight lowercase text-lg">
                         homivio<span className="text-rose-500">.</span>
                       </span>
                     ) : (

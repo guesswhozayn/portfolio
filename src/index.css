@@ -1,9 +1,38 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Eina";
+  src: url("/fonts/Eina.otf") format("opentype"),
+       url("/fonts/Eina.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eina Light";
+  src: url("/fonts/Eina-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eina SemiBold";
+  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
+       url("/fonts/Eina-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Geist", sans-serif;
   --font-space: "Geist", sans-serif;
   --font-mono: "Geist Mono", monospace;
+  --font-eina: "Eina", sans-serif;
+  --font-eina-light: "Eina Light", sans-serif;
+  --font-eina-semibold: "Eina SemiBold", sans-serif;
 }
 
 
