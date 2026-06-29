@@ -71,6 +71,39 @@ function ProjectArchitecture({ projectName }) {
     );
   }
 
+  if (projectName === "Homivio") {
+    return (
+      <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
+        <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Serverless Checkout & Cart Flow</h4>
+        <div className="flex flex-col gap-4 font-mono text-xs">
+          <div className="flex items-center gap-3">
+            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+              1. Cart Context (LocalStorage)
+            </div>
+            <span className="text-zinc-400">→</span>
+            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+              2. Stripe Elements
+            </div>
+          </div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
+          <div className="p-3 rounded-xl border border-rose-500/20 dark:border-rose-500/30 bg-rose-500/5 font-bold text-rose-600 dark:text-rose-400 text-center">
+            3. Serverless Lambda (Stripe API & Payment Intent Confirmation)
+          </div>
+          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
+          <div className="flex items-center gap-3">
+            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+              4. Customer/Order Record
+            </div>
+            <span className="text-zinc-400">→</span>
+            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+              5. Local Storage Clear & UI Toast
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return null;
 }
 
@@ -106,6 +139,21 @@ export default function Projects() {
         "Orchestrated a highly concurrent background pipeline using Node.js, BullMQ, and Redis to process multi-agent tasks asynchronously.",
         "Engineered behavioral telemetry capture inside the sandboxed code runner, analyzing keyboard patterns, paste events, and tab switches to gauge candidate integrity.",
         "Developed real-time progress broadcasts using Socket.io to stream background agent steps directly to the hiring dashboard."
+      ]
+    },
+    {
+      name: "Homivio",
+      description:
+        "A configurable Next.js e-commerce storefront with Stripe Elements checkout, a global React Context cart engine with local persistence, and an inventory management admin dashboard.",
+      longDescription:
+        "Homivio is a modern e-commerce storefront engineered with Next.js App Router and React 19. It incorporates Stripe Elements for secure end-to-end payment processing, backed by a serverless AWS Lambda handler. State persistence for the cart is managed via a synchronized React Context & LocalStorage pipeline, and the application includes a dedicated administrative panel for local inventory control and mock user authentication.",
+      url: "https://homivio.vercel.app",
+      github: "https://github.com/guesswhozayn/homivio",
+      tags: ["Next.js", "React 19", "Stripe", "Context API", "Serverless"],
+      keyAchievements: [
+        "Integrated Stripe SDK and Elements to build a secure checkout flow supporting tokenized payment processing.",
+        "Architected a custom state synchronization layer combining React Context with LocalStorage for reactive, persistent shopping carts.",
+        "Built a serverless checkout function (AWS Lambda) to verify payments, create customers, and safely process transaction details via Stripe API."
       ]
     },
   ];
@@ -196,6 +244,42 @@ export default function Projects() {
                       picket<span className="text-cyan-500">.</span>
                     </span>
                   </>
+                ) : project.name === "Homivio" ? (
+                  <>
+                    <svg
+                      width="20"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-label="Homivio logo"
+                      className="shrink-0"
+                    >
+                      <defs>
+                        <linearGradient id="hv-g-front" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                          <stop offset="0%" stopColor="#F43F5E" />
+                          <stop offset="100%" stopColor="#BE123C" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"
+                        stroke="url(#hv-g-front)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M9 22V12h6v10"
+                        stroke="url(#hv-g-front)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="font-sans font-black tracking-[-0.05em] lowercase">
+                      homivio<span className="text-rose-500">.</span>
+                    </span>
+                  </>
                 ) : (
                   project.name
                 )}
@@ -248,6 +332,10 @@ export default function Projects() {
                     ) : selectedProject.name === "Attestify" ? (
                       <span className="font-sans font-black tracking-[-0.05em] lowercase text-lg">
                         attestify<span className="text-indigo-500">.</span>
+                      </span>
+                    ) : selectedProject.name === "Homivio" ? (
+                      <span className="font-sans font-black tracking-[-0.05em] lowercase text-lg">
+                        homivio<span className="text-rose-500">.</span>
                       </span>
                     ) : (
                       selectedProject.name
