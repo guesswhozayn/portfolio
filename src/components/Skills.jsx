@@ -51,7 +51,7 @@ export default function Skills() {
   return (
     <Section title="Skills">
       <div className="flex flex-col gap-8 w-full overflow-hidden">
-        <div className="flex flex-wrap gap-x-4 gap-y-2 select-none justify-start text-[10px] uppercase font-bold tracking-widest text-zinc-400 dark:text-zinc-500 font-mono">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 select-none justify-start text-xs uppercase font-bold tracking-widest text-zinc-400 dark:text-zinc-500 font-mono">
           {legends.map((leg) => (
             <div key={leg.name} className="flex items-center gap-1.5">
               <span className={`w-1.5 h-1.5 rounded-full ${leg.color}`} />

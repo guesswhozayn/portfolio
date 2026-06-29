@@ -6,6 +6,7 @@ import ListItem from "../components/ui/ListItem";
 import Education from "../components/Education";
 import { FiDownload, FiLinkedin, FiGithub, FiMail, FiPhone, FiGlobe, FiX } from "react-icons/fi";
 import StatusBadge from "../components/ui/StatusBadge";
+import profilePic from "../assets/img/img.jpg";
 
 export default function ResumePage() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -18,10 +19,10 @@ export default function ResumePage() {
   };
 
   const categories = [
-    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python"] },
-    { name: "Frontend",    skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Framer Motion"] },
+    { name: "Programming", skills: ["JavaScript", "TypeScript", "Solidity", "Python", "SQL"] },
+    { name: "Frontend",    skills: ["React", "Next.js", "Redux", "Zustand", "Tailwind CSS", "Framer Motion"] },
     { name: "Backend",     skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"] },
-    { name: "Databases",   skills: ["MongoDB", "PostgreSQL", "Redis"] },
+    { name: "Databases",   skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis"] },
     { name: "DevOps & Deployment", skills: ["Git", "GitHub", "Vercel", "Render", "Docker"] },
     { name: "Tools & Workflow", skills: ["Linux", "Visual Studio Code", "Postman", "CLI"] }
   ];
@@ -38,20 +39,30 @@ export default function ResumePage() {
       <div className="mx-auto max-w-screen-xl px-8 sm:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row lg:gap-20">
 
-          <div className="w-full lg:w-5/12 pt-48 pb-16 lg:pt-48 lg:pb-32 relative">
+          <div className="w-full lg:w-5/12 pt-28 pb-10 lg:pt-48 lg:pb-32 relative">
             <div className="absolute -left-20 top-1/4 w-48 h-48 rounded-full bg-indigo-500/10 dark:bg-indigo-500/5 blur-3xl pointer-events-none" />
 
             <aside className="lg:sticky lg:top-28">
               <div className="relative p-6 sm:p-8 rounded-3xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-xl shadow-lg flex flex-col gap-6 overflow-hidden">
                 <div>
-                  <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
-                    Zain Ul Abidin
-                  </h1>
-                  <p className="text-base sm:text-lg font-medium text-zinc-500 mb-3">
-                    Software Engineer
-                  </p>
-                  
-                  <StatusBadge className="mb-4" />
+                  <div className="flex items-center gap-5 mb-6">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 bg-zinc-200 ring-2 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
+                      <img
+                        src={profilePic}
+                        alt="Zayn Ul Abidin"
+                        className="w-full h-full object-cover transition-all duration-500"
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
+                        Zain Ul Abidin
+                      </h1>
+                      <p className="text-base sm:text-lg font-medium text-zinc-500 mb-3">
+                        Software Engineer
+                      </p>
+                      <StatusBadge className="mb-4" />
+                    </div>
+                  </div>
                   
                   <div className="flex flex-col gap-3 mb-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 font-space">
                     <div className="flex items-center gap-2.5">
@@ -63,7 +74,7 @@ export default function ResumePage() {
                         +92 333 5771397
                       </button>
                       {copiedText === "phone" && (
-                        <span className="text-[10px] text-emerald-500 font-mono">Copied!</span>
+                        <span className="text-xs text-emerald-500 font-mono">Copied!</span>
                       )}
                     </div>
                     <div className="flex items-center gap-2.5">
@@ -75,7 +86,7 @@ export default function ResumePage() {
                         hizainulabidin@gmail.com
                       </button>
                       {copiedText === "email" && (
-                        <span className="text-[10px] text-emerald-500 font-mono">Copied!</span>
+                        <span className="text-xs text-emerald-500 font-mono">Copied!</span>
                       )}
                     </div>
                     <div className="flex items-center gap-2.5">
@@ -120,7 +131,7 @@ export default function ResumePage() {
             </aside>
           </div>
 
-          <main className="lg:w-7/12 flex flex-col gap-24 pt-32 pb-24 lg:pt-48 lg:pb-32">
+          <main className="lg:w-7/12 flex flex-col gap-16 lg:gap-24 pt-8 pb-24 lg:pt-48 lg:pb-32">
             <Education />
 
             <Section title="Technical Skills">

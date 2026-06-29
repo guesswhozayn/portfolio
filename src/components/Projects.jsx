@@ -10,26 +10,26 @@ function ProjectArchitecture({ projectName }) {
       <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
         <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Asynchronous Pipeline Architecture</h4>
         <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               1. Resume Upload
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               2. BullMQ & Redis
             </div>
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="p-3 rounded-xl border border-cyan-500/20 dark:border-cyan-500/30 bg-cyan-500/5 font-bold text-cyan-600 dark:text-cyan-400 text-center">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="w-full p-3 rounded-xl border border-cyan-500/20 dark:border-cyan-500/30 bg-cyan-500/5 font-bold text-cyan-600 dark:text-cyan-400 text-center">
             3. Multi-Agent Audit (Gemini, Llama 3.3, Tavily OSINT Search)
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               4. Socket.io Broker
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               5. Live Dashboard
             </div>
           </div>
@@ -43,26 +43,26 @@ function ProjectArchitecture({ projectName }) {
       <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
         <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Decentralized Credentials Flow</h4>
         <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               1. Issue Claim
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               2. IPFS Storage
             </div>
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="p-3 rounded-xl border border-indigo-500/20 dark:border-indigo-500/30 bg-indigo-500/5 font-bold text-indigo-600 dark:text-indigo-400 text-center">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="w-full p-3 rounded-xl border border-indigo-500/20 dark:border-indigo-500/30 bg-indigo-500/5 font-bold text-indigo-600 dark:text-indigo-400 text-center">
             3. Solidity SBT Minting (Ethereum Smart Contract validation)
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               4. QR Signature Code
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               5. Instant Verifier
             </div>
           </div>
@@ -76,26 +76,26 @@ function ProjectArchitecture({ projectName }) {
       <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
         <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Serverless Checkout & Cart Flow</h4>
         <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               1. Cart Context (LocalStorage)
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               2. Stripe Elements
             </div>
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="p-3 rounded-xl border border-rose-500/20 dark:border-rose-500/30 bg-rose-500/5 font-bold text-rose-600 dark:text-rose-400 text-center">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="w-full p-3 rounded-xl border border-rose-500/20 dark:border-rose-500/30 bg-rose-500/5 font-bold text-rose-600 dark:text-rose-400 text-center">
             3. Serverless Lambda (Stripe API & Payment Intent Confirmation)
           </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400">↓</div>
-          <div className="flex items-center gap-3">
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               4. Customer/Order Record
             </div>
-            <span className="text-zinc-400">→</span>
-            <div className="flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
+            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
+            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
               5. Local Storage Clear & UI Toast
             </div>
           </div>
@@ -191,15 +191,54 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
               className="group/card relative flex flex-col gap-3 p-6 md:p-10 h-full cursor-pointer focus:outline-none"
             >
-              <span className="absolute top-5 right-5 text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono">
+              <span className="absolute top-5 right-5 text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono">
                 View Architecture
               </span>
 
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white pr-28 flex items-center gap-2.5">
                 {project.name === "Attestify" ? (
-                  <span className="font-sans font-black tracking-[-0.05em] lowercase">
-                    attestify<span className="text-indigo-500">.</span>
-                  </span>
+                  <>
+                    <svg
+                      width="20"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-label="Attestify logo"
+                      className="shrink-0"
+                    >
+                      <defs>
+                        <linearGradient id="at-g-front" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                          <stop offset="0%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#4338CA" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M12 2L2 7l10 5 10-5-10-5z"
+                        stroke="url(#at-g-front)"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M2 17l10 5 10-5"
+                        stroke="url(#at-g-front)"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M2 12l10 5 10-5"
+                        stroke="url(#at-g-front)"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="font-sans font-black tracking-[-0.05em] lowercase">
+                      attestify<span className="text-indigo-500">.</span>
+                    </span>
+                  </>
                 ) : project.name === "Picket" ? (
                   <>
                     <svg
