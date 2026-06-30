@@ -57,7 +57,7 @@ export default function Hero() {
         <SocialLink href="https://www.instagram.com/zaynndev" label="Instagram">
           <FiInstagram size={20} />
         </SocialLink>
-        <SocialLink href="mailto:guesswhozayn@gmail.com" label="Email">
+        <SocialLink href="mailto:hizainulabidin@gmail.com" label="Email">
           <FiMail size={20} />
         </SocialLink>
       </div>

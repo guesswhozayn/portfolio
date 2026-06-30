@@ -22,7 +22,7 @@ export default function Contact() {
         </div>
 
         <a
-          href="mailto:guesswhozayn@gmail.com"
+          href="mailto:hizainulabidin@gmail.com"
           className="relative z-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold hover:scale-105 transition-transform shadow-lg shadow-zinc-200 dark:shadow-none"
         >
           Say Hello
