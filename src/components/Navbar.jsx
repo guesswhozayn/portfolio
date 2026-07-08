@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiMoon, FiSun, FiSearch } from "react-icons/fi";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { useState, useEffect } from "react";
+import { usePortfolioStore } from "../store/useStore";
 
 function NavItem({ children, isActive }) {
   return (
@@ -22,6 +23,7 @@ export default function Navbar() {
   const location = useLocation();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [scrolled, setScrolled] = useState(false);
+  const setCommandPaletteOpen = usePortfolioStore((state) => state.setCommandPaletteOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +65,7 @@ export default function Navbar() {
           <div className="w-px h-5 bg-zinc-200 dark:bg-zinc-800 mx-2" />
 
           <button
-            onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
+            onClick={() => setCommandPaletteOpen(true)}
             className="relative p-2 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
             title="Open Search (⌘K)"
           >

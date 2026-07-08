@@ -40,7 +40,7 @@ export default function Hero() {
 
       <div className="flex flex-col gap-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">
         <p>
-          I&apos;m Zayn, a software engineer passionate about crafting high-quality, scalable web applications.
+          I&apos;m Zain, a software engineer passionate about crafting high-quality, scalable web applications.
         </p>
         <p>
           My work combines clean code with modern design principles to deliver seamless user experiences.

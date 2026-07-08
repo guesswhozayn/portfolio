@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import Education from "../components/Education";
 import Contact from "../components/Contact";
 
 export default function HomePage() {
@@ -15,21 +14,11 @@ export default function HomePage() {
     >
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.08),transparent)]" />
 
-      <div className="mx-auto max-w-screen-xl px-8 sm:px-10 lg:px-20">
-        <div className="flex flex-col lg:flex-row lg:gap-20">
-          <div className="w-full lg:w-5/12 pt-28 pb-10 lg:pt-48 lg:pb-32">
-            <aside className="lg:sticky lg:top-28">
-              <Hero />
-            </aside>
-          </div>
-
-          <main className="lg:w-7/12 flex flex-col gap-16 lg:gap-24 pt-8 pb-24 lg:pt-48 lg:pb-32">
-            <Projects />
-            <Skills />
-            <Education />
-            <Contact />
-          </main>
-        </div>
+      <div className="mx-auto max-w-3xl px-6 sm:px-8 pt-28 pb-24 flex flex-col gap-16 sm:gap-20">
+        <Hero />
+        <Projects />
+        <Skills />
+        <Contact />
       </div>
     </motion.div>
   );

@@ -107,7 +107,45 @@ function ProjectArchitecture({ projectName }) {
   return null;
 }
 
+const GLOBE_POINTS = [];
+const latitudes = [-60, -30, 0, 30, 60];
+latitudes.forEach((lat) => {
+  const radLat = (lat * Math.PI) / 180;
+  const cosLat = Math.cos(radLat);
+  const sinLat = Math.sin(radLat);
+  
+  let numPoints = 10;
+  if (Math.abs(lat) === 30) numPoints = 8;
+  if (Math.abs(lat) === 60) numPoints = 6;
+  
+  for (let i = 0; i < numPoints; i++) {
+    const initialLon = (i / numPoints) * 2 * Math.PI;
+    GLOBE_POINTS.push({
+      cosLat,
+      sinLat,
+      initialLon,
+    });
+  }
+});
+
 function SpinningGlobe() {
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    let animationFrameId;
+    const startTime = performance.now();
+    const speed = 0.001; // radians per millisecond
+    
+    const update = (time) => {
+      const elapsed = time - startTime;
+      setRotation(elapsed * speed);
+      animationFrameId = requestAnimationFrame(update);
+    };
+    
+    animationFrameId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
   return (
     <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
       <svg
@@ -119,110 +157,39 @@ function SpinningGlobe() {
         className="text-blue-500 dark:text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
       >
         <g transform="rotate(15 24 24)">
-          {/* Outer circle (slowly rotating) */}
-          <motion.circle
+          {/* Subtle outer sphere boundary */}
+          <circle
             cx="24"
             cy="24"
-            r="22"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeDasharray="3 3"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          />
-          
-          {/* Equator & Latitude lines */}
-          <ellipse
-            cx="24"
-            cy="24"
-            rx="22"
-            ry="6"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeDasharray="2 3"
-            opacity="0.4"
-          />
-          <ellipse
-            cx="24"
-            cy="24"
-            rx="19"
-            ry="14"
+            r="20"
             stroke="currentColor"
             strokeWidth="1"
             strokeDasharray="2 3"
-            opacity="0.25"
+            opacity="0.15"
           />
 
-          {/* Rotating Longitude Ellipses */}
-          <motion.ellipse
-            cx="24"
-            cy="24"
-            ry="22"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            animate={{
-              rx: [22, 0, 22],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
-          <motion.ellipse
-            cx="24"
-            cy="24"
-            ry="22"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            animate={{
-              rx: [0, 22, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
-          <motion.ellipse
-            cx="24"
-            cy="24"
-            ry="22"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            animate={{
-              rx: [11, 22, 11],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.75,
-            }}
-          />
-
-          <motion.ellipse
-            cx="24"
-            cy="24"
-            ry="22"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            animate={{
-              rx: [11, 22, 11],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2.25,
-            }}
-          />
+          {/* Dotted lines grid & points */}
+          {GLOBE_POINTS.map((pt, idx) => {
+            const phi = pt.initialLon + rotation;
+            const x = 19 * pt.cosLat * Math.sin(phi);
+            const y = 19 * pt.sinLat;
+            const z = 19 * pt.cosLat * Math.cos(phi);
+            
+            const normalizedDepth = pt.cosLat > 0 ? (z / (19 * pt.cosLat) + 1) / 2 : 0.5;
+            const opacity = 0.15 + 0.85 * normalizedDepth;
+            const dotRadius = 0.75 + 1.25 * normalizedDepth;
+            
+            return (
+              <circle
+                key={idx}
+                cx={24 + x}
+                cy={24 - y}
+                r={dotRadius}
+                fill="currentColor"
+                opacity={opacity}
+              />
+            );
+          })}
         </g>
       </svg>
     </div>
@@ -250,13 +217,14 @@ export default function Projects() {
     {
       name: "Attestify",
       description:
-        "A decentralized app (DApp) utilizing Ethereum Soulbound Tokens (SBTs) and IPFS to issue permanently verified, unforgeable academic credentials with zero-cost instant QR authentication.",
+        "A full-stack, decentralized credential verification platform using React, Node.js, Express, and MongoDB, leveraging Soulbound Tokens (SBTs) and IPFS for permanent claim validation.",
       longDescription:
-        "Attestify is a Web3-powered academic credentialing platform that eliminates diploma forgery. By mapping academic degrees to non-transferable Soulbound Tokens (SBTs) on the Ethereum blockchain, it creates a tamper-proof verification ledger. Combined with IPFS for decentralized metadata hosting, credentials can be validated instantly via dynamically generated QR codes at zero gas cost.",
+        "Attestify is a Web3-powered academic credentialing platform engineered with React, Node.js, Express, and MongoDB. By mapping academic degrees to non-transferable Soulbound Tokens (SBTs) on the Ethereum blockchain, it creates a tamper-proof verification ledger. Combined with IPFS for decentralized metadata hosting, credentials can be validated instantly via dynamically generated QR codes at zero gas cost.",
       url: "https://attestify-alpha.vercel.app",
       github: "https://github.com/guesswhozayn/attestify",
-      tags: ["Solidity", "IPFS", "React", "Web3"],
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "Solidity", "IPFS", "Web3"],
       keyAchievements: [
+        "Engineered a robust full-stack architecture with React, Express.js, and MongoDB to manage student profiles, document queues, and metadata configurations.",
         "Implemented Gas-Optimized ERC-721 based Soulbound Tokens, ensuring non-transferability and permanent verification.",
         "Integrated IPFS (Pinata) for decentralized metadata hosting, securing student files and transcript data.",
         "Designed a cryptographic authentication scheme for instant, zero-cost QR code validation without executing blockchain read calls directly on-chain."
@@ -265,14 +233,15 @@ export default function Projects() {
     {
       name: "Picket",
       description:
-        "An automated candidate verification and assessment platform. Features an asynchronous multi-agent pipeline (Gemini, Llama 3.3, Tavily) running on BullMQ/Redis to analyze resumes and OSINT footprints, paired with interactive coding challenges backed by behavioral telemetry.",
+        "An automated candidate verification and assessment platform built with React, Node.js, Express, and MongoDB. Features an asynchronous multi-agent pipeline (Gemini, Llama 3.3, Tavily) running on BullMQ/Redis, paired with interactive sandbox challenges.",
       longDescription:
-        "Picket is an AI-native candidate assessment engine that automates multi-channel profile auditing. Using an asynchronous multi-agent queue (Gemini 1.5, Llama 3.3, and Tavily), Picket automatically inspects candidate resumes and correlates public OSINT footprints to verify claims. The platform hosts sandboxed, telemetry-backed coding assessments to evaluate practical problem-solving in real-time.",
+        "Picket is an AI-native candidate assessment engine constructed on the MERN stack (React, Node.js, Express, and MongoDB). Using an asynchronous multi-agent queue (Gemini 1.5, Llama 3.3, and Tavily), Picket automatically inspects candidate resumes and correlates public OSINT footprints to verify claims. The platform hosts sandboxed, telemetry-backed coding assessments to evaluate practical problem-solving in real-time.",
       url: "https://picket-hr.vercel.app",
       github: "https://github.com/guesswhozayn/picket",
-      tags: ["React 19", "Node.js", "Redis", "BullMQ", "LLMs"],
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "Redis", "BullMQ", "LLMs"],
       keyAchievements: [
         "Orchestrated a highly concurrent background pipeline using Node.js, BullMQ, and Redis to process multi-agent tasks asynchronously.",
+        "Utilized MongoDB for fast schema-less candidate profile logging, telemetry analysis reports, and multi-agent validation audit logs.",
         "Engineered behavioral telemetry capture inside the sandboxed code runner, analyzing keyboard patterns, paste events, and tab switches to gauge candidate integrity.",
         "Developed real-time progress broadcasts using Socket.io to stream background agent steps directly to the hiring dashboard."
       ]
@@ -280,13 +249,14 @@ export default function Projects() {
     {
       name: "Homivio",
       description:
-        "A configurable Next.js e-commerce storefront with Stripe Elements checkout, a global React Context cart engine with local persistence, and an inventory management admin dashboard.",
+        "A configurable Next.js and React e-commerce storefront with Stripe Elements checkout, a global React Context cart engine, and a Node.js/Express/MongoDB admin panel and inventory manager.",
       longDescription:
-        "Homivio is a modern e-commerce storefront engineered with Next.js App Router and React 19. It incorporates Stripe Elements for secure end-to-end payment processing, backed by a serverless AWS Lambda handler. State persistence for the cart is managed via a synchronized React Context & LocalStorage pipeline, and the application includes a dedicated administrative panel for local inventory control and mock user authentication.",
+        "Homivio is a modern e-commerce storefront engineered with React 19, Next.js, and a Node.js/Express/MongoDB database system. It incorporates Stripe Elements for secure end-to-end payment processing, backed by a serverless AWS Lambda handler. State persistence for the cart is managed via a synchronized React Context & LocalStorage pipeline, and the application includes a dedicated administrative panel for local inventory control and mock user authentication.",
       url: "https://homivio-ecom.vercel.app",
       github: "https://github.com/guesswhozayn/homivio",
-      tags: ["Next.js", "React 19", "Stripe", "Context API", "Serverless"],
+      tags: ["React 19", "Next.js", "Node.js", "Express.js", "MongoDB", "Stripe", "Context API", "Serverless"],
       keyAchievements: [
+        "Designed a MongoDB schema to manage product inventories, customers, and order records, integrated with an Express.js API layer.",
         "Integrated Stripe SDK and Elements to build a secure checkout flow supporting tokenized payment processing.",
         "Architected a custom state synchronization layer combining React Context with LocalStorage for reactive, persistent shopping carts.",
         "Built a serverless checkout function (AWS Lambda) to verify payments, create customers, and safely process transaction details via Stripe API."
