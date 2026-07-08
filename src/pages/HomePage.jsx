@@ -14,7 +14,7 @@ export default function HomePage() {
     >
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(120,119,198,0.08),transparent)]" />
 
-      <div className="mx-auto max-w-3xl px-6 sm:px-8 pt-28 pb-24 flex flex-col gap-16 sm:gap-20">
+      <div className="mx-auto max-w-3xl px-6 sm:px-8 pt-44 pb-24 flex flex-col gap-20 sm:gap-24">
         <Hero />
         <Projects />
         <Skills />
