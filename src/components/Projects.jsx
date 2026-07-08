@@ -107,6 +107,142 @@ function ProjectArchitecture({ projectName }) {
   return null;
 }
 
+function SpinningGlobe() {
+  return (
+    <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="text-blue-500 dark:text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+      >
+        <g transform="rotate(15 24 24)">
+          {/* Outer circle (slowly rotating) */}
+          <motion.circle
+            cx="24"
+            cy="24"
+            r="22"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeDasharray="3 3"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          />
+          
+          {/* Equator & Latitude lines */}
+          <ellipse
+            cx="24"
+            cy="24"
+            rx="22"
+            ry="6"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeDasharray="2 3"
+            opacity="0.4"
+          />
+          <ellipse
+            cx="24"
+            cy="24"
+            rx="19"
+            ry="14"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="2 3"
+            opacity="0.25"
+          />
+
+          {/* Rotating Longitude Ellipses */}
+          <motion.ellipse
+            cx="24"
+            cy="24"
+            ry="22"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            animate={{
+              rx: [22, 0, 22],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <motion.ellipse
+            cx="24"
+            cy="24"
+            ry="22"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            animate={{
+              rx: [0, 22, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <motion.ellipse
+            cx="24"
+            cy="24"
+            ry="22"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            animate={{
+              rx: [11, 22, 11],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.75,
+            }}
+          />
+
+          <motion.ellipse
+            cx="24"
+            cy="24"
+            ry="22"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            animate={{
+              rx: [11, 22, 11],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2.25,
+            }}
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function ProjectName({ name, className = "" }) {
+  const dotColor =
+    name === "Attestify" ? "text-indigo-500" :
+    name === "Picket" ? "text-cyan-500" :
+    name === "Homivio" ? "text-rose-500" :
+    "text-blue-500";
+
+  return (
+    <span className={`font-eina-semibold tracking-tight lowercase ${className}`}>
+      {name}<span className={dotColor}>.</span>
+    </span>
+  );
+}
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -196,132 +332,8 @@ export default function Projects() {
               </span>
 
               <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white pr-28 flex items-center gap-2.5">
-                {project.name === "Attestify" ? (
-                  <>
-                    <svg
-                      width="20"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-label="Attestify logo"
-                      className="shrink-0"
-                    >
-                      <defs>
-                        <linearGradient id="at-g-front" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                          <stop offset="0%" stopColor="#6366F1" />
-                          <stop offset="100%" stopColor="#4338CA" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M12 2L2 7l10 5 10-5-10-5z"
-                        stroke="url(#at-g-front)"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2 17l10 5 10-5"
-                        stroke="url(#at-g-front)"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2 12l10 5 10-5"
-                        stroke="url(#at-g-front)"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="font-sans font-black tracking-[-0.05em] lowercase">
-                      attestify<span className="text-indigo-500">.</span>
-                    </span>
-                  </>
-                ) : project.name === "Picket" ? (
-                  <>
-                    <svg
-                      width="20"
-                      height="24"
-                      viewBox="0 0 44 54"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-label="Picket logo"
-                      className="shrink-0"
-                    >
-                      <defs>
-                        <linearGradient id="pk-g-back" x1="6" y1="6" x2="20" y2="48" gradientUnits="userSpaceOnUse">
-                          <stop offset="0%" stopColor="#1565C0" />
-                          <stop offset="100%" stopColor="#1E88E5" />
-                        </linearGradient>
-                        <linearGradient id="pk-g-front" x1="22" y1="2" x2="34" y2="46" gradientUnits="userSpaceOnUse">
-                          <stop offset="0%" stopColor="#26C6DA" />
-                          <stop offset="100%" stopColor="#1565C0" />
-                        </linearGradient>
-                      </defs>
-                      <rect
-                        x="4"
-                        y="6"
-                        width="17"
-                        height="40"
-                        rx="8.5"
-                        fill="url(#pk-g-back)"
-                        transform="rotate(14 12.5 26)"
-                      />
-                      <rect
-                        x="20"
-                        y="3"
-                        width="15"
-                        height="38"
-                        rx="7.5"
-                        fill="url(#pk-g-front)"
-                        transform="rotate(-6 27.5 22)"
-                      />
-                    </svg>
-                    <span className="font-sans font-bold tracking-tight lowercase" style={{ letterSpacing: "-0.04em" }}>
-                      picket<span className="text-cyan-500">.</span>
-                    </span>
-                  </>
-                ) : project.name === "Homivio" ? (
-                  <>
-                    <svg
-                      width="20"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-label="Homivio logo"
-                      className="shrink-0"
-                    >
-                      <defs>
-                        <linearGradient id="hv-g-front" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                          <stop offset="0%" stopColor="#F43F5E" />
-                          <stop offset="100%" stopColor="#BE123C" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"
-                        stroke="url(#hv-g-front)"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M9 22V12h6v10"
-                        stroke="url(#hv-g-front)"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="font-eina-semibold tracking-tight lowercase">
-                      homivio<span className="text-rose-500">.</span>
-                    </span>
-                  </>
-                ) : (
-                  project.name
-                )}
+                <SpinningGlobe />
+                <ProjectName name={project.name} />
               </h3>
 
               <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
@@ -363,22 +375,8 @@ export default function Projects() {
             >
               <div className="p-6 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
-                    {selectedProject.name === "Picket" ? (
-                      <span className="font-sans font-bold tracking-tight lowercase text-lg" style={{ letterSpacing: "-0.04em" }}>
-                        picket<span className="text-cyan-500">.</span>
-                      </span>
-                    ) : selectedProject.name === "Attestify" ? (
-                      <span className="font-sans font-black tracking-[-0.05em] lowercase text-lg">
-                        attestify<span className="text-indigo-500">.</span>
-                      </span>
-                    ) : selectedProject.name === "Homivio" ? (
-                      <span className="font-eina-semibold tracking-tight lowercase text-lg">
-                        homivio<span className="text-rose-500">.</span>
-                      </span>
-                    ) : (
-                      selectedProject.name
-                    )}
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center">
+                    <ProjectName name={selectedProject.name} className="text-lg" />
                   </h3>
                   <span className="text-xs font-mono font-medium px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
                     System Architecture
