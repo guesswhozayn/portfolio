@@ -12,14 +12,16 @@ import {
   Command as CommandIcon 
 } from "lucide-react";
 import { useDarkMode } from "../../hooks/useDarkMode";
+import { usePortfolioStore } from "../../store/useStore";
 
 export default function CommandPalette() {
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = usePortfolioStore((state) => state.isCommandPaletteOpen);
+  const setIsOpen = usePortfolioStore((state) => state.setCommandPaletteOpen);
+  const togglePalette = usePortfolioStore((state) => state.toggleCommandPalette);
+  
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-
-  const togglePalette = useCallback(() => setIsOpen(prev => !prev), []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -30,17 +32,11 @@ export default function CommandPalette() {
       if (e.key === "Escape") setIsOpen(false);
     };
 
-    const handleCustomOpen = () => {
-      setIsOpen(true);
-    };
-
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("open-command-palette", handleCustomOpen);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("open-command-palette", handleCustomOpen);
     };
-  }, [togglePalette]);
+  }, [togglePalette, setIsOpen]);
 
   const actions = [
     { id: "home", label: "Go to Home", icon: <Home className="w-4 h-4" />, action: () => navigate("/") },
