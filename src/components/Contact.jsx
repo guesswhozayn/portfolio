@@ -4,10 +4,10 @@ import { FiMail, FiArrowUpRight } from "react-icons/fi";
 export default function Contact() {
   return (
     <Section title="Let's Connect">
-      <div className="group relative p-6 sm:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 overflow-hidden text-center flex flex-col items-center gap-6">
+      <div className="group relative p-6 sm:p-8 md:p-10 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden text-center flex flex-col items-center gap-6">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         
-        <div className="relative p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-white">
+        <div className="relative p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-white">
           <FiMail size={32} />
         </div>
 

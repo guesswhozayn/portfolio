@@ -8,7 +8,7 @@ export default function ResumePage() {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="min-h-screen bg-zinc-50 dark:bg-[#060606] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-300 pt-28 pb-16 px-4 md:px-8"
+      className="min-h-screen bg-zinc-50 dark:bg-[#060606] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-300 pt-36 pb-16 px-4 md:px-8"
     >
       {/* Dynamic print-specific styles */}
       <style dangerouslySetInnerHTML={{ __html: `
