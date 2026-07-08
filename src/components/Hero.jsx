@@ -17,8 +17,8 @@ function SocialLink({ href, children, label }) {
 
 export default function Hero() {
   return (
-    <div className="w-full flex flex-col gap-6">
-      <div className="flex items-center gap-5">
+    <div className="w-full flex flex-col items-center text-center gap-6">
+      <div className="flex flex-col items-center gap-4">
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 bg-zinc-200 ring-2 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
           <img
             src={profilePic}
@@ -26,7 +26,7 @@ export default function Hero() {
             className="w-full h-full object-cover transition-all duration-500"
           />
         </div>
-        <div>
+        <div className="flex flex-col items-center">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2">
             Zain Ul Abidin
           </h1>
@@ -34,7 +34,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl">
+      <div className="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl items-center">
         <p>
           I&apos;m Zain, a software engineer passionate about crafting high-quality, scalable web applications.
         </p>
@@ -43,7 +43,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="flex items-center gap-3 -ml-2 mt-2">
+      <div className="flex items-center justify-center gap-3 mt-2">
         <SocialLink href="https://github.com/guesswhozayn" label="GitHub">
           <FiGithub size={22} />
         </SocialLink>

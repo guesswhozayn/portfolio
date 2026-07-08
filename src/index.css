@@ -10,6 +10,32 @@
 }
 
 @font-face {
+  font-family: "Eina";
+  src: url("/fonts/Eina-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eina";
+  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
+       url("/fonts/Eina-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eina";
+  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
+       url("/fonts/Eina-SemiBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Eina Light";
   src: url("/fonts/Eina-Light.otf") format("opentype");
   font-weight: 300;
@@ -26,10 +52,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Eina Bold";
+  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
+       url("/fonts/Eina-SemiBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Geist", sans-serif;
-  --font-space: "Geist", sans-serif;
+  --font-sans: "Eina", sans-serif;
+  --font-space: "Eina", sans-serif;
   --font-mono: "Geist Mono", monospace;
+  --font-light: "Eina Light", sans-serif;
+  --font-semibold: "Eina SemiBold", sans-serif;
+  --font-bold: "Eina Bold", sans-serif;
   --font-eina: "Eina", sans-serif;
   --font-eina-light: "Eina Light", sans-serif;
   --font-eina-semibold: "Eina SemiBold", sans-serif;

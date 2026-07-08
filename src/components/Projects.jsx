@@ -108,33 +108,40 @@ function ProjectArchitecture({ projectName }) {
 }
 
 const GLOBE_POINTS = [];
-const latitudes = [-60, -30, 0, 30, 60];
+const latitudes = [-45, 0, 45];
 latitudes.forEach((lat) => {
   const radLat = (lat * Math.PI) / 180;
   const cosLat = Math.cos(radLat);
   const sinLat = Math.sin(radLat);
-  
-  let numPoints = 10;
-  if (Math.abs(lat) === 30) numPoints = 8;
-  if (Math.abs(lat) === 60) numPoints = 6;
-  
+  const numPoints = lat === 0 ? 8 : 5;
   for (let i = 0; i < numPoints; i++) {
     const initialLon = (i / numPoints) * 2 * Math.PI;
-    GLOBE_POINTS.push({
-      cosLat,
-      sinLat,
-      initialLon,
-    });
+    GLOBE_POINTS.push({ cosLat, sinLat, initialLon });
   }
 });
 
-function SpinningGlobe() {
+const GLOBE_THEMES = {
+  "Attestify": {
+    colorClass: "text-indigo-500 dark:text-indigo-400",
+    glowStyle: "rgba(99,102,241,0.25)"
+  },
+  "Picket": {
+    colorClass: "text-cyan-500 dark:text-cyan-400",
+    glowStyle: "rgba(6,182,212,0.25)"
+  },
+  "Homivio": {
+    colorClass: "text-rose-500 dark:text-rose-400",
+    glowStyle: "rgba(244,63,94,0.25)"
+  }
+};
+
+function SpinningGlobe({ name }) {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     let animationFrameId;
     const startTime = performance.now();
-    const speed = 0.001; // radians per millisecond
+    const speed = 0.0008;
     
     const update = (time) => {
       const elapsed = time - startTime;
@@ -146,38 +153,53 @@ function SpinningGlobe() {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
+  const theme = GLOBE_THEMES[name] || {
+    colorClass: "text-blue-500 dark:text-blue-400",
+    glowStyle: "rgba(59,130,246,0.25)"
+  };
+
   return (
-    <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
+    <div className="relative w-8 h-8 shrink-0 flex items-center justify-center select-none">
+      <div 
+        className="absolute inset-1 rounded-full blur-[6px] opacity-30 transition-all duration-500"
+        style={{ backgroundColor: theme.glowStyle }}
+      />
       <svg
-        width="24"
-        height="24"
+        width="28"
+        height="28"
         viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-blue-500 dark:text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+        className={`transition-colors duration-500 ${theme.colorClass}`}
       >
         <g transform="rotate(15 24 24)">
-          {/* Subtle outer sphere boundary */}
           <circle
             cx="24"
             cy="24"
             r="20"
             stroke="currentColor"
-            strokeWidth="1"
-            strokeDasharray="2 3"
-            opacity="0.15"
+            strokeWidth="1.2"
+            opacity="0.25"
           />
 
-          {/* Dotted lines grid & points */}
+          <ellipse cx="24" cy="24" rx="20" ry="5.5" stroke="currentColor" strokeWidth="0.8" opacity="0.2" />
+          <ellipse cx="24" cy="15.5" rx="17.3" ry="4.5" stroke="currentColor" strokeWidth="0.8" opacity="0.15" />
+          <ellipse cx="24" cy="32.5" rx="17.3" ry="4.5" stroke="currentColor" strokeWidth="0.8" opacity="0.15" />
+
+          <ellipse cx="24" cy="24" rx={20 * Math.abs(Math.sin(rotation))} ry="20" stroke="currentColor" strokeWidth="1" opacity={0.15 + 0.2 * Math.abs(Math.cos(rotation))} />
+          <ellipse cx="24" cy="24" rx={20 * Math.abs(Math.sin(rotation + Math.PI/3))} ry="20" stroke="currentColor" strokeWidth="1" opacity={0.15 + 0.2 * Math.abs(Math.cos(rotation + Math.PI/3))} />
+          <ellipse cx="24" cy="24" rx={20 * Math.abs(Math.sin(rotation + 2*Math.PI/3))} ry="20" stroke="currentColor" strokeWidth="1" opacity={0.15 + 0.2 * Math.abs(Math.cos(rotation + 2*Math.PI/3))} />
+
           {GLOBE_POINTS.map((pt, idx) => {
             const phi = pt.initialLon + rotation;
-            const x = 19 * pt.cosLat * Math.sin(phi);
-            const y = 19 * pt.sinLat;
-            const z = 19 * pt.cosLat * Math.cos(phi);
+            const x = 19.5 * pt.cosLat * Math.sin(phi);
+            const y = 19.5 * pt.sinLat;
+            const z = 19.5 * pt.cosLat * Math.cos(phi);
             
-            const normalizedDepth = pt.cosLat > 0 ? (z / (19 * pt.cosLat) + 1) / 2 : 0.5;
-            const opacity = 0.15 + 0.85 * normalizedDepth;
-            const dotRadius = 0.75 + 1.25 * normalizedDepth;
+            if (z < 0) return null;
+            
+            const opacity = 0.4 + 0.6 * (z / 19.5);
+            const dotRadius = 1 + 1.2 * (z / 19.5);
             
             return (
               <circle
@@ -297,14 +319,15 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
               className="group/card relative flex flex-col gap-3 p-6 md:p-10 h-full cursor-pointer focus:outline-none"
             >
-              <span className="absolute top-5 right-5 text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono">
-                View Architecture
-              </span>
-
-              <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white pr-28 flex items-center gap-2.5">
-                <SpinningGlobe />
-                <ProjectName name={project.name} />
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white flex items-center gap-2.5">
+                  <SpinningGlobe name={project.name} />
+                  <ProjectName name={project.name} />
+                </h3>
+                <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono self-start sm:self-auto">
+                  View Architecture
+                </span>
+              </div>
 
               <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
                 {project.description}
