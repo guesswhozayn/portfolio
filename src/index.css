@@ -1,78 +1,36 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Eina";
-  src: url("/fonts/Eina.otf") format("opentype"),
-       url("/fonts/Eina.ttf") format("truetype");
+  font-family: "BL Melody Bold";
+  src: url("/fonts/BLMelody-Bold.woff2") format("woff2"),
+       url("/fonts/BLMelody-Bold.woff") format("woff"),
+       url("/fonts/BLMelody-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BL Melody Mono Regular";
+  src: url("/fonts/BLMelodyMono-Regular.woff2") format("woff2"),
+       url("/fonts/BLMelodyMono-Regular.woff") format("woff"),
+       url("/fonts/BLMelodyMono-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Eina";
-  src: url("/fonts/Eina-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Eina";
-  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
-       url("/fonts/Eina-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Eina";
-  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
-       url("/fonts/Eina-SemiBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Eina Light";
-  src: url("/fonts/Eina-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Eina SemiBold";
-  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
-       url("/fonts/Eina-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Eina Bold";
-  src: url("/fonts/Eina-SemiBold.otf") format("opentype"),
-       url("/fonts/Eina-SemiBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
-  --font-sans: "Eina", sans-serif;
-  --font-space: "Eina", sans-serif;
-  --font-mono: "Geist Mono", monospace;
-  --font-light: "Eina Light", sans-serif;
-  --font-semibold: "Eina SemiBold", sans-serif;
-  --font-bold: "Eina Bold", sans-serif;
-  --font-eina: "Eina", sans-serif;
-  --font-eina-light: "Eina Light", sans-serif;
-  --font-eina-semibold: "Eina SemiBold", sans-serif;
+  --font-sans: "BL Melody Bold", sans-serif;
+  --font-space: "BL Melody Bold", sans-serif;
+  --font-mono: "BL Melody Mono Regular", monospace;
+  --font-light: "BL Melody Bold", sans-serif;
+  --font-semibold: "BL Melody Bold", sans-serif;
+  --font-bold: "BL Melody Bold", sans-serif;
+  --font-eina: "BL Melody Bold", sans-serif;
+  --font-eina-light: "BL Melody Bold", sans-serif;
+  --font-eina-semibold: "BL Melody Bold", sans-serif;
 }
-
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -80,10 +38,14 @@
   html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--font-sans), sans-serif;
+    font-family: var(--font-mono), monospace;
     @apply bg-zinc-50 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 transition-colors duration-300;
     position: relative;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans), sans-serif !important;
   }
 
   body::after {
