@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const usePortfolioStore = create((set) => {
-  // Check initial dark mode state from localStorage or system preference
+  
   const getInitialDarkMode = () => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
@@ -15,7 +15,7 @@ export const usePortfolioStore = create((set) => {
 
   const initialDarkMode = getInitialDarkMode();
   
-  // Set the initial theme class on the html document element
+  
   if (typeof window !== "undefined") {
     const root = window.document.documentElement;
     if (initialDarkMode) {

@@ -117,7 +117,7 @@ export default function ResumePage() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="min-h-screen bg-zinc-50 dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 antialiased transition-colors duration-300 pt-36 pb-20 px-4 md:px-8"
     >
-      {/* Dynamic print-specific styles */}
+      
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
           /* Hide all non-printable components */
@@ -167,7 +167,7 @@ export default function ResumePage() {
       `}} />
 
       <div className="mx-auto max-w-[850px]">
-        {/* Top Controls Bar - Hides on Print */}
+        
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8 no-print px-1">
           <Link
             to="/"
@@ -195,12 +195,12 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* INTERACTIVE WEB VIEW (Screen Only)                                         */}
-        {/* ========================================================================= */}
+        
+        
+        
         <div className="print:hidden space-y-12">
           
-          {/* Header Card */}
+          
           <div className="p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/60 dark:bg-zinc-900/30 backdrop-blur-md shadow-sm space-y-5">
             <div className="text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
@@ -244,7 +244,7 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Summary Card */}
+          
           <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/60 dark:bg-zinc-900/30 backdrop-blur-md shadow-sm space-y-3">
             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-mono flex items-center gap-2">
               <FiFileText size={14} /> Summary
@@ -254,7 +254,7 @@ export default function ResumePage() {
             </p>
           </div>
 
-          {/* Technical Skills Group Grid */}
+          
           <div className="space-y-6">
             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-mono flex items-center gap-2 pl-1">
               <FiAward size={14} /> Technical Skills
@@ -291,7 +291,7 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Interactive Animated Experience Timeline */}
+          
           <div className="space-y-6">
             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-mono flex items-center gap-2 pl-1">
               <FiBriefcase size={14} /> Relevant Experience
@@ -311,7 +311,7 @@ export default function ResumePage() {
                     onMouseLeave={() => setHoveredIndex(null)}
                     className="relative"
                   >
-                    {/* Timeline Node Icon/Dot */}
+                    
                     <span
                       className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white dark:bg-zinc-950 border-2 transition-all duration-300 flex items-center justify-center ${
                         isHovered
@@ -326,7 +326,7 @@ export default function ResumePage() {
                       />
                     </span>
 
-                    {/* Content Card */}
+                    
                     <div className="group relative p-5 sm:p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white/50 dark:bg-zinc-900/20 hover:bg-white dark:hover:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                         <div>
@@ -371,7 +371,7 @@ export default function ResumePage() {
                         ))}
                       </ul>
 
-                      {/* Tech Pills */}
+                      
                       <div className="flex flex-wrap gap-1.5 mt-5">
                         {exp.technologies.map((tech) => (
                           <span
@@ -389,7 +389,7 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Education section */}
+          
           <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/60 dark:bg-zinc-900/30 backdrop-blur-md shadow-sm space-y-4">
             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-mono flex items-center gap-2">
               <FiBookOpen size={14} /> Education
@@ -418,7 +418,7 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Publications Section */}
+          
           <div className="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/60 dark:bg-zinc-900/30 backdrop-blur-md shadow-sm space-y-4">
             <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-mono flex items-center gap-2">
               <FiFileText size={14} /> Publications
@@ -467,13 +467,13 @@ export default function ResumePage() {
 
         </div>
 
-        {/* ========================================================================= */}
-        {/* PURE PRINT LAYOUT REPLICA (Hidden on screen, shown only when printing)   */}
-        {/* ========================================================================= */}
+        
+        
+        
         <div className="hidden print:block print-container">
           <article className="font-serif">
             
-            {/* Header: Name & Title */}
+            
             <header className="text-center mb-6">
               <h1 className="print-text-dark text-zinc-900 dark:text-white text-3xl sm:text-4xl font-normal tracking-wide uppercase mb-1 font-serif">
                 Zain Ul Abidin
@@ -481,7 +481,7 @@ export default function ResumePage() {
               <p className="print-text-muted text-zinc-500 dark:text-zinc-400 text-[14px] sm:text-[15px] italic mb-3 font-serif">
                 Software Engineer
               </p>
-              {/* Contact Information Info-bar */}
+              
               <div className="print-text-muted text-zinc-500 dark:text-zinc-400 text-[11px] sm:text-[12px] leading-relaxed flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-serif">
                 <a href="tel:+923335771397" className="hover:text-zinc-900 dark:hover:text-white hover:underline transition-colors">
                   +923335771397
@@ -505,7 +505,7 @@ export default function ResumePage() {
               </div>
             </header>
 
-            {/* Section: Summary */}
+            
             <section className="mb-5">
               <h2 className="print-text-dark text-zinc-900 dark:text-white text-[13px] font-bold uppercase tracking-wider font-serif">
                 Summary
@@ -516,7 +516,7 @@ export default function ResumePage() {
               </p>
             </section>
 
-            {/* Section: Technical Skills */}
+            
             <section className="mb-5">
               <h2 className="print-text-dark text-zinc-900 dark:text-white text-[13px] font-bold uppercase tracking-wider font-serif">
                 Technical Skills
@@ -551,14 +551,14 @@ export default function ResumePage() {
               </div>
             </section>
 
-            {/* Section: Relevant Experience */}
+            
             <section className="mb-5">
               <h2 className="print-text-dark text-zinc-900 dark:text-white text-[13px] font-bold uppercase tracking-wider font-serif">
                 Relevant Experience
               </h2>
               <hr className="print-hr border-t border-zinc-900 dark:border-zinc-100 my-1" />
 
-              {/* Experience Item 1: Picket */}
+              
               <div className="mb-4">
                 <div className="flex justify-between items-baseline font-serif gap-4 mb-0.5">
                   <h3 className="print-text-dark text-zinc-900 dark:text-white text-[12px] font-bold">
@@ -587,7 +587,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              {/* Experience Item 2: Attestify */}
+              
               <div className="mb-4">
                 <div className="flex justify-between items-baseline font-serif gap-4 mb-0.5">
                   <h3 className="print-text-dark text-zinc-900 dark:text-white text-[12px] font-bold">
@@ -616,7 +616,7 @@ export default function ResumePage() {
                 </ul>
               </div>
 
-              {/* Experience Item 3: Homivio */}
+              
               <div className="mb-4">
                 <div className="flex justify-between items-baseline font-serif gap-4 mb-0.5">
                   <h3 className="print-text-dark text-zinc-900 dark:text-white text-[12px] font-bold">
@@ -646,7 +646,7 @@ export default function ResumePage() {
               </div>
             </section>
 
-            {/* Section: Education */}
+            
             <section className="mb-5">
               <h2 className="print-text-dark text-zinc-900 dark:text-white text-[13px] font-bold uppercase tracking-wider font-serif">
                 Education
@@ -677,7 +677,7 @@ export default function ResumePage() {
               </div>
             </section>
 
-            {/* Section: Publications */}
+            
             <section className="mb-2">
               <h2 className="print-text-dark text-zinc-900 dark:text-white text-[13px] font-bold uppercase tracking-wider font-serif">
                 Publications
