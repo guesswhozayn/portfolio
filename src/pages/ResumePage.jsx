@@ -210,7 +210,7 @@ export default function ResumePage() {
                 <p className="text-lg font-eina text-indigo-500 dark:text-indigo-400 mt-1 tracking-wide">Software Engineer</p>
               </div>
               <div className="flex flex-col items-center sm:items-end gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 font-medium">
-                <span className="flex items-center gap-1.5"><FiMapPin /> Chakwal, Pakistan</span>
+                <span className="flex items-center gap-1.5"><FiMapPin /> Islamabad, Pakistan</span>
                 <span className="flex items-center gap-1.5"><FiMail /> hizainulabidin@gmail.com</span>
                 <span className="flex items-center gap-1.5"><FiPhone /> +923335771397</span>
               </div>
