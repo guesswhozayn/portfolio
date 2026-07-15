@@ -250,7 +250,7 @@ export default function ResumePage() {
               <FiFileText size={14} /> Summary
             </h2>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">
-              Software Engineer specializing in building scalable, full-stack web applications. Proficient in crafting responsive frontends with React and Next.js, building robust Node.js backends, and designing efficient database architectures using PostgreSQL and MongoDB. Experienced in streamlining deployment workflows with Docker, CI/CD pipelines, and modern cloud platforms. Eager to contribute clean, scalable code and agile problem-solving to a collaborative engineering team.
+              Software Engineer specializing in building scalable, full-stack web applications. Proficient in crafting responsive frontends with React and Next.js, building robust Node.js backends, and designing efficient database architectures using PostgreSQL and MongoDB. Experienced in streamlining deployment workflows with Docker, CI/CD pipelines, and modern cloud platforms.
             </p>
           </div>
 
