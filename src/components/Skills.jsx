@@ -2,37 +2,50 @@ import Section from "./ui/Section";
 
 export default function Skills() {
   const row1 = [
-    { name: "JavaScript", cat: "Languages", color: "bg-indigo-500" },
-    { name: "TypeScript", cat: "Languages", color: "bg-indigo-500" },
-    { name: "Solidity", cat: "Languages", color: "bg-indigo-500" },
-    { name: "Python", cat: "Languages", color: "bg-indigo-500" },
-    { name: "C++", cat: "Languages", color: "bg-indigo-500" },
-    { name: "React", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "Next.js", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "Tailwind CSS", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "Framer Motion", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "HTML5", cat: "Frontend", color: "bg-emerald-500" },
-    { name: "CSS3", cat: "Frontend", color: "bg-emerald-500" }
+    { name: "JavaScript", color: "bg-indigo-500" },
+    { name: "TypeScript", color: "bg-indigo-500" },
+    { name: "Python", color: "bg-indigo-500" },
+    { name: "React", color: "bg-emerald-500" },
+    { name: "Next.js", color: "bg-emerald-500" },
+    { name: "TailwindCSS", color: "bg-emerald-500" },
+    { name: "Context API", color: "bg-emerald-500" },
+    { name: "Redux Toolkit", color: "bg-emerald-500" },
+    { name: "TanStack Query", color: "bg-emerald-500" },
+    { name: "Zustand", color: "bg-emerald-500" },
+    { name: "VS Code", color: "bg-zinc-400" },
+    { name: "Postman", color: "bg-zinc-400" }
   ];
 
   const row2 = [
-    { name: "Node.js", cat: "Backend", color: "bg-blue-500" },
-    { name: "Express.js", cat: "Backend", color: "bg-blue-500" },
-    { name: "RESTful APIs", cat: "Backend", color: "bg-blue-500" },
-    { name: "GraphQL", cat: "Backend", color: "bg-blue-500" },
-    { name: "MongoDB", cat: "Databases", color: "bg-rose-500" },
-    { name: "PostgreSQL", cat: "Databases", color: "bg-rose-500" },
-    { name: "Redis", cat: "Databases", color: "bg-rose-500" },
+    { name: "Node.js", color: "bg-blue-500" },
+    { name: "Express.js", color: "bg-blue-500" },
+    { name: "REST APIs", color: "bg-blue-500" },
+    { name: "GraphQL", color: "bg-blue-500" },
+    { name: "Socket.io", color: "bg-blue-500" },
+    { name: "BullMQ", color: "bg-blue-500" },
+    { name: "Stripe Payments", color: "bg-blue-500" },
+    { name: "MongoDB", color: "bg-rose-500" },
+    { name: "MySQL", color: "bg-rose-500" },
+    { name: "PostgreSQL", color: "bg-rose-500" },
+    { name: "Redis", color: "bg-rose-500" },
+    { name: "Chrome DevTools", color: "bg-zinc-400" }
   ];
 
   const row3 = [
-    { name: "Git", cat: "DevOps & Deployment", color: "bg-purple-500" },
-    { name: "GitHub", cat: "DevOps & Deployment", color: "bg-purple-500" },
-    { name: "Vercel", cat: "DevOps & Deployment", color: "bg-purple-500" },
-    { name: "Docker", cat: "DevOps & Deployment", color: "bg-purple-500" },
-    { name: "Linux", cat: "Tools & Workflow", color: "bg-zinc-400" },
-    { name: "VS Code", cat: "Tools & Workflow", color: "bg-zinc-400" },
-    { name: "CLI", cat: "Tools & Workflow", color: "bg-zinc-400" },
+    { name: "JWT", color: "bg-cyan-500" },
+    { name: "OAuth", color: "bg-cyan-500" },
+    { name: "Bcrypt", color: "bg-cyan-500" },
+    { name: "RBAC", color: "bg-cyan-500" },
+    { name: "Rate Limiting", color: "bg-cyan-500" },
+    { name: "API Security", color: "bg-cyan-500" },
+    { name: "CI/CD", color: "bg-purple-500" },
+    { name: "Docker", color: "bg-purple-500" },
+    { name: "Linux", color: "bg-purple-500" },
+    { name: "Vercel", color: "bg-purple-500" },
+    { name: "Render", color: "bg-purple-500" },
+    { name: "Git", color: "bg-purple-500" },
+    { name: "GitHub", color: "bg-purple-500" },
+    { name: "CLI", color: "bg-zinc-400" }
   ];
 
   const legends = [
@@ -40,6 +53,7 @@ export default function Skills() {
     { name: "Frontend", color: "bg-emerald-500" },
     { name: "Backend", color: "bg-blue-500" },
     { name: "Databases", color: "bg-rose-500" },
+    { name: "Security", color: "bg-cyan-500" },
     { name: "DevOps", color: "bg-purple-500" },
     { name: "Tools", color: "bg-zinc-400" },
   ];
