@@ -14,8 +14,8 @@ const serviceDetails = {
     ],
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Node.js", "GraphQL"],
     projects: [
-      { id: "homivio", name: "Homivio Commerce" },
-      { id: "picket", name: "Picket Pipeline" }
+      { id: "homivio", name: "Homivio" },
+      { id: "picket", name: "Picket" }
     ]
   },
   "web3": {
@@ -30,7 +30,7 @@ const serviceDetails = {
     ],
     technologies: ["Solidity", "Hardhat", "Foundry", "Ethers.js", "Viem", "Wagmi", "Web3.js"],
     projects: [
-      { id: "attestify", name: "Attestify Verification" }
+      { id: "attestify", name: "Attestify" }
     ]
   },
   "ai": {
@@ -45,7 +45,7 @@ const serviceDetails = {
     ],
     technologies: ["OpenAI API", "LangChain", "Vector DBs", "Python", "Node.js", "LlamaIndex", "Semantic Kernel"],
     projects: [
-      { id: "picket", name: "Picket Pipeline" }
+      { id: "picket", name: "Picket" }
     ]
   },
   "ecommerce": {
@@ -60,7 +60,7 @@ const serviceDetails = {
     ],
     technologies: ["Shopify API", "Stripe API", "Sanity CMS", "Next.js", "GraphQL", "Next Commerce"],
     projects: [
-      { id: "homivio", name: "Homivio Commerce" }
+      { id: "homivio", name: "Homivio" }
     ]
   }
 };
