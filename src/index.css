@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap');
 
 @font-face {
   font-family: "BL Melody Bold";
@@ -21,15 +22,15 @@
 }
 
 @theme {
-  --font-sans: "BL Melody Bold", sans-serif;
-  --font-space: "BL Melody Bold", sans-serif;
-  --font-mono: "BL Melody Mono Regular", monospace;
-  --font-light: "BL Melody Bold", sans-serif;
-  --font-semibold: "BL Melody Bold", sans-serif;
-  --font-bold: "BL Melody Bold", sans-serif;
-  --font-eina: "BL Melody Bold", sans-serif;
-  --font-eina-light: "BL Melody Bold", sans-serif;
-  --font-eina-semibold: "BL Melody Bold", sans-serif;
+  --font-sans: "Nexover", sans-serif;
+  --font-space: "Nexover", sans-serif;
+  --font-mono: "Nexover", monospace;
+  --font-light: "Nexover", sans-serif;
+  --font-semibold: "Nexover", sans-serif;
+  --font-bold: "Nexover", sans-serif;
+  --font-eina: "Nexover", sans-serif;
+  --font-eina-light: "Nexover", sans-serif;
+  --font-eina-semibold: "Nexover", sans-serif;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -38,8 +39,8 @@
   html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--font-mono), monospace;
-    @apply bg-zinc-50 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 transition-colors duration-300;
+    font-family: var(--font-sans), sans-serif;
+    @apply bg-white text-black;
     position: relative;
     overflow-x: hidden;
   }
