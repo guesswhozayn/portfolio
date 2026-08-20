@@ -44,25 +44,39 @@ export default function Hero() {
                 {[client1, client2, client3, client4].map((imgUrl, i) => (
                   <div 
                     key={i} 
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] border-white/15 bg-zinc-900 overflow-hidden shadow-xl relative transition-all duration-300 ease-out hover:scale-110 hover:z-30 hover:border-blue-500" 
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] border-white/15 bg-zinc-900 overflow-hidden shadow-xl relative transition-all duration-300 ease-out hover:scale-110 hover:z-30 hover:border-blue-500 group/avatar" 
                     style={{ zIndex: 10 - i }}
                   >
-                    <img src={imgUrl} alt={`Client ${i + 1}`} className="w-full h-full object-cover" />
+                    <img 
+                      src={imgUrl} 
+                      alt={`Client ${i + 1}`} 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 ease-out cursor-pointer" 
+                    />
                   </div>
                 ))}
               </div>
               
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
+                  {[...Array(4)].map((_, i) => (
                     <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24">
                       <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
                   ))}
-                  <span className="text-[12px] font-black text-white ml-2">5.0</span>
+                  {/* Half Star */}
+                  <svg className="w-4 h-4 text-amber-400" viewBox="0 0 24 24">
+                    <defs>
+                      <linearGradient id="half-star">
+                        <stop offset="50%" stopColor="#fbbf24" />
+                        <stop offset="50%" stopColor="#3f3f46" />
+                      </linearGradient>
+                    </defs>
+                    <path fill="url(#half-star)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <span className="text-[12px] text-zinc-900 ml-2 font-semibold">4.9</span>
                 </div>
-                <span className="text-[10px] tracking-widest text-white/50 uppercase font-black mt-0.5">
-                  Trusted by 20+ global clients
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase mt-0.5 font-medium">
+                  4.9/5 average from 16 projects
                 </span>
               </div>
             </div>

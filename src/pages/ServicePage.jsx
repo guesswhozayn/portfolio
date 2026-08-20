@@ -50,15 +50,15 @@ const serviceDetails = {
   },
   "ecommerce": {
     n: "04",
-    title: "E-Commerce Systems",
-    tagline: "Building fast, high-converting headless storefronts.",
-    overview: "I specialize in constructing headless commerce structures that untangle backend databases from frontend templates. This ensures faster loading speeds, superior search engine optimization (SEO), and customizable shopping experiences.",
+    title: "E-Commerce & Shopify",
+    tagline: "Building fast, high-converting custom Shopify and headless storefronts.",
+    overview: "I specialize in constructing custom Shopify Liquid themes and headless commerce structures that separate backend catalogs from modern frontend interfaces, delivering sub-second loading speeds, superior SEO, and customizable shopping experiences.",
     deliverables: [
-      { title: "Headless Storefront Integration", desc: "Linking Shopify, BigCommerce, or custom catalogs with Next.js/Vite engines to enable instantaneous page transitions." },
-      { title: "Payment Orchestration", desc: "Configuring stripe, multi-currency processing, recurring subscriptions, and secure PCI-compliant checkout streams." },
-      { title: "Custom CMS Integrations", desc: "Setting up Sanity, Contentful, or Strapi to allow marketing teams to manage store layout and blogs without developer assistance." }
+      { title: "Shopify & Headless Development", desc: "Building custom Shopify stores using custom Liquid templating or full headless setups with Next.js/Vite engines for fast rendering." },
+      { title: "Payment Orchestration", desc: "Configuring Stripe, multi-currency processing, checkout flows, and secure transaction webhooks." },
+      { title: "Content Management & CMS", desc: "Integrating Sanity or Strapi alongside Shopify to allow marketing teams to manage assets and product metadata smoothly." }
     ],
-    technologies: ["Shopify API", "Stripe API", "Sanity CMS", "Next.js", "GraphQL", "Next Commerce"],
+    technologies: ["Shopify API", "Liquid", "Stripe API", "Sanity CMS", "Next.js", "GraphQL"],
     projects: [
       { id: "homivio", name: "Homivio" }
     ]

@@ -103,8 +103,8 @@ export default function Footer() {
               {[
                 { name: "LinkedIn", url: "https://linkedin.com/in/z4yn" },
                 { name: "GitHub", url: "https://github.com/guesswhozayn" },
-                { name: "Twitter", url: "https://twitter.com" },
-                { name: "Linktree", url: "https://linktr.ee/guesswhozayn" }
+                { name: "Twitter/X", url: "https://twitter.com" },
+                { name: "Discord", url: "https://discord.gg" }
               ].map((social) => (
                 <a 
                   key={social.name} 

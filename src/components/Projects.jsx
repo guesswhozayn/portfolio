@@ -85,10 +85,10 @@ export default function Projects() {
           {/* MacBook Air Mockup */}
           <div className="w-full transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
             {/* Lid & Screen */}
-            <div className="relative w-full aspect-video bg-black rounded-t-[1.5rem] sm:rounded-t-[2.5rem] border-[4px] sm:border-[16px] border-black overflow-hidden shadow-2xl">
+            <div className="relative w-full aspect-video bg-black rounded-t-[1.5rem] sm:rounded-t-[2.5rem] border-[4px] sm:border-[16px] border-black shadow-2xl">
               
-              {/* MacBook Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-28 h-2.5 sm:h-4 bg-black rounded-b-[4px] sm:rounded-b-[8px] z-30 flex items-center justify-center gap-2 shadow-md">
+              {/* MacBook Notch (Overlap bezel to fix sub-pixel gap) */}
+              <div className="absolute top-[-2px] sm:top-[-4px] left-1/2 -translate-x-1/2 w-16 sm:w-28 h-2.5 sm:h-4 bg-black rounded-b-[4px] sm:rounded-b-[8px] z-30 flex items-center justify-center gap-2 shadow-md">
                 {/* Camera Lens */}
                 <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-900 flex items-center justify-center shadow-inner">
                   <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-blue-500/50" />
@@ -97,54 +97,59 @@ export default function Projects() {
                 <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-emerald-500/80 shadow-[0_0_4px_rgba(16,185,129,0.8)]" />
               </div>
 
-              {/* Glass Screen Glare Reflection */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.07] pointer-events-none z-25" />
+              {/* Inner screen container to handle clipping cleanly */}
+              <div className="absolute inset-0 overflow-hidden rounded-t-[1.2rem] sm:rounded-t-[2.2rem]">
+                {/* Glass Screen Glare Reflection */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.07] pointer-events-none z-20" />
 
-              {/* Screen Content - Horizontal Scroll Snap */}
-              <div 
-                ref={scrollRef}
-                onScroll={handleScroll}
-                className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
-                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-              >
-              {projects.map((proj, idx) => {
-                return (
-                  <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
-                    <img 
-                      src={proj.img} 
-                      alt={proj.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-1000" 
-                    />
-                    {/* Subtle inner shadow to simulate screen bezel depth */}
-                    <div className="absolute inset-0 border border-white/5 pointer-events-none z-15" />
-                    
-                    {/* Hover Overlay with Case Study / Live Site links */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
-                      <Link 
-                        to={`/project/${proj.id}`}
-                        className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
-                      >
-                        Case Study
-                      </Link>
-                      <a 
-                        href={proj.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
-                      >
-                        Live Site ↗
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
+                {/* Screen Content - Horizontal Scroll Snap */}
+                <div 
+                  ref={scrollRef}
+                  onScroll={handleScroll}
+                  className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
+                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                >
+                  {projects.map((proj, idx) => {
+                    return (
+                      <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
+                        <img 
+                          src={proj.img} 
+                          alt={proj.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                        />
+                        {/* Subtle inner shadow to simulate screen bezel depth */}
+                        <div className="absolute inset-0 border border-white/5 pointer-events-none z-15" />
+                        
+                        {/* Hover Overlay with Case Study / Live Site links */}
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
+                          <Link 
+                            to={`/project/${proj.id}`}
+                            className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
+                          >
+                            Case Study
+                          </Link>
+                          <a 
+                            href={proj.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
+                          >
+                            Live Site ↗
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-          
-          {/* Base / Keyboard Deck */}
-          <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
-            {/* Trackpad notch */}
-            <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
+
+            {/* Base / Keyboard Deck */}
+            <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
+              {/* Trackpad notch */}
+              <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
+            </div>
+
           </div>
         </div>
 
@@ -182,8 +187,6 @@ export default function Projects() {
         </span>
       </div>
 
-      </div>
-      
       {/* Hide scrollbar globally for the screen container */}
       <style dangerouslySetInnerHTML={{__html: `
         .scrollbar-hide::-webkit-scrollbar {
