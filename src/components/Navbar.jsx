@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navItems = [
-    { name: "About Us", path: "#about" },
+    { name: "About Me", path: "#about" },
     { name: "Services", path: "#services" },
     { name: "Project", path: "#work" },
     { name: "FAQ", path: "#faq" },

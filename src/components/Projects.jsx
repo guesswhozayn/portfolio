@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import homivioImg from "../assets/img/homivio-desktop.png";
 import attestifyImg from "../assets/img/attestify-desktop.png";
 import picketImg from "../assets/img/picket-desktop.png";
@@ -6,22 +7,32 @@ import picketImg from "../assets/img/picket-desktop.png";
 export default function Projects() {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIframe, setActiveIframe] = useState({});
 
   const projects = [
     {
+      id: "homivio",
       title: "Homivio Commerce",
       category: "E-Commerce Architecture",
-      img: homivioImg
+      teaser: "A high-performance storefront optimized for sub-second page rendering and massive client traffic concurrency.",
+      img: homivioImg,
+      liveUrl: "https://homivio-ecom.vercel.app"
     },
     {
-      title: "Attestify",
-      category: "Web3 Verification",
-      img: attestifyImg
+      id: "attestify",
+      title: "Attestify Verification",
+      category: "Web3 Verification Engine",
+      teaser: "Decentralized document and credential attestation system built using secure Ethereum smart contracts.",
+      img: attestifyImg,
+      liveUrl: "https://attestify-alpha.vercel.app"
     },
     {
+      id: "picket",
       title: "Picket Pipeline",
       category: "AI Agent Engine",
-      img: picketImg
+      teaser: "An automated HR screening pipeline powered by multi-agent reasoning chains and vector search indexing.",
+      img: picketImg,
+      liveUrl: "https://picket-hr.vercel.app"
     }
   ];
 
@@ -43,60 +54,176 @@ export default function Projects() {
     <div className="w-full bg-white text-black py-24 sm:py-32" id="work">
       <div className="max-w-[1400px] mx-auto flex flex-col gap-12 px-8">
         
-        <div className="flex flex-col sm:flex-row justify-between items-end border-b border-zinc-200 pb-4">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col sm:flex-row justify-between items-end border-b border-zinc-100 pb-6 gap-6">
+          <div className="flex flex-col gap-2 max-w-[600px]">
             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">Selected Work</span>
-            <h2 className="text-3xl font-bold tracking-tight text-black">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black transition-all duration-300">
               {projects[activeIndex]?.title || "Project Showcase"}
             </h2>
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-400">
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue-600">
               {projects[activeIndex]?.category || ""}
             </span>
+            <p className="text-sm text-zinc-500 mt-2 leading-relaxed transition-all duration-500">
+              {projects[activeIndex]?.teaser || ""}
+            </p>
           </div>
           
-          {/* Custom Navigation Dots */}
-          <div className="flex gap-2 mt-4 sm:mt-0">
+          {/* Custom Navigation Dots - Blue Accent and Expand transition */}
+          <div className="flex gap-2 mt-4 sm:mt-0 items-center">
             {projects.map((_, idx) => (
               <button 
                 key={idx}
                 onClick={() => scrollTo(idx)}
-                className={`w-12 h-1 rounded-full transition-colors duration-300 ${activeIndex === idx ? "bg-black" : "bg-zinc-200"}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ease-out ${activeIndex === idx ? "w-14 bg-blue-600" : "w-8 bg-zinc-200 hover:bg-zinc-300"}`}
                 aria-label={`Go to project ${idx + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* MacBook Air Mockup */}
-        <div className="w-full max-w-[1000px] mx-auto mt-8 transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
-          {/* Lid & Screen */}
-          <div className="relative w-full aspect-video bg-black rounded-t-[1rem] sm:rounded-t-[2rem] border-[4px] sm:border-[16px] border-black overflow-hidden shadow-2xl">
-            {/* Screen Content - Horizontal Scroll Snap */}
-            <div 
-              ref={scrollRef}
-              onScroll={handleScroll}
-              className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              {projects.map((proj, idx) => (
-                <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
-                  <img 
-                    src={proj.img} 
-                    alt={proj.title}
-                    className="w-full h-full object-cover object-center transition-transform duration-1000" 
-                  />
-                  {/* Subtle inner shadow to simulate screen bezel depth */}
-                  <div className="absolute inset-0 border border-white/5 pointer-events-none" />
+        {/* Laptop Container Wrapper */}
+        <div className="relative w-full max-w-[1000px] mx-auto mt-8 group/mockup">
+          {/* MacBook Air Mockup */}
+          <div className="w-full transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+            {/* Lid & Screen */}
+            <div className="relative w-full aspect-video bg-black rounded-t-[1.5rem] sm:rounded-t-[2.5rem] border-[4px] sm:border-[16px] border-black overflow-hidden shadow-2xl">
+              
+              {/* MacBook Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-28 h-2.5 sm:h-4 bg-black rounded-b-[4px] sm:rounded-b-[8px] z-30 flex items-center justify-center gap-2 shadow-md">
+                {/* Camera Lens */}
+                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-900 flex items-center justify-center shadow-inner">
+                  <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-blue-500/50" />
                 </div>
-              ))}
+                {/* Green Indicator Light */}
+                <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-emerald-500/80 shadow-[0_0_4px_rgba(16,185,129,0.8)]" />
+              </div>
+
+              {/* Glass Screen Glare Reflection */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.07] pointer-events-none z-25" />
+
+              {/* Screen Content - Horizontal Scroll Snap */}
+              <div 
+                ref={scrollRef}
+                onScroll={handleScroll}
+                className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {projects.map((proj, idx) => {
+                  const isBrowsing = activeIframe[proj.id];
+
+                  return (
+                    <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
+                      {isBrowsing ? (
+                        <div className="w-full h-full flex flex-col bg-white select-none">
+                          {/* Mini Browser Bar */}
+                          <div className="w-full bg-[#f1f1f2] border-b border-zinc-200 py-1.5 px-3 flex items-center justify-between gap-4 z-20 shrink-0">
+                            <div className="flex gap-1.5">
+                              <button 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveIframe(prev => ({ ...prev, [proj.id]: false }));
+                                }}
+                                className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-500 transition-colors flex items-center justify-center text-[7px] text-red-950 font-bold"
+                              >
+                                ✕
+                              </button>
+                              <div className="w-3 h-3 rounded-full bg-zinc-300" />
+                              <div className="w-3 h-3 rounded-full bg-zinc-300" />
+                            </div>
+                            <a 
+                              href={proj.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-white border border-zinc-200/60 rounded px-4 py-0.5 text-[9px] text-blue-600 hover:text-blue-700 select-none truncate max-w-[200px] sm:max-w-[300px] mx-auto text-center font-mono flex items-center gap-1 shadow-sm hover:shadow transition-all"
+                              title="Open in new tab if page refuses to load"
+                            >
+                              <span>{proj.liveUrl.replace("https://", "")}</span>
+                              <span className="text-[7px]">↗</span>
+                            </a>
+                            <div className="w-[40px] shrink-0 text-right">
+                              <button 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveIframe(prev => ({ ...prev, [proj.id]: false }));
+                                }}
+                                className="text-[10px] font-bold text-blue-600 hover:underline"
+                              >
+                                Exit
+                              </button>
+                            </div>
+                          </div>
+                          {/* Live Frame */}
+                          <iframe 
+                            src={proj.liveUrl} 
+                            className="w-full flex-1 border-none bg-white z-10"
+                            title={proj.title}
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          <img 
+                            src={proj.img} 
+                            alt={proj.title}
+                            className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                          />
+                          {/* Subtle inner shadow to simulate screen bezel depth */}
+                          <div className="absolute inset-0 border border-white/5 pointer-events-none z-15" />
+                          
+                          {/* Hover Overlay with Case Study / Live Preview buttons */}
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
+                            <Link 
+                              to={`/project/${proj.id}`}
+                              className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
+                            >
+                              Case Study
+                            </Link>
+                            <button 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveIframe(prev => ({ ...prev, [proj.id]: true }));
+                              }}
+                              className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
+                            >
+                              Live Preview
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            {/* Base / Keyboard Deck */}
+            <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
+              {/* Trackpad notch */}
+              <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
             </div>
           </div>
+
+          {/* Floating Nav Arrows (Show on Hover of Mockup) */}
+          <button 
+            onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            className="absolute left-[-20px] lg:left-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
+            aria-label="Previous Project"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform duration-300">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
           
-          {/* Base / Keyboard Deck */}
-          <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
-            {/* Trackpad notch */}
-            <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
-          </div>
+          <button 
+            onClick={() => activeIndex < projects.length - 1 && scrollTo(activeIndex + 1)}
+            disabled={activeIndex === projects.length - 1}
+            className="absolute right-[-20px] lg:right-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
+            aria-label="Next Project"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform duration-300">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
         </div>
         
         {/* Instructions */}
@@ -105,7 +232,7 @@ export default function Projects() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-            Scroll inside screen to view more
+            Scroll inside screen or use arrows to view more
           </span>
         </div>
 
