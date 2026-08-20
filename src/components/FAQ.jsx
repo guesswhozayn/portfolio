@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaLinkedinIn, FaGithub, FaDiscord, FaXTwitter } from "react-icons/fa6";
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(null);
@@ -17,27 +18,22 @@ export default function FAQ() {
     {
       name: "LinkedIn",
       url: "https://linkedin.com/in/z4yn",
-      path: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z"
+      icon: FaLinkedinIn
     },
     {
       name: "Twitter/X",
       url: "https://twitter.com",
-      path: "M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+      icon: FaXTwitter
     },
     {
-      name: "Telegram",
-      url: "https://t.me",
-      path: "M9 18l6-10-14 4 4 1 5-4-3 5z"
-    },
-    {
-      name: "YouTube",
-      url: "https://youtube.com",
-      path: "M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z M9.75 15.02l5.75-3.27-5.75-3.27v6.54z"
+      name: "Discord",
+      url: "https://discord.com/users/guesswhozayn",
+      icon: FaDiscord
     },
     {
       name: "GitHub",
       url: "https://github.com/guesswhozayn",
-      path: "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3 11a2 2 0 0 1-2 2h-2v-4h2a2 2 0 0 1 2 2zm-4-4h-2v10h2zm-2-8a8 8 0 1 1-8 8 8 8 0 0 1 8-8z"
+      icon: FaGithub
     }
   ];
 
@@ -64,20 +60,21 @@ export default function FAQ() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-3 relative z-10">
-            {socialLinks.map((social) => (
-              <a 
-                key={social.name} 
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-12 h-12 rounded-full border border-white/10 hover:bg-white/5 transition-colors flex items-center justify-center text-white"
-                title={social.name}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d={social.path} />
-                </svg>
-              </a>
-            ))}
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a 
+                  key={social.name} 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-12 h-12 rounded-full border border-white/10 hover:bg-white/5 transition-colors flex items-center justify-center text-white"
+                  title={social.username ? `${social.name}: ${social.username}` : social.name}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
           </div>
         </div>
 

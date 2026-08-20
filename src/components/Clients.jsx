@@ -80,7 +80,7 @@ export default function Clients() {
                   <img 
                     src={t.avatar} 
                     alt={t.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" 
                   />
                 </div>
                 <div className="space-y-1">

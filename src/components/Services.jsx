@@ -26,9 +26,9 @@ export default function Services() {
     { 
       n: "04", 
       slug: "ecommerce",
-      title: "E-Commerce", 
-      desc: "Creating conversion-optimized headless storefronts and optimizing payment structures for checkout systems.",
-      tags: ["Headless", "Stripe", "Optimization"] 
+      title: "E-Commerce & Shopify", 
+      desc: "Creating conversion-optimized headless storefronts, custom Shopify stores, and high-performance payment setups.",
+      tags: ["Shopify", "Headless", "Stripe"] 
     }
   ];
 

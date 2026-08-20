@@ -8,10 +8,8 @@ export default function About() {
         
         <div className="w-full lg:w-[85%] flex flex-col gap-16">
           <h2 className="text-3xl sm:text-[4rem] lg:text-[4.5rem] font-bold tracking-tight leading-[1.05] text-black max-w-[1000px]">
-            I build <span className="bg-gradient-to-r from-black via-zinc-800 to-blue-600 bg-clip-text text-transparent">scalable</span> <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-black via-zinc-800 to-blue-600 bg-clip-text text-transparent">full-stack applications</span> <br className="hidden sm:inline" />
-            and integrate <span className="bg-gradient-to-r from-black via-zinc-800 to-blue-600 bg-clip-text text-transparent">advanced</span> <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-black via-zinc-800 to-blue-600 bg-clip-text text-transparent">systems</span> into modern <br className="hidden sm:inline" />
+            I build <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">scalable full-stack applications</span> <br className="hidden sm:inline" />
+            and integrate <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">advanced systems</span> into modern <br className="hidden sm:inline" />
             software architectures.
           </h2>
 
