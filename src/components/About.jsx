@@ -1,6 +1,4 @@
-
-
-export default function Mission() {
+export default function About() {
   return (
     <div className="w-full bg-white text-black py-24 sm:py-32 px-8">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">

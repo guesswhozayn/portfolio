@@ -1,6 +1,6 @@
 import zaynImg from "../assets/img/img.jpg";
 
-export default function Featured() {
+export default function Spotlight() {
   return (
     <div className="w-full bg-white text-black py-16 px-8">
       <div className="max-w-[1400px] mx-auto">
@@ -32,15 +32,13 @@ export default function Featured() {
             </a>
           </div>
 
-          {/* Right Column: Profile Pic on Side */}
-          <div className="relative z-20 shrink-0 flex justify-center items-center">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] transform group-hover:-translate-y-2 group-hover:scale-[1.02] transition-all duration-700 ease-out border-4 border-white/10 relative">
-              <img 
-                src={zaynImg} 
-                alt="Zain ul Abidin" 
-                className="w-full h-full object-cover object-center mix-blend-luminosity opacity-85 group-hover:opacity-100 transition-all duration-700 ease-out" 
-              />
-            </div>
+          {/* Right Column: Circular Portrait Image */}
+          <div className="relative z-20 shrink-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[6px] border-white/10 overflow-hidden shadow-2xl transition-transform duration-700 ease-out group-hover:scale-[1.03] group-hover:border-white/25">
+            <img 
+              src={zaynImg} 
+              alt="Zain ul Abidin"
+              className="w-full h-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
           </div>
 
         </div>
