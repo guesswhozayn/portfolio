@@ -7,7 +7,6 @@ import picketImg from "../assets/img/picket-desktop.png";
 export default function Projects() {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeIframe, setActiveIframe] = useState({});
 
   const projects = [
     {
@@ -108,133 +107,80 @@ export default function Projects() {
                 className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               >
-                {projects.map((proj, idx) => {
-                  const isBrowsing = activeIframe[proj.id];
-
-                  return (
-                    <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
-                      {isBrowsing ? (
-                        <div className="w-full h-full flex flex-col bg-white select-none">
-                          {/* Mini Browser Bar */}
-                          <div className="w-full bg-[#f1f1f2] border-b border-zinc-200 py-1.5 px-3 flex items-center justify-between gap-4 z-20 shrink-0">
-                            <div className="flex gap-1.5">
-                              <button 
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setActiveIframe(prev => ({ ...prev, [proj.id]: false }));
-                                }}
-                                className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-500 transition-colors flex items-center justify-center text-[7px] text-red-950 font-bold"
-                              >
-                                ✕
-                              </button>
-                              <div className="w-3 h-3 rounded-full bg-zinc-300" />
-                              <div className="w-3 h-3 rounded-full bg-zinc-300" />
-                            </div>
-                            <a 
-                              href={proj.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="bg-white border border-zinc-200/60 rounded px-4 py-0.5 text-[9px] text-blue-600 hover:text-blue-700 select-none truncate max-w-[200px] sm:max-w-[300px] mx-auto text-center font-mono flex items-center gap-1 shadow-sm hover:shadow transition-all"
-                              title="Open in new tab if page refuses to load"
-                            >
-                              <span>{proj.liveUrl.replace("https://", "")}</span>
-                              <span className="text-[7px]">↗</span>
-                            </a>
-                            <div className="w-[40px] shrink-0 text-right">
-                              <button 
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setActiveIframe(prev => ({ ...prev, [proj.id]: false }));
-                                }}
-                                className="text-[10px] font-bold text-blue-600 hover:underline"
-                              >
-                                Exit
-                              </button>
-                            </div>
-                          </div>
-                          {/* Live Frame */}
-                          <iframe 
-                            src={proj.liveUrl} 
-                            className="w-full flex-1 border-none bg-white z-10"
-                            title={proj.title}
-                          />
-                        </div>
-                      ) : (
-                        <>
-                          <img 
-                            src={proj.img} 
-                            alt={proj.title}
-                            className="w-full h-full object-cover object-center transition-transform duration-1000" 
-                          />
-                          {/* Subtle inner shadow to simulate screen bezel depth */}
-                          <div className="absolute inset-0 border border-white/5 pointer-events-none z-15" />
-                          
-                          {/* Hover Overlay with Case Study / Live Preview buttons */}
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
-                            <Link 
-                              to={`/project/${proj.id}`}
-                              className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
-                            >
-                              Case Study
-                            </Link>
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveIframe(prev => ({ ...prev, [proj.id]: true }));
-                              }}
-                              className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
-                            >
-                              Live Preview
-                            </button>
-                          </div>
-                        </>
-                      )}
+              {projects.map((proj, idx) => {
+                return (
+                  <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
+                    <img 
+                      src={proj.img} 
+                      alt={proj.title}
+                      className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                    />
+                    {/* Subtle inner shadow to simulate screen bezel depth */}
+                    <div className="absolute inset-0 border border-white/5 pointer-events-none z-15" />
+                    
+                    {/* Hover Overlay with Case Study / Live Site links */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
+                      <Link 
+                        to={`/project/${proj.id}`}
+                        className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
+                      >
+                        Case Study
+                      </Link>
+                      <a 
+                        href={proj.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
+                      >
+                        Live Site ↗
+                      </a>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-            
-            {/* Base / Keyboard Deck */}
-            <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
-              {/* Trackpad notch */}
-              <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
+                  </div>
+                );
+              })}
             </div>
           </div>
-
-          {/* Floating Nav Arrows (Show on Hover of Mockup) */}
-          <button 
-            onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
-            disabled={activeIndex === 0}
-            className="absolute left-[-20px] lg:left-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
-            aria-label="Previous Project"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform duration-300">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
           
-          <button 
-            onClick={() => activeIndex < projects.length - 1 && scrollTo(activeIndex + 1)}
-            disabled={activeIndex === projects.length - 1}
-            className="absolute right-[-20px] lg:right-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
-            aria-label="Next Project"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform duration-300">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
+          {/* Base / Keyboard Deck */}
+          <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
+            {/* Trackpad notch */}
+            <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
+          </div>
         </div>
+
+        {/* Floating Nav Arrows (Show on Hover of Mockup) */}
+        <button 
+          onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
+          disabled={activeIndex === 0}
+          className="absolute left-[-20px] lg:left-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
+          aria-label="Previous Project"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform duration-300">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
         
-        {/* Instructions */}
-        <div className="flex justify-center mt-4">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-            Scroll inside screen or use arrows to view more
-          </span>
-        </div>
+        <button 
+          onClick={() => activeIndex < projects.length - 1 && scrollTo(activeIndex + 1)}
+          disabled={activeIndex === projects.length - 1}
+          className="absolute right-[-20px] lg:right-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
+          aria-label="Next Project"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform duration-300">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+      
+      {/* Instructions */}
+      <div className="flex justify-center mt-4">
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 flex items-center gap-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          Scroll screen or use arrows to view more
+        </span>
+      </div>
 
       </div>
       
