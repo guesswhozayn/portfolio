@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <CommandPalette />
         <Suspense fallback={
-          <div className="min-h-screen bg-zinc-50 dark:bg-[#0a0a0a] transition-colors duration-300" />
+          <div className="min-h-screen bg-white transition-colors duration-300" />
         }>
           <Routes>
             <Route path="/" element={<HomePage />} />

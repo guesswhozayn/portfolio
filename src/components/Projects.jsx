@@ -1,334 +1,122 @@
-import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { FiExternalLink, FiGithub, FiX } from "react-icons/fi";
-import Section from "./ui/Section";
-import InteractiveCard from "./ui/InteractiveCard";
-
-function ProjectArchitecture({ projectName }) {
-  if (projectName === "Picket") {
-    return (
-      <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
-        <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Asynchronous Pipeline Architecture</h4>
-        <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              1. Resume Upload
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              2. BullMQ & Redis
-            </div>
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="w-full p-3 rounded-xl border border-cyan-500/20 dark:border-cyan-500/30 bg-cyan-500/5 font-bold text-cyan-600 dark:text-cyan-400 text-center">
-            3. Multi-Agent Audit (Gemini, Llama 3.3, Tavily OSINT Search)
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              4. Socket.io Broker
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              5. Live Dashboard
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (projectName === "Attestify") {
-    return (
-      <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
-        <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Decentralized Credentials Flow</h4>
-        <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              1. Issue Claim
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              2. IPFS Storage
-            </div>
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="w-full p-3 rounded-xl border border-indigo-500/20 dark:border-indigo-500/30 bg-indigo-500/5 font-bold text-indigo-600 dark:text-indigo-400 text-center">
-            3. Solidity SBT Minting (Ethereum Smart Contract validation)
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              4. QR Signature Code
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              5. Instant Verifier
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (projectName === "Homivio") {
-    return (
-      <div className="flex flex-col gap-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
-        <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">Serverless Checkout & Cart Flow</h4>
-        <div className="flex flex-col gap-4 font-mono text-xs">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              1. Cart Context (LocalStorage)
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              2. Stripe Elements
-            </div>
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="w-full p-3 rounded-xl border border-rose-500/20 dark:border-rose-500/30 bg-rose-500/5 font-bold text-rose-600 dark:text-rose-400 text-center">
-            3. Serverless Lambda (Stripe API & Payment Intent Confirmation)
-          </div>
-          <div className="flex items-center justify-center py-0.5 text-zinc-400 select-none">↓</div>
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              4. Customer/Order Record
-            </div>
-            <span className="text-zinc-400 rotate-90 sm:rotate-0 select-none">→</span>
-            <div className="w-full sm:flex-1 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-bold text-zinc-800 dark:text-zinc-200">
-              5. Local Storage Clear & UI Toast
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
-}
-
-function ProjectName({ name, className = "" }) {
-  const dotColor =
-    name === "Attestify" ? "text-indigo-500" :
-    name === "Picket" ? "text-cyan-500" :
-    name === "Homivio" ? "text-rose-500" :
-    "text-blue-500";
-
-  return (
-    <span className={`font-eina-semibold tracking-tight lowercase ${className}`}>
-      {name}<span className={dotColor}>.</span>
-    </span>
-  );
-}
+import { useState, useRef } from "react";
+import homivioImg from "../assets/img/homivio-desktop.png";
+import attestifyImg from "../assets/img/attestify-desktop.png";
+import picketImg from "../assets/img/picket-desktop.png";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
     {
-      name: "Attestify",
-      description:
-        "A full-stack, decentralized credential verification platform using React, Node.js, Express, and MongoDB, leveraging Soulbound Tokens (SBTs) and IPFS for permanent claim validation.",
-      longDescription:
-        "Attestify is a Web3-powered academic credentialing platform engineered with React, Node.js, Express, and MongoDB. By mapping academic degrees to non-transferable Soulbound Tokens (SBTs) on the Ethereum blockchain, it creates a tamper-proof verification ledger. Combined with IPFS for decentralized metadata hosting, credentials can be validated instantly via dynamically generated QR codes at zero gas cost.",
-      url: "https://attestify-alpha.vercel.app",
-      github: "https://github.com/guesswhozayn/attestify",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Solidity", "IPFS", "Web3"],
-      keyAchievements: [
-        "Engineered a robust full-stack architecture with React, Express.js, and MongoDB to manage student profiles, document queues, and metadata configurations.",
-        "Implemented Gas-Optimized ERC-721 based Soulbound Tokens, ensuring non-transferability and permanent verification.",
-        "Integrated IPFS (Pinata) for decentralized metadata hosting, securing student files and transcript data.",
-        "Designed a cryptographic authentication scheme for instant, zero-cost QR code validation without executing blockchain read calls directly on-chain."
-      ]
+      title: "Homivio Commerce",
+      category: "E-Commerce Architecture",
+      img: homivioImg
     },
     {
-      name: "Picket",
-      description:
-        "An automated candidate verification and assessment platform built with React, Node.js, Express, and MongoDB. Features an asynchronous multi-agent pipeline (Gemini, Llama 3.3, Tavily) running on BullMQ/Redis, paired with interactive sandbox challenges.",
-      longDescription:
-        "Picket is an AI-native candidate assessment engine constructed on the MERN stack (React, Node.js, Express, and MongoDB). Using an asynchronous multi-agent queue (Gemini 1.5, Llama 3.3, and Tavily), Picket automatically inspects candidate resumes and correlates public OSINT footprints to verify claims. The platform hosts sandboxed, telemetry-backed coding assessments to evaluate practical problem-solving in real-time.",
-      url: "https://picket-hr.vercel.app",
-      github: "https://github.com/guesswhozayn/picket",
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "Redis", "BullMQ", "LLMs"],
-      keyAchievements: [
-        "Orchestrated a highly concurrent background pipeline using Node.js, BullMQ, and Redis to process multi-agent tasks asynchronously.",
-        "Utilized MongoDB for fast schema-less candidate profile logging, telemetry analysis reports, and multi-agent validation audit logs.",
-        "Engineered behavioral telemetry capture inside the sandboxed code runner, analyzing keyboard patterns, paste events, and tab switches to gauge candidate integrity.",
-        "Developed real-time progress broadcasts using Socket.io to stream background agent steps directly to the hiring dashboard."
-      ]
+      title: "Attestify",
+      category: "Web3 Verification",
+      img: attestifyImg
     },
     {
-      name: "Homivio",
-      description:
-        "A configurable Next.js and React e-commerce storefront with Stripe Elements checkout, a global React Context cart engine, and a Node.js/Express/MongoDB admin panel and inventory manager.",
-      longDescription:
-        "Homivio is a modern e-commerce storefront engineered with React 19, Next.js, and a Node.js/Express/MongoDB database system. It incorporates Stripe Elements for secure end-to-end payment processing, backed by a serverless AWS Lambda handler. State persistence for the cart is managed via a synchronized React Context & LocalStorage pipeline, and the application includes a dedicated administrative panel for local inventory control and mock user authentication.",
-      url: "https://homivio-ecom.vercel.app",
-      github: "https://github.com/guesswhozayn/homivio",
-      tags: ["React 19", "Next.js", "Node.js", "Express.js", "MongoDB", "Stripe", "Context API", "Serverless"],
-      keyAchievements: [
-        "Designed a MongoDB schema to manage product inventories, customers, and order records, integrated with an Express.js API layer.",
-        "Integrated Stripe SDK and Elements to build a secure checkout flow supporting tokenized payment processing.",
-        "Architected a custom state synchronization layer combining React Context with LocalStorage for reactive, persistent shopping carts.",
-        "Built a serverless checkout function (AWS Lambda) to verify payments, create customers, and safely process transaction details via Stripe API."
-      ]
-    },
+      title: "Picket Pipeline",
+      category: "AI Agent Engine",
+      img: picketImg
+    }
   ];
 
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedProject]);
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const scrollPos = scrollRef.current.scrollLeft;
+    const width = scrollRef.current.offsetWidth;
+    const index = Math.round(scrollPos / width);
+    setActiveIndex(index);
+  };
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setSelectedProject(null);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  const scrollTo = (index) => {
+    if (!scrollRef.current) return;
+    const width = scrollRef.current.offsetWidth;
+    scrollRef.current.scrollTo({ left: width * index, behavior: "smooth" });
+  };
 
   return (
-    <Section title="Projects">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((project, idx) => (
-          <InteractiveCard
-            key={idx}
-            className="md:col-span-2"
-          >
-            <div
-              onClick={() => setSelectedProject(project)}
-              className="group/card relative flex flex-col gap-3 p-6 md:p-10 h-full cursor-pointer focus:outline-none"
+    <div className="w-full bg-white text-black py-24 sm:py-32" id="work">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-12 px-8">
+        
+        <div className="flex flex-col sm:flex-row justify-between items-end border-b border-zinc-200 pb-4">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">Selected Work</span>
+            <h2 className="text-3xl font-bold tracking-tight text-black">
+              {projects[activeIndex]?.title || "Project Showcase"}
+            </h2>
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-400">
+              {projects[activeIndex]?.category || ""}
+            </span>
+          </div>
+          
+          {/* Custom Navigation Dots */}
+          <div className="flex gap-2 mt-4 sm:mt-0">
+            {projects.map((_, idx) => (
+              <button 
+                key={idx}
+                onClick={() => scrollTo(idx)}
+                className={`w-12 h-1 rounded-full transition-colors duration-300 ${activeIndex === idx ? "bg-black" : "bg-zinc-200"}`}
+                aria-label={`Go to project ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* MacBook Air Mockup */}
+        <div className="w-full max-w-[1000px] mx-auto mt-8 transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+          {/* Lid & Screen */}
+          <div className="relative w-full aspect-video bg-black rounded-t-[1rem] sm:rounded-t-[2rem] border-[4px] sm:border-[16px] border-black overflow-hidden shadow-2xl">
+            {/* Screen Content - Horizontal Scroll Snap */}
+            <div 
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white flex items-center gap-2.5">
-                  <ProjectName name={project.name} />
-                </h3>
-                <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover/card:bg-zinc-200 dark:group-hover/card:bg-zinc-700 group-hover/card:text-zinc-900 dark:group-hover/card:text-white transition-all duration-200 font-mono self-start sm:self-auto">
-                  View Architecture
-                </span>
-              </div>
-
-              <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 pt-1">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {projects.map((proj, idx) => (
+                <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
+                  <img 
+                    src={proj.img} 
+                    alt={proj.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                  />
+                  {/* Subtle inner shadow to simulate screen bezel depth */}
+                  <div className="absolute inset-0 border border-white/5 pointer-events-none" />
+                </div>
+              ))}
             </div>
-          </InteractiveCard>
-        ))}
+          </div>
+          
+          {/* Base / Keyboard Deck */}
+          <div className="relative w-[104%] -left-[2%] h-4 sm:h-6 bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] rounded-b-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex justify-center items-start border-t border-white/40">
+            {/* Trackpad notch */}
+            <div className="w-24 sm:w-32 h-1 sm:h-2 bg-[#a3a3a3] rounded-b-md shadow-inner" />
+          </div>
+        </div>
+        
+        {/* Instructions */}
+        <div className="flex justify-center mt-4">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Scroll inside screen to view more
+          </span>
+        </div>
+
       </div>
-
-      <AnimatePresence>
-        {selectedProject && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProject(null)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] cursor-pointer"
-            />
-
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-lg md:max-w-xl bg-white dark:bg-zinc-950 border-l border-zinc-200 dark:border-zinc-800 shadow-2xl z-[101] flex flex-col h-full"
-            >
-              <div className="p-6 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between shrink-0">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center">
-                    <ProjectName name={selectedProject.name} className="text-lg" />
-                  </h3>
-                  <span className="text-xs font-mono font-medium px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
-                    System Architecture
-                  </span>
-                </div>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="p-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                >
-                  <FiX size={18} />
-                </button>
-              </div>
-
-              <div className="flex-1 overflow-y-auto p-6 md:p-8 flex flex-col gap-6">
-                <div className="flex flex-col gap-2">
-                  <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Overview</h4>
-                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-                    {selectedProject.longDescription}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <ProjectArchitecture projectName={selectedProject.name} />
-
-                <div className="flex flex-col gap-3">
-                  <h4 className="text-xs font-bold font-space uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Technical Highlights & Metrics</h4>
-                  <ul className="flex flex-col gap-3">
-                    {selectedProject.keyAchievements.map((achievement, idx) => (
-                      <li key={idx} className="flex gap-2.5 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        <span className="text-emerald-500 select-none">✓</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 flex gap-3 shrink-0">
-                <a
-                  href={selectedProject.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold hover:scale-[1.02] active:scale-[0.98] transition-transform text-sm shadow-md"
-                >
-                  <FiExternalLink size={16} />
-                  Live Platform
-                </a>
-                <a
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-800 active:scale-[0.98] transition-all text-sm shadow-sm"
-                >
-                  <FiGithub size={16} />
-                  Source Code
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </Section>
+      
+      {/* Hide scrollbar globally for the screen container */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+      `}} />
+    </div>
   );
 }
