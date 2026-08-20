@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navItems = [
-    { name: "About Me", path: "#about" },
-    { name: "Services", path: "#services" },
-    { name: "Project", path: "#work" },
-    { name: "FAQ", path: "#faq" },
+    { name: "About Me", path: "/#about" },
+    { name: "Services", path: "/#services" },
+    { name: "Project", path: "/#work" },
+    { name: "Clients", path: "/#clients" },
+    { name: "Resume", path: "/zain_resume.pdf", isDownload: true },
+    { name: "FAQ", path: "/#faq" },
   ];
 
   return (
@@ -18,19 +20,29 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {navItems.map((item, index) => (
               <div key={item.name} className="flex items-center gap-2">
-                <a 
-                  href={item.path} 
-                  className="hover:opacity-70 transition-opacity"
-                >
-                  {item.name}
-                </a>
+                {item.isDownload ? (
+                  <a 
+                    href={item.path} 
+                    download
+                    className="hover:opacity-70 transition-opacity cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link 
+                    to={item.path} 
+                    className="hover:opacity-70 transition-opacity"
+                  >
+                    {item.name}
+                  </Link>
+                )}
                 {index < navItems.length - 1 && <span className="text-white/50">,</span>}
               </div>
             ))}
           </div>
-          <a href="#faq" className="hover:opacity-70 transition-opacity uppercase tracking-wider text-[11px] font-bold flex items-center gap-2">
+          <Link to="/#faq" className="hover:opacity-70 transition-opacity uppercase tracking-wider text-[11px] font-bold flex items-center gap-2">
             CONTACT ME <span className="text-[14px] font-light">→</span>
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

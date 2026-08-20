@@ -1,6 +1,7 @@
-import homivioImg from "../assets/img/homivio-desktop.png";
-import attestifyImg from "../assets/img/attestify-desktop.png";
-import picketImg from "../assets/img/picket-desktop.png";
+import client1 from "../assets/img/client-1.png";
+import client2 from "../assets/img/client-2.png";
+import client3 from "../assets/img/client-3.png";
+import client4 from "../assets/img/client-4.png";
 
 export default function Hero() {
   const scrollToWork = () => {
@@ -11,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full min-h-[100vh] flex flex-col justify-between pt-32 pb-8 px-8 overflow-hidden bg-white">
+    <div className="relative w-full min-h-[100vh] flex flex-col justify-between pt-44 sm:pt-48 lg:pt-56 pb-8 px-8 overflow-hidden bg-white">
       {/* Background Gradient - Blue dome rising from bottom, transitioning to white via a multi-stop atmospheric fade */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -37,22 +38,33 @@ export default function Hero() {
               <span className="text-white/40">engineering</span>
             </h1>
             
-            {/* Interactive Avatar Stack */}
-            <div className="flex -space-x-3 hover:-space-x-1.5 transition-all duration-500 ease-out mt-6 group/avatars cursor-pointer w-fit">
-              {[
-                "https://randomuser.me/api/portraits/men/32.jpg",
-                "https://randomuser.me/api/portraits/women/44.jpg",
-                "https://randomuser.me/api/portraits/men/46.jpg",
-                "https://randomuser.me/api/portraits/women/68.jpg"
-              ].map((imgUrl, i) => (
-                <div 
-                  key={i} 
-                  className="w-12 h-12 rounded-full border-[3px] border-white/15 bg-zinc-900 overflow-hidden shadow-xl relative transition-all duration-300 ease-out hover:scale-110 hover:z-30 hover:border-indigo-500" 
-                  style={{ zIndex: 10 - i }}
-                >
-                  <img src={imgUrl} alt={`Client ${i + 1}`} className="w-full h-full object-cover" />
+            {/* Interactive Avatar Stack with Client Ratings */}
+            <div className="flex items-center flex-wrap gap-4 mt-6">
+              <div className="flex -space-x-3 hover:-space-x-1.5 transition-all duration-500 ease-out group/avatars cursor-pointer w-fit">
+                {[client1, client2, client3, client4].map((imgUrl, i) => (
+                  <div 
+                    key={i} 
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] border-white/15 bg-zinc-900 overflow-hidden shadow-xl relative transition-all duration-300 ease-out hover:scale-110 hover:z-30 hover:border-blue-500" 
+                    style={{ zIndex: 10 - i }}
+                  >
+                    <img src={imgUrl} alt={`Client ${i + 1}`} className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                  <span className="text-[12px] font-black text-white ml-2">5.0</span>
                 </div>
-              ))}
+                <span className="text-[10px] tracking-widest text-white/50 uppercase font-black mt-0.5">
+                  Trusted by 20+ global clients
+                </span>
+              </div>
             </div>
           </div>
 
@@ -72,18 +84,6 @@ export default function Hero() {
           >
             See My Portfolio
           </button>
-          
-          <div className="flex gap-3">
-            {[homivioImg, attestifyImg, picketImg].map((img, idx) => (
-              <div 
-                key={idx} 
-                onClick={scrollToWork}
-                className="w-24 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden bg-black shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer relative group"
-              >
-                <img src={img} alt="Thumbnail" className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
-          </div>
 
           <button 
             onClick={scrollToWork}

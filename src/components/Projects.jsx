@@ -11,7 +11,7 @@ export default function Projects() {
   const projects = [
     {
       id: "homivio",
-      title: "Homivio Commerce",
+      title: "Homivio",
       category: "E-Commerce Architecture",
       teaser: "A high-performance storefront optimized for sub-second page rendering and massive client traffic concurrency.",
       img: homivioImg,
@@ -19,7 +19,7 @@ export default function Projects() {
     },
     {
       id: "attestify",
-      title: "Attestify Verification",
+      title: "Attestify",
       category: "Web3 Verification Engine",
       teaser: "Decentralized document and credential attestation system built using secure Ethereum smart contracts.",
       img: attestifyImg,
@@ -27,7 +27,7 @@ export default function Projects() {
     },
     {
       id: "picket",
-      title: "Picket Pipeline",
+      title: "Picket",
       category: "AI Agent Engine",
       teaser: "An automated HR screening pipeline powered by multi-agent reasoning chains and vector search indexing.",
       img: picketImg,

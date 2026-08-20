@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const projectData = {
   homivio: {
-    title: "Homivio Commerce",
+    title: "Homivio",
     category: "E-Commerce Architecture",
     year: "2024",
     role: "Full Stack Engineer",
@@ -36,7 +36,7 @@ const projectData = {
     ]
   },
   picket: {
-    title: "Picket Pipeline",
+    title: "Picket",
     category: "AI Agent Engine",
     year: "2024",
     role: "AI / Backend Engineer",
