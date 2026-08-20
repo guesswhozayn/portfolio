@@ -18,7 +18,6 @@ export default function Footer() {
         <h1 
           className="text-[18vw] leading-[0.75] font-black tracking-tighter text-transparent transition-all duration-700 ease-in-out relative z-10"
           style={{ 
-            fontFamily: "'Poppins', sans-serif",
             WebkitTextStroke: "2px rgba(255,255,255,0.15)",
           }}
         >
