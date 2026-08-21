@@ -26,12 +26,22 @@ export default function Navbar() {
         }`}
       >
         <nav className="w-full px-8 py-8 flex items-center justify-between text-[13px] font-medium tracking-tight">
+          {/* Logo Branding */}
           <Link 
             to="/" 
-            className="text-[18px] font-bold tracking-tight hover:opacity-70 transition-opacity"
+            className="flex items-center gap-3 group cursor-pointer"
             onClick={handleLinkClick}
           >
-            Zain
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 group-hover:scale-110 transition-transform duration-500 ease-out">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="opacity-40 group-hover:opacity-100 transition-opacity duration-300"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70"/>
+            </svg>
+            <div className="flex items-center gap-2 text-white font-bold tracking-tight text-[16px]">
+              <span>ZAIN</span>
+              <span className="text-blue-600 font-light opacity-50 transform group-hover:rotate-45 transition-transform duration-500 ease-out">/</span>
+              <span className="text-zinc-500 font-normal group-hover:text-white transition-colors duration-300">PORTFOLIO</span>
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
