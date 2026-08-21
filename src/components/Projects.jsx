@@ -317,8 +317,8 @@ export default function Projects() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-          <span className="hidden md:inline">Scroll screen or use arrows to view more</span>
-          <span className="inline md:hidden">Swipe screen to view more</span>
+          <span className="hidden md:inline">Scroll</span>
+          <span className="inline md:hidden">Swipe</span>
         </span>
       </div>
 

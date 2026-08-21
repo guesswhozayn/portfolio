@@ -53,7 +53,7 @@ export default function Clients() {
         
         {/* Header Block */}
         <div className="space-y-2">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">Client Feedback</span>
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">Client Feedbacks</span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">Trust Metrics.</h2>
         </div>
 
