@@ -236,18 +236,18 @@ export default function Projects() {
 
         {/* Mobile View: iPhone Mockup */}
         <div className="block md:hidden relative w-full max-w-[280px] sm:max-w-[320px] mx-auto mt-8 group/phone">
-          {/* Physical Side Buttons */}
-          {/* Action Button */}
-          <div className="absolute top-[80px] -left-[3px] w-[3px] h-[16px] bg-zinc-700 rounded-l-[2px] z-0" />
-          {/* Volume Up */}
-          <div className="absolute top-[115px] -left-[3px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
-          {/* Volume Down */}
-          <div className="absolute top-[160px] -left-[3px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
-          {/* Side Power Button */}
-          <div className="absolute top-[130px] -right-[3px] w-[3px] h-[48px] bg-zinc-700 rounded-r-[2px] z-0" />
-
           {/* iPhone Outer Chassis / Titanium Frame */}
           <div className="relative w-full aspect-[9/19.5] bg-zinc-950 rounded-[3rem] p-[8px] sm:p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border-[3px] border-zinc-700/80 transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+            
+            {/* Physical Side Buttons (Placed inside so they transform with the chassis) */}
+            {/* Action Button */}
+            <div className="absolute top-[13%] -left-[5px] w-[3px] h-[16px] bg-zinc-700 rounded-l-[2px] z-0" />
+            {/* Volume Up */}
+            <div className="absolute top-[19%] -left-[5px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
+            {/* Volume Down */}
+            <div className="absolute top-[26%] -left-[5px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
+            {/* Side Power Button */}
+            <div className="absolute top-[21%] -right-[5px] w-[3px] h-[48px] bg-zinc-700 rounded-r-[2px] z-0" />
             
             {/* Speaker Mesh Ear Piece */}
             <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-16 h-[2px] bg-zinc-900 rounded-full z-40" />
