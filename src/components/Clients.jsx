@@ -70,10 +70,6 @@ export default function Clients() {
                   : "bg-[#070707] border-white/5"
               }`}
             >
-              {/* Visual blue link anchor on active row hover */}
-              {hoverIndex === idx && (
-                <div className="absolute top-0 left-0 w-1 h-full bg-blue-600" />
-              )}
 
               <div className="flex gap-4 flex-1">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0">
