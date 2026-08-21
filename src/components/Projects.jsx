@@ -282,7 +282,7 @@ export default function Projects() {
                       <img 
                         src={proj.mobileImg} 
                         alt={proj.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                        className="w-full h-full object-contain object-center transition-transform duration-1000" 
                       />
                       
                       {/* Hover Overlay with Case Study / Live Site links */}
