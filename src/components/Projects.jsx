@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import homivioImg from "../assets/img/homivio-desktop.png";
 import attestifyImg from "../assets/img/attestify-desktop.png";
 import picketImg from "../assets/img/picket-desktop.png";
+import homivioMobileImg from "../assets/img/homivio-mobile.png";
+import attestifyMobileImg from "../assets/img/attestify-mobile.png";
+import picketMobileImg from "../assets/img/picket-mobile.png";
 
 export default function Projects() {
   const scrollRef = useRef(null);
+  const mobileScrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
@@ -15,6 +19,7 @@ export default function Projects() {
       category: "E-Commerce Architecture",
       teaser: "A high-performance storefront optimized for sub-second page rendering and massive client traffic concurrency.",
       img: homivioImg,
+      mobileImg: homivioMobileImg,
       liveUrl: "https://homivio-ecom.vercel.app"
     },
     {
@@ -23,6 +28,7 @@ export default function Projects() {
       category: "Web3 Verification Engine",
       teaser: "Decentralized document and credential attestation system built using secure Ethereum smart contracts.",
       img: attestifyImg,
+      mobileImg: attestifyMobileImg,
       liveUrl: "https://attestify-alpha.vercel.app"
     },
     {
@@ -31,6 +37,7 @@ export default function Projects() {
       category: "AI Agent Engine",
       teaser: "An automated HR screening pipeline powered by multi-agent reasoning chains and vector search indexing.",
       img: picketImg,
+      mobileImg: picketMobileImg,
       liveUrl: "https://picket-hr.vercel.app"
     }
   ];
@@ -39,14 +46,29 @@ export default function Projects() {
     if (!scrollRef.current) return;
     const scrollPos = scrollRef.current.scrollLeft;
     const width = scrollRef.current.offsetWidth;
+    if (width === 0) return;
+    const index = Math.round(scrollPos / width);
+    setActiveIndex(index);
+  };
+
+  const handleMobileScroll = () => {
+    if (!mobileScrollRef.current) return;
+    const scrollPos = mobileScrollRef.current.scrollLeft;
+    const width = mobileScrollRef.current.offsetWidth;
+    if (width === 0) return;
     const index = Math.round(scrollPos / width);
     setActiveIndex(index);
   };
 
   const scrollTo = (index) => {
-    if (!scrollRef.current) return;
-    const width = scrollRef.current.offsetWidth;
-    scrollRef.current.scrollTo({ left: width * index, behavior: "smooth" });
+    if (scrollRef.current && scrollRef.current.offsetWidth > 0) {
+      const width = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({ left: width * index, behavior: "smooth" });
+    }
+    if (mobileScrollRef.current && mobileScrollRef.current.offsetWidth > 0) {
+      const width = mobileScrollRef.current.offsetWidth;
+      mobileScrollRef.current.scrollTo({ left: width * index, behavior: "smooth" });
+    }
   };
 
   return (
@@ -80,8 +102,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Laptop Container Wrapper */}
-        <div className="relative w-full max-w-[1000px] mx-auto mt-8 group/mockup">
+        {/* Desktop View: Laptop Container Wrapper */}
+        <div className="hidden md:block relative w-full max-w-[1000px] mx-auto mt-8 group/mockup">
           {/* MacBook Air Mockup */}
           <div className="w-full transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
             {/* Lid & Screen */}
@@ -175,6 +197,82 @@ export default function Projects() {
             </svg>
           </button>
         </div>
+
+        {/* Mobile View: iPhone Mockup */}
+        <div className="block md:hidden relative w-full max-w-[280px] sm:max-w-[320px] mx-auto mt-8 group/phone">
+          {/* Physical Side Buttons */}
+          {/* Action Button */}
+          <div className="absolute top-[80px] -left-[3px] w-[3px] h-[16px] bg-zinc-700 rounded-l-[2px] z-0" />
+          {/* Volume Up */}
+          <div className="absolute top-[115px] -left-[3px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
+          {/* Volume Down */}
+          <div className="absolute top-[160px] -left-[3px] w-[3px] h-[32px] bg-zinc-700 rounded-l-[2px] z-0" />
+          {/* Side Power Button */}
+          <div className="absolute top-[130px] -right-[3px] w-[3px] h-[48px] bg-zinc-700 rounded-r-[2px] z-0" />
+
+          {/* iPhone Outer Chassis / Titanium Frame */}
+          <div className="relative w-full aspect-[9/19.5] bg-zinc-950 rounded-[3rem] p-[8px] sm:p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border-[3px] border-zinc-700/80 transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+            
+            {/* Speaker Mesh Ear Piece */}
+            <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-16 h-[2px] bg-zinc-900 rounded-full z-40" />
+
+            {/* Dynamic Island */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-30 flex items-center justify-between px-3 shadow-md">
+              {/* Camera Lens Element */}
+              <div className="w-1.5 h-1.5 rounded-full bg-zinc-900 shadow-inner flex items-center justify-center">
+                <div className="w-0.5 h-0.5 rounded-full bg-blue-900/60" />
+              </div>
+              {/* Proximity / Sensor Dot */}
+              <div className="w-1 h-1 rounded-full bg-zinc-950" />
+            </div>
+
+            {/* Screen Glass Reflection / Glare */}
+            <div className="absolute inset-[8px] sm:inset-[10px] overflow-hidden rounded-[2.3rem] pointer-events-none z-20">
+              <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/[0.01] to-white/[0.04] rotate-12 transform origin-center" />
+            </div>
+
+            {/* Screen Container */}
+            <div className="absolute inset-[8px] sm:inset-[10px] overflow-hidden rounded-[2.3rem] bg-[#0a0a0a]">
+              {/* Screen Content - Horizontal Scroll Snap */}
+              <div 
+                ref={mobileScrollRef}
+                onScroll={handleMobileScroll}
+                className="absolute inset-0 bg-[#0a0a0a] flex overflow-x-auto snap-x snap-mandatory scrollbar-hide z-10"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {projects.map((proj, idx) => {
+                  return (
+                    <div className="min-w-full h-full snap-center relative flex-shrink-0 group/screen" key={idx}>
+                      <img 
+                        src={proj.mobileImg} 
+                        alt={proj.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-1000" 
+                      />
+                      
+                      {/* Hover Overlay with Case Study / Live Site links */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-sm z-20">
+                        <Link 
+                          to={`/project/${proj.id}`}
+                          className="px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] shadow-lg"
+                        >
+                          Case Study
+                        </Link>
+                        <a 
+                          href={proj.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-5 py-2.5 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 text-center min-w-[130px] border border-blue-500 shadow-lg shadow-blue-500/20"
+                        >
+                          Live Site ↗
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
       {/* Instructions */}
@@ -183,7 +281,8 @@ export default function Projects() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-          Scroll screen or use arrows to view more
+          <span className="hidden md:inline">Scroll screen or use arrows to view more</span>
+          <span className="inline md:hidden">Swipe screen to view more</span>
         </span>
       </div>
 
