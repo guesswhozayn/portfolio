@@ -151,30 +151,30 @@ export default function Projects() {
             </div>
 
           </div>
-        </div>
 
-        {/* Floating Nav Arrows (Show on Hover of Mockup) */}
-        <button 
-          onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
-          disabled={activeIndex === 0}
-          className="absolute left-[-20px] lg:left-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
-          aria-label="Previous Project"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform duration-300">
-            <path d="M15 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        
-        <button 
-          onClick={() => activeIndex < projects.length - 1 && scrollTo(activeIndex + 1)}
-          disabled={activeIndex === projects.length - 1}
-          className="absolute right-[-20px] lg:right-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl flex items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn"
-          aria-label="Next Project"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform duration-300">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </button>
+          {/* Floating Nav Arrows (Show on Hover of Mockup) */}
+          <button 
+            onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            className="absolute left-[-20px] lg:left-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn hidden md:flex"
+            aria-label="Previous Project"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform duration-300">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          
+          <button 
+            onClick={() => activeIndex < projects.length - 1 && scrollTo(activeIndex + 1)}
+            disabled={activeIndex === projects.length - 1}
+            className="absolute right-[-20px] lg:right-[-32px] top-[45%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-black border border-zinc-200 shadow-xl items-center justify-center z-30 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none opacity-0 group-hover/mockup:opacity-100 group/btn hidden md:flex"
+            aria-label="Next Project"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform duration-300">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
       </div>
       
       {/* Instructions */}

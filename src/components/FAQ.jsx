@@ -6,11 +6,11 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(null);
 
   const faqs = [
-    { q: "What services does Zain offer?", a: "I specialize in the MERN stack, Next.js, and Web3 technologies like Solidity and IPFS." },
-    { q: "How does Zain work with clients?", a: "I focus on understanding the core business requirements, designing a scalable architecture, and then executing with clean code." },
+    { q: "What services do you offer?", a: "I specialize in the MERN stack, Next.js, and Web3 technologies like Solidity and IPFS." },
+    { q: "How do you work with clients?", a: "I focus on understanding the core business requirements, designing a scalable architecture, and then executing with clean code." },
     { q: "How long does it take to complete a project?", a: "Timelines vary depending on complexity, but most mid-sized projects take 4-8 weeks from conception to launch." },
     { q: "Do you accept design projects for mobile apps?", a: "Yes, I build cross-platform mobile experiences using React Native and modern web technologies." },
-    { q: "How to contact Zain to start the project?", a: "You can reach out via the contact button in the navigation or through my social channels." },
+    { q: "How can I contact you to start a project?", a: "You can reach out via the contact button in the navigation or through my social channels." },
     { q: "How much does it cost to use your services?", a: "Pricing is project-based. Feel free to reach out with your requirements for a detailed estimate." },
   ];
 
@@ -22,7 +22,7 @@ export default function FAQ() {
     },
     {
       name: "Twitter/X",
-      url: "https://twitter.com",
+      url: "https://x.com/guesswhozayn",
       icon: FaXTwitter
     },
     {
@@ -42,7 +42,7 @@ export default function FAQ() {
       <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row justify-between gap-16 lg:gap-8">
         
         {/* Left Side: Heading & Social Icons */}
-        <div className="flex flex-col justify-between lg:w-[40%] order-2 lg:order-1 gap-12 relative min-h-[300px]">
+        <div className="flex flex-col justify-between lg:w-[40%] order-1 lg:order-1 gap-12 relative lg:min-h-[300px]">
           
           <div className="flex flex-col gap-4 relative z-10">
             {/* Pill Badge */}
@@ -79,7 +79,7 @@ export default function FAQ() {
         </div>
 
         {/* Right Side: FAQ List */}
-        <div className="flex flex-col gap-3 lg:w-[60%] order-1 lg:order-2">
+        <div className="flex flex-col gap-3 lg:w-[60%] order-2 lg:order-2">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (

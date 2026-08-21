@@ -70,7 +70,7 @@ export default function ProjectPage() {
             ← Back to Portfolio
           </Link>
           <div className="flex flex-col gap-2">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-black">{project.title}</h1>
+            <h1 className="text-4xl sm:text-7xl font-bold tracking-tight text-black leading-tight">{project.title}</h1>
             <span className="text-sm font-bold uppercase tracking-widest text-zinc-500">{project.category}</span>
           </div>
         </div>

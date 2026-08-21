@@ -18,7 +18,7 @@ export default function About() {
               I&apos;m Zain. I focus on bridging the gap between robust backend engineering and clean frontend execution. Recently, my work revolves around implementing LLMs, autonomous agent pipelines, and intelligent data processing into production environments to solve real-world problems.
             </p>
             
-            <div className="grid grid-cols-2 gap-x-8 gap-y-6 border-l border-zinc-200 pl-6 md:w-[40%] min-w-[240px] shrink-0">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-6 border-t md:border-t-0 md:border-l border-zinc-200 pt-6 md:pt-0 pl-0 md:pl-6 md:w-[40%] min-w-[240px] shrink-0">
               <div className="group cursor-pointer">
                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 group-hover:text-blue-600 transition-colors duration-300">Based In</span>
                 <span className="block text-base font-bold tracking-tight text-black mt-0.5">Islamabad, PK</span>

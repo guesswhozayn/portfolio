@@ -66,7 +66,7 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between md:justify-end gap-6 w-full md:w-auto mt-4 md:mt-0 relative z-10">
+                <div className="flex flex-row items-center justify-between gap-4 w-full md:w-auto mt-4 md:mt-0 relative z-10">
                   <div className="flex flex-wrap gap-2">
                     {s.tags.map(t => (
                       <span 
