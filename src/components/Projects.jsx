@@ -237,7 +237,7 @@ export default function Projects() {
         {/* Mobile View: iPhone Mockup */}
         <div className="block md:hidden relative w-full max-w-[280px] sm:max-w-[320px] mx-auto mt-8 group/phone">
           {/* iPhone Outer Chassis / Titanium Frame */}
-          <div className="relative w-full aspect-[9/19.5] bg-zinc-950 rounded-[3rem] p-[8px] sm:p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border-[3px] border-zinc-700/80 transition-all duration-700 ease-out hover:-translate-y-4 hover:scale-[1.02] hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+          <div className="relative w-full aspect-[9/19.5] bg-zinc-950 rounded-[3rem] p-[8px] sm:p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border-[3px] border-zinc-700/80 transition-all duration-700 ease-out md:hover:-translate-y-4 md:hover:scale-[1.02] md:hover:drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
             
             {/* Physical Side Buttons (Placed inside so they transform with the chassis) */}
             {/* Action Button */}
@@ -253,7 +253,7 @@ export default function Projects() {
             <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-16 h-[2px] bg-zinc-900 rounded-full z-40" />
 
             {/* Dynamic Island */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-30 flex items-center justify-between px-3 shadow-md">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-30 flex items-center justify-between px-3 shadow-md pointer-events-none">
               {/* Camera Lens Element */}
               <div className="w-1.5 h-1.5 rounded-full bg-zinc-900 shadow-inner flex items-center justify-center">
                 <div className="w-0.5 h-0.5 rounded-full bg-blue-900/60" />
