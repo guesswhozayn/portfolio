@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import homivioImg from "../assets/img/homivio-desktop.png";
 import attestifyImg from "../assets/img/attestify-desktop.png";
@@ -70,6 +70,21 @@ export default function Projects() {
       mobileScrollRef.current.scrollTo({ left: width * index, behavior: "smooth" });
     }
   };
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (scrollRef.current && scrollRef.current.offsetWidth > 0) {
+        scrollRef.current.scrollLeft = scrollRef.current.offsetWidth * activeIndex;
+      }
+      if (mobileScrollRef.current && mobileScrollRef.current.offsetWidth > 0) {
+        mobileScrollRef.current.scrollLeft = mobileScrollRef.current.offsetWidth * activeIndex;
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [activeIndex]);
 
   return (
     <div className="w-full bg-white text-black py-24 sm:py-32" id="work">
@@ -87,6 +102,27 @@ export default function Projects() {
             <p className="text-sm text-zinc-500 mt-2 leading-relaxed transition-all duration-500">
               {projects[activeIndex]?.teaser || ""}
             </p>
+
+            {/* Direct Project CTAs for accessibility and mobile viewports */}
+            <div className="flex gap-4 mt-4">
+              <Link 
+                to={`/project/${projects[activeIndex]?.id}`}
+                className="px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm text-center min-w-[120px]"
+              >
+                Case Study
+              </Link>
+              <a 
+                href={projects[activeIndex]?.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 bg-transparent text-zinc-800 text-xs font-bold uppercase tracking-widest rounded-full border border-black/15 hover:border-black/35 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-1.5 min-w-[120px]"
+              >
+                <span>Live Site</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+            </div>
           </div>
           
           {/* Custom Navigation Dots - Blue Accent and Expand transition */}
