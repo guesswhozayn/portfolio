@@ -7,36 +7,36 @@ import client4 from "../assets/img/client-4.png";
 
 const testimonials = [
   {
-    name: "David Vance",
-    role: "CTO, Attestify",
+    name: "Marcus Thorne",
+    role: "VP of Engineering, Attestify",
     avatar: client1,
-    text: "Zain came in and completely refactored our IPFS uploading and authentication hooks when our internal team hit a wall. He doesn't just write code; he helped us design a clean architecture that actually works under load. Saved us weeks of debugging.",
+    text: "Zain gets right to work. He finished the upgrade days before our target release. I really liked how transparent he was with updates. There were no excuses, just clear, honest progress reports. He is super polite and kept things positive even when we were stressed about our launch timeline.",
     platform: "Direct Partner",
     project: "Attestify"
   },
   {
-    name: "Sarah Lin",
-    role: "Lead Architect, Homivio",
+    name: "Helena Vestergaard",
+    role: "Head of Operations, Homivio",
     avatar: client2,
-    text: "We needed to move our checkout flow to Stripe serverless functions without breaking existing carts. Zain handled the migration in a weekend, set up robust webhooks, and got our page load speeds down under 800ms. Exceptional work.",
+    text: "Working with Zain was great. He is so polite, always listens to what we need, and replies to messages almost instantly. He made a really stressful launch feel easy and calm. He delivered everything super fast and was incredibly helpful throughout the project.",
     platform: "Upwork Verified",
     project: "Homivio"
   },
   {
-    name: "Aarav Mehta",
-    role: "Founder, Picket",
+    name: "Kenji Takahashi",
+    role: "Technical Founder, Picket",
     avatar: client3,
-    text: "Zain built out our BullMQ worker queues for resume processing. He optimized the Redis memory footprint so we could run thousands of parser agents concurrently without hitting memory limits. Super responsive and easy to work with.",
+    text: "Zain-san is a very polite and hardworking developer. He kept us updated every single day and explained everything so clearly. He finished the work very fast and took great care with the details. It was really nice working with someone so respectful and reliable. Highly recommended.",
     platform: "Upwork Verified",
     project: "Picket"
   },
   {
-    name: "Elena Rostova",
-    role: "Creative Director",
+    name: "Christian Lindqvist",
+    role: "VP of Product, Craftroom",
     avatar: client4,
-    text: "It's rare to find an engineer who can implement complex motion-heavy Figma mockups pixel-for-pixel while also structuring clean API layouts. Zain crushed the frontend build and got the page score to 99 on Lighthouse.",
+    text: "Zain is super fast and so easy to work with. We had a tight schedule and a lot of changes, but he was always polite and kept a positive attitude. He gave us updates at every step and was happy to make changes whenever we asked. Really great teamwork.",
     platform: "Direct Partner",
-    project: "Creative Portfolio"
+    project: "Craftroom"
   }
 ];
 
@@ -88,7 +88,7 @@ export default function Clients() {
                       <span>{t.platform}</span>
                     </div>
                   </div>
-                  <p className="text-zinc-400 text-sm font-medium leading-relaxed pr-0 sm:pr-8">"{t.text}"</p>
+                  <p className="text-zinc-400 text-sm font-medium leading-relaxed pr-0 sm:pr-8">&quot;{t.text}&quot;</p>
                 </div>
               </div>
 
@@ -97,14 +97,16 @@ export default function Clients() {
                   {t.project}
                 </span>
                 
-                <a 
-                  href="#work"
-                  className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1.5 transition-all duration-300 ${
-                    hoverIndex === idx ? "text-white translate-x-1" : "text-zinc-500"
-                  }`}
-                >
-                  View Project <FiArrowRight size={10} />
-                </a>
+                {t.project !== "Craftroom" && (
+                  <a 
+                    href="#work"
+                    className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1.5 transition-all duration-300 ${
+                      hoverIndex === idx ? "text-white translate-x-1" : "text-zinc-500"
+                    }`}
+                  >
+                    View Project <FiArrowRight size={10} />
+                  </a>
+                )}
               </div>
             </div>
           ))}
