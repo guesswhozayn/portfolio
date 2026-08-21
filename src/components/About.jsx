@@ -25,7 +25,7 @@ export default function About() {
               </div>
               <div className="group cursor-pointer">
                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 group-hover:text-blue-600 transition-colors duration-300">Experience</span>
-                <span className="block text-base font-bold tracking-tight text-black mt-0.5">4+ Years</span>
+                <span className="block text-base font-bold tracking-tight text-black mt-0.5">2+ Years</span>
               </div>
               <div className="group cursor-pointer">
                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 group-hover:text-blue-600 transition-colors duration-300">Current Focus</span>
