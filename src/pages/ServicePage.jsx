@@ -85,7 +85,7 @@ export default function ServicePage() {
           <div className="flex items-start gap-6 sm:gap-12">
             <span className="text-3xl sm:text-5xl font-mono font-bold text-blue-600 pt-1.5">{service.n}</span>
             <div className="flex flex-col gap-2">
-              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-black leading-none">{service.title}</h1>
+              <h1 className="text-4xl sm:text-7xl font-bold tracking-tight text-black leading-tight">{service.title}</h1>
               <span className="text-base font-medium text-zinc-500 max-w-[600px] mt-2">{service.tagline}</span>
             </div>
           </div>

@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative w-full min-h-[100vh] flex flex-col justify-between pt-44 sm:pt-48 lg:pt-56 pb-8 px-8 overflow-hidden bg-white">
+    <div className="relative w-full min-h-[100vh] flex flex-col justify-between pt-32 sm:pt-48 lg:pt-56 pb-8 px-8 overflow-hidden bg-white">
       {/* Background Gradient - Blue dome rising from bottom, transitioning to white via a multi-stop atmospheric fade */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row justify-between items-start w-full">
           {/* Main Title */}
           <div className="flex flex-col gap-1">
-            <h1 className="text-[5rem] sm:text-[6rem] lg:text-[7.5rem] font-bold tracking-tight leading-[1.0] sm:leading-[0.95] text-white">
+            <h1 className="text-[3.25rem] sm:text-[5rem] md:text-[6rem] lg:text-[7.5rem] font-bold tracking-tight leading-[1.0] sm:leading-[0.95] text-white">
               Crafting <br />
               logic <br />
               <span className="text-white/40">through</span> <br />
