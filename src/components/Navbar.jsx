@@ -25,7 +25,6 @@ export default function Navbar() {
         }`}
       >
         <nav className="w-full px-8 py-8 flex items-center justify-between text-[13px] font-medium tracking-tight">
-          {/* Logo Branding */}
           <Link 
             to="/" 
             className="flex items-center gap-2 group cursor-pointer text-white font-bold tracking-tight text-[16px]"
@@ -36,7 +35,6 @@ export default function Navbar() {
             <span className="text-zinc-500 font-normal group-hover:text-white transition-colors duration-300">PORTFOLIO</span>
           </Link>
           
-          {/* Desktop Navigation */}
           <div className="hidden sm:flex items-center gap-12">
             <div className="flex items-center gap-2">
               {navItems.map((item, index) => (
@@ -66,7 +64,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)} 
             className="block sm:hidden text-white focus:outline-none cursor-pointer hover:opacity-70 transition-opacity"
@@ -88,7 +85,6 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 

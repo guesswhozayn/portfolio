@@ -41,16 +41,13 @@ export default function FAQ() {
     <div className="w-full bg-black py-24 sm:py-32" id="faq">
       <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row justify-between gap-16 lg:gap-8">
         
-        {/* Left Side: Heading & Social Icons */}
         <div className="flex flex-col justify-between lg:w-[40%] order-1 lg:order-1 gap-12 relative lg:min-h-[300px]">
           
           <div className="flex flex-col gap-4 relative z-10">
-            {/* Pill Badge */}
             <span className="w-fit px-3 py-1 rounded-full text-[9px] font-black tracking-[0.25em] uppercase border border-blue-500/30 bg-blue-500/10 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
               FAQ
             </span>
 
-            {/* Heading Accent Styles */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-500">
               Frequently <br />
               Asked <br />
@@ -58,7 +55,6 @@ export default function FAQ() {
             </h2>
           </div>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-3 relative z-10">
             {socialLinks.map((social) => {
               const Icon = social.icon;
@@ -78,7 +74,6 @@ export default function FAQ() {
           </div>
         </div>
 
-        {/* Right Side: FAQ List */}
         <div className="flex flex-col gap-3 lg:w-[60%] order-2 lg:order-2">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;

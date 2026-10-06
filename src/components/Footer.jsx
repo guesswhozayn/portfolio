@@ -26,15 +26,12 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-black text-white relative overflow-hidden border-t border-zinc-900 pt-24 pb-12">
-      {/* Dynamic Glowing blue aura blur behind elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-blue-500/10 to-transparent blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-8 flex flex-col gap-16 relative z-10">
         
-        {/* Upper Grid Layout: Side-by-side elements on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/5 pb-16">
           
-          {/* Column 1: Collaboration */}
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-500 uppercase">Collaboration</span>
             <div className="flex flex-col gap-2">
@@ -51,7 +48,6 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Column 2: Local Time & Location */}
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-500 uppercase">Local Time</span>
             <div className="flex flex-col gap-1">
@@ -62,7 +58,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Navigation */}
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-500 uppercase">Navigation</span>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -95,7 +90,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Social Channels */}
           <div className="flex flex-col gap-4">
             <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-500 uppercase">Socials</span>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
@@ -120,7 +114,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Lower Row: Copyright, Terms & Back to Top */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[11px] font-medium text-zinc-500">
             <span>© {new Date().getFullYear()} Zain. All Rights Reserved.</span>

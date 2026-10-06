@@ -85,7 +85,6 @@ export default function Skills() {
               key={idx} 
               className="group border border-zinc-200/80 hover:border-blue-500/20 rounded-3xl p-6 sm:p-8 bg-white hover:bg-blue-50/5 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(37,99,235,0.03)] flex flex-col gap-6 cursor-default"
             >
-              {/* Category Header */}
               <div className="flex items-start justify-between border-b border-zinc-100 pb-4">
                 <span className="text-base font-bold text-black group-hover:text-blue-600 transition-colors duration-300">
                   {cat.title}
@@ -95,7 +94,6 @@ export default function Skills() {
                 </span>
               </div>
 
-              {/* Skills Badges Grid */}
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, sIdx) => (
                   <span 

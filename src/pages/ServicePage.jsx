@@ -77,7 +77,6 @@ export default function ServicePage() {
     <div className="min-h-screen bg-white text-black pt-32 flex flex-col">
       <div className="max-w-[1400px] mx-auto w-full px-8 flex flex-col gap-16 mb-24 flex-1">
         
-        {/* Header */}
         <div className="flex flex-col gap-6">
           <Link to="/" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors w-fit flex items-center gap-2">
             ← Back to Portfolio
@@ -91,10 +90,8 @@ export default function ServicePage() {
           </div>
         </div>
 
-        {/* Details Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 border-t border-zinc-100 pt-16">
           
-          {/* Left Column: Tech Stack & Related Projects */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <div className="flex flex-col gap-4">
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">Core Technologies</span>
@@ -126,7 +123,6 @@ export default function ServicePage() {
             )}
           </div>
 
-          {/* Right Column: Overview & Deliverables */}
           <div className="lg:col-span-8 flex flex-col gap-12">
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-bold tracking-tight">Overview</h3>
@@ -154,7 +150,6 @@ export default function ServicePage() {
           </div>
         </div>
 
-        {/* Dynamic CTA */}
         <div className="w-full bg-black text-white rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mt-12 relative overflow-hidden">
           <div 
             className="absolute inset-0 opacity-20 pointer-events-none"

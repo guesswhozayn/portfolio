@@ -82,7 +82,6 @@ export default function ProjectPage() {
     <div className="min-h-screen bg-white text-black pt-32 flex flex-col">
       <div className="max-w-[1400px] mx-auto w-full px-8 flex flex-col gap-16 mb-24">
         
-        {/* Header */}
         <div className="flex flex-col gap-6">
           <Link to="/" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors w-fit flex items-center gap-2">
             ← Back to Portfolio
@@ -93,14 +92,11 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        {/* Hero Image */}
         <div className="w-full rounded-3xl overflow-hidden bg-[#f4f4f5] shadow-2xl border border-zinc-100 aspect-video relative">
           <img src={project.img} alt={project.title} className="w-full h-full object-cover object-center" />
         </div>
 
-        {/* Details Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 border-t border-zinc-200 pt-16">
-          {/* Meta Info */}
           <div className="lg:col-span-3 flex flex-col gap-8">
             <div className="flex flex-col gap-2">
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">Year</span>
@@ -116,9 +112,7 @@ export default function ProjectPage() {
             </div>
           </div>
 
-          {/* Main Content */}
           <div className="lg:col-span-9 flex flex-col gap-12">
-            {/* Overview */}
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-bold">Overview</h3>
               <p className="text-base text-zinc-600 leading-relaxed max-w-3xl">
@@ -126,7 +120,6 @@ export default function ProjectPage() {
               </p>
             </div>
 
-            {/* The Challenge */}
             <div className="flex flex-col gap-4 border-t border-zinc-100 pt-8">
               <h3 className="text-2xl font-bold text-black">The Challenge</h3>
               <p className="text-base text-zinc-600 leading-relaxed max-w-3xl">
@@ -134,7 +127,6 @@ export default function ProjectPage() {
               </p>
             </div>
 
-            {/* The Solution */}
             <div className="flex flex-col gap-4 border-t border-zinc-100 pt-8">
               <h3 className="text-2xl font-bold text-black">The Solution</h3>
               <p className="text-base text-zinc-600 leading-relaxed max-w-3xl">
@@ -142,7 +134,6 @@ export default function ProjectPage() {
               </p>
             </div>
 
-            {/* Key Features */}
             <div className="flex flex-col gap-4 border-t border-zinc-100 pt-8">
               <h3 className="text-2xl font-bold">Key Features</h3>
               <ul className="flex flex-col gap-3">
@@ -155,7 +146,6 @@ export default function ProjectPage() {
               </ul>
             </div>
 
-            {/* Impact & Results */}
             <div className="flex flex-col gap-4 border-t border-zinc-100 pt-8">
               <h3 className="text-2xl font-bold text-black">Impact & Results</h3>
               <ul className="flex flex-col gap-3">

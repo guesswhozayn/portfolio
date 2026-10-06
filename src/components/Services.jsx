@@ -47,7 +47,6 @@ export default function Services() {
               to={`/service/${s.slug}`}
               className="group border-b border-zinc-100 py-10 md:py-12 block cursor-pointer relative overflow-hidden px-4 -mx-4 rounded-xl transition-all duration-500 ease-out"
             >
-              {/* Smooth sliding backdrop */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-50/40 via-zinc-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none z-0" />
 
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">

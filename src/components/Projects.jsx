@@ -80,7 +80,6 @@ export default function Projects() {
               {projects[activeIndex]?.teaser || ""}
             </p>
 
-            {/* Direct Project CTAs for accessibility and mobile viewports */}
             <div className="flex gap-4 mt-4">
               <Link 
                 to={`/project/${projects[activeIndex]?.id}`}
@@ -102,7 +101,6 @@ export default function Projects() {
             </div>
           </div>
           
-          {/* Custom Navigation Dots - Blue Accent and Expand transition */}
           <div className="flex gap-2 mt-4 sm:mt-0 items-center">
             {projects.map((_, idx) => (
               <button 
@@ -115,10 +113,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Showcase Display Container */}
         <div className="relative w-full max-w-[1100px] mx-auto mt-6 group/display">
           <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-zinc-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
-            {/* Screen Content - Horizontal Scroll Snap */}
             <div 
               ref={scrollRef}
               onScroll={handleScroll}
@@ -133,7 +129,6 @@ export default function Projects() {
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover/screen:scale-[1.02]" 
                   />
                   
-                  {/* Hover Overlay with Case Study / Live Site links */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-4 backdrop-blur-sm z-20">
                     <Link 
                       to={`/project/${proj.id}`}
@@ -155,7 +150,6 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Floating Nav Arrows */}
           <button 
             onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
             disabled={activeIndex === 0}
@@ -180,7 +174,6 @@ export default function Projects() {
         </div>
       </div>
       
-      {/* Instructions */}
       <div className="flex justify-center mt-4">
         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400 flex items-center gap-2">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -190,7 +183,6 @@ export default function Projects() {
         </span>
       </div>
 
-      {/* Hide scrollbar globally for the screen container */}
       <style dangerouslySetInnerHTML={{__html: `
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
