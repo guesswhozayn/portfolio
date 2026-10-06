@@ -23,7 +23,7 @@ export default function Spotlight() {
             </p>
 
             <a 
-              href="https://github.com" 
+              href="https://github.com/guesswhozayn" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="mt-2 px-6 py-3.5 bg-white text-black hover:bg-blue-600 hover:text-white text-xs font-bold uppercase tracking-widest rounded-full w-fit hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg cursor-pointer"

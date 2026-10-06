@@ -1,8 +1,3 @@
-import client1 from "../assets/img/client-1.png";
-import client2 from "../assets/img/client-2.png";
-import client3 from "../assets/img/client-3.png";
-import client4 from "../assets/img/client-4.png";
-
 export default function Hero() {
   const scrollToWork = () => {
     const el = document.getElementById("work");
@@ -37,49 +32,6 @@ export default function Hero() {
               <span className="text-white/40">through</span> <br />
               <span className="text-white/40">engineering</span>
             </h1>
-            
-            {/* Interactive Avatar Stack with Client Ratings */}
-            <div className="flex items-center flex-wrap gap-4 mt-6">
-              <div className="flex -space-x-3 hover:-space-x-1.5 transition-all duration-500 ease-out group/avatars cursor-pointer w-fit">
-                {[client1, client2, client3, client4].map((imgUrl, i) => (
-                  <div 
-                    key={i} 
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] border-white/15 bg-zinc-900 overflow-hidden shadow-xl relative transition-all duration-300 ease-out hover:scale-110 hover:z-30 hover:border-blue-500 group/avatar" 
-                    style={{ zIndex: 10 - i }}
-                  >
-                    <img 
-                      src={imgUrl} 
-                      alt={`Client ${i + 1}`} 
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 ease-out cursor-pointer" 
-                    />
-                  </div>
-                ))}
-              </div>
-              
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(4)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                  {/* Half Star */}
-                  <svg className="w-4 h-4 text-amber-400" viewBox="0 0 24 24">
-                    <defs>
-                      <linearGradient id="half-star">
-                        <stop offset="50%" stopColor="#fbbf24" />
-                        <stop offset="50%" stopColor="#3f3f46" />
-                      </linearGradient>
-                    </defs>
-                    <path fill="url(#half-star)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                  <span className="text-[12px] text-zinc-100 ml-2 font-semibold">4.9</span>
-                </div>
-                <span className="text-[14px] text-white/60 leading-relaxed font-medium mt-0.5">
-                  4.9/5 average from 8 projects
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Right Text */}

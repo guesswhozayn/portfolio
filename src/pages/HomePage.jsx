@@ -4,7 +4,6 @@ import Projects from "../components/Projects";
 import Services from "../components/Services";
 import Skills from "../components/Skills";
 import Spotlight from "../components/Spotlight";
-import Clients from "../components/Clients";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 
@@ -17,7 +16,6 @@ export default function HomePage() {
       <Projects />
       <Skills />
       <Spotlight />
-      <Clients />
       <FAQ />
       <Footer />
     </div>

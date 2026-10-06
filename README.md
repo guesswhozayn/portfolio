@@ -60,8 +60,7 @@ The portfolio is designed to present software engineering capabilities with clar
   - Databases: PostgreSQL, MongoDB, Redis, Supabase.
   - AI and Tools: OpenAI, Anthropic, Google Gemini, OpenRouter, Git, Docker.
 
-### Client Feedback and FAQ (`Clients.jsx`, `FAQ.jsx`)
-- Social proof and testimonials from collaborative engagements.
+### FAQ (`FAQ.jsx`)
 - Accordion FAQ addressing project workflows, delivery timelines, and technology choices.
 
 ## Technology Stack
@@ -99,7 +98,6 @@ portfolio/
         ├── Projects.jsx       # Featured project showcase
         ├── Services.jsx       # Service offerings overview
         ├── Skills.jsx         # Technical proficiency matrix
-        ├── Clients.jsx        # Testimonials and client logos
         ├── FAQ.jsx            # Frequently asked questions accordion
         ├── Spotlight.jsx      # Cursor-following light effect
         └── Footer.jsx         # Contact links and copyright notices

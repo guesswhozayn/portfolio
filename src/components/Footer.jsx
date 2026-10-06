@@ -70,7 +70,6 @@ export default function Footer() {
                 { name: "About Me", href: "/#about" },
                 { name: "Services", href: "/#services" },
                 { name: "Project", href: "/#work" },
-                { name: "Clients", href: "/#clients" },
                 { name: "Resume", href: "/zain_resume.pdf", isDownload: true },
                 { name: "FAQ", href: "/#faq" }
               ].map((item) => 

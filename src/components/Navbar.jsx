@@ -9,7 +9,6 @@ export default function Navbar() {
     { name: "About Me", path: "/#about" },
     { name: "Services", path: "/#services" },
     { name: "Project", path: "/#work" },
-    { name: "Clients", path: "/#clients" },
     { name: "Resume", path: "/zain_resume.pdf", isDownload: true },
     { name: "FAQ", path: "/#faq" },
   ];
